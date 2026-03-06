@@ -1,0 +1,39 @@
+{
+    "双人对决_前置检查": {
+        "timeout": 10000,
+        "action": "DoNothing",
+        "max_hit": 3,
+        "next": [
+            "点击竞技",
+            "[JumpBack]检查当前是否在主界面"
+        ],
+        "on_error": [
+            "[JumpBack]返回主界面"
+        ]
+    },
+    "点击竞技": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "竞技.png"
+        ],
+        "pre_wait_freezes": {
+            "time": 1000,
+            "threshold": 0.95,
+            "timeout": 10000,
+            "target": true,
+            "method": 5
+        },
+        "action": "Click",
+        "next": [
+            "点击双人对决"
+        ]
+    },
+    "点击双人对决": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决.png"
+        ],
+        "action": "Click",
+        "next": []
+    }
+}

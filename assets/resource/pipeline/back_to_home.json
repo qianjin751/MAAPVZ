@@ -5,9 +5,13 @@
         "template": [
             "叉叉.png",
             "公告的叉叉.png",
-            "僵尸清除_确定.png"
+            "僵尸清除_确定.png",
+            "返回主界面（双人对决）.png"
         ],
         "action": "Click",
+        "threshold": [
+            0.9
+        ],
         "post_wait_freezes": 1000,
         "next": [
             "返回主界面"
