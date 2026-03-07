@@ -163,7 +163,8 @@
             0.8
         ],
         "next": [
-            "识别成功，启动！"
+            "识别成功，启动！",
+            "[JumpBack]检查突发情况"
         ]
     },
     "识别成功，启动！": {
@@ -173,19 +174,20 @@
         ],
         "action": "Click",
         "next": [
-            "识别是否进入局内"
-        ]
+            "识别已找到对手"
+        ],
+        "focus": "[color:darkgray]已成功选好植物，等待匹配对手[/color]"
     },
-    "识别是否进入局内": {
+    "识别已找到对手": {
         "timeout": 10000,
         "rate_limit": 2000,
         "recognition": "TemplateMatch",
         "template": [
-            "双人对决_局内.png"
+            "双人对决_已找到对手.png"
         ],
         "action": "DoNothing",
         "next": [
-            "放置一号位植物1"
+            "准备卡双赢"
         ]
     },
     "放置一号位植物1": {
@@ -231,7 +233,7 @@
             2
         ],
         "next": [
-            "准备卡双赢"
+            "放一号位僵尸"
         ]
     },
     "准备卡双赢": {
@@ -262,7 +264,7 @@
     },
     "下拉栏第二次": {
         "action": "Swipe",
-        "post_delay": 9000,
+        "post_delay": 5000,
         "begin": [
             665,
             1,
@@ -296,18 +298,18 @@
             1
         ],
         "next": [
-            "识别（第二回合）",
+            "识别局内",
             "下拉栏第一次"
         ]
     },
-    "识别（第二回合）": {
+    "识别局内": {
         "timeout": 10,
         "recognition": "Or",
         "any_of": [
             {
                 "recognition": "TemplateMatch",
                 "template": [
-                    "双人对决_第二回合.png"
+                    "双人对决_局内.png"
                 ],
                 "threshold": [
                     0.9
@@ -316,12 +318,12 @@
             {
                 "recognition": "OCR",
                 "expected": [
-                    "2/20"
-                ],
+                    "1/20"
+                ]
             }
         ],
         "next": [
-            "放一号位僵尸"
+            "放置一号位植物1"
         ]
     },
     "放一号位僵尸": {
@@ -352,7 +354,7 @@
         "timeout": 20,
         "recognition": "TemplateMatch",
         "template": [
-            "双人对决_胜利.png"
+            "双人对决_晋升.png"
         ],
         "next": [
             "游戏胜利"
@@ -366,21 +368,40 @@
         "action": "Click",
         "next": [
             "重开"
-        ]
+        ],
+        "focus": "[color:darkgray]芜湖赢了[/color]"
     },
     "游戏失败": {
         "recognition": "TemplateMatch",
         "template": [
             "双人对决的确认.png"
         ],
+        "action": "Click",
         "next": [
             "重开"
-        ]
+        ],
+        "focus": "[color:darkgray]呜呜输了[/color]"
     },
     "重开": {
         "recognition": "TemplateMatch",
         "template": [
             "双人对决竞技.png"
+        ],
+        "action": "Click"
+    },
+    "检查突发情况": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_突发情况1.png"
+        ],
+        "next": [
+            "突发情况处理"
+        ]
+    },
+    "突发情况处理": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
         ],
         "action": "Click"
     }
