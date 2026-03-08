@@ -102,6 +102,14 @@
         {
             "name": "双人对决（测试）",
             "entry": "双人对决_前置检查",
+            "resource": [
+                "PVZ_2_国服通用"
+            ],
+            "option": [
+                "一号位植物",
+                "二号位植物",
+                "多少血量大退"
+            ],
             "description": "进行双人对决，任务目前只能选择甜薯和仙人掌，请确保已拥有甜薯，会在卡完时差后放植物以及僵尸，一号位卡槽僵尸放至6回合后会放巨人卡槽类僵尸，在血量低于2时自动大退，本任务目前还在测试阶段，可能会有意想不到的bug，如有发现，请及时反馈！"
         },
         {
@@ -122,6 +130,95 @@
         // }
     ],
     "option": {
+        "多少血量大退": {
+            "type": "select",
+            "description": "防止掉分，检测自己的血量低于一定值时大退，特殊情况血量会被遮住，从而导致大退失败",
+            "cases": [
+                {
+                    "name": "不进行大退",
+                    "description": "不进行大退"
+                },
+                {
+                    "name": "血量低于2时大退",
+                    "description": "该选项不稳定,有时会检测不到2血",
+                    "pipeline_override": {
+                        "检查血量是否为2": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "血量低于4时大退",
+                    "description": "检查血量为4时大退",
+                    "pipeline_override": {
+                        "检查血量是否为4": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "血量低于6时大退",
+                    "description": "检查血量为6时大退，特殊情况血量会被遮住，从而大退失败",
+                    "pipeline_override": {
+                        "检查血量是否为6": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "一号位植物": {
+            "type": "select",
+            "description": "选择处理鸡和冰鼬的植物，通常都是能够吸引僵尸的植物",
+            "cases": [
+                {
+                    "name": "甜薯",
+                    "pipeline_override": {
+                        "寻找植物_甜薯": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "金蝉花",
+                    "pipeline_override": {
+                        "寻找植物_金蝉花": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "热辣海枣",
+                    "pipeline_override": {
+                        "寻找植物_热辣海枣": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "二号位植物": {
+            "type": "select",
+            "description": "选择处理鸡和冰鼬的植物，通常都是拥有穿透能力的植物",
+            "cases": [
+                {
+                    "name": "仙人掌",
+                    "pipeline_override": {
+                        "寻找植物_仙人掌": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "激光豆",
+                    "pipeline_override": {
+                        "寻找植物_激光豆": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
         "渠道服": {
             "type": "select",
             "description": "选择你要进入的渠道服",

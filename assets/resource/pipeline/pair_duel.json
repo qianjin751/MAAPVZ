@@ -70,18 +70,56 @@
         ],
         "action": "Click",
         "next": [
-            "双人对决_寻找植物"
+            "双人对决_寻找一号位植物"
         ]
     },
-    "双人对决_寻找植物": {
+    // "双人对决_寻找植物": {
+    // "action": "DoNothing",
+    // "next": [
+    //     "寻找植物_仙人掌",
+    //     "寻找植物_甜薯",
+    //     "[JumpBack]双人对决_寻找植物_滑动"
+    // ]
+    // },
+    "双人对决_寻找一号位植物": {
+        "action": "DoNothing",
+        "next": [
+            "寻找植物_甜薯",
+            "寻找植物_热辣海枣",
+            "寻找植物_金蝉花",
+            "[JumpBack]双人对决_寻找植物_滑动"
+        ]
+    },
+    "双人对决_回到寻找植物最顶上": {
+        "action": "Swipe",
+        "repeat": 10,
+        "begin": [
+            422,
+            393,
+            8,
+            2
+        ],
+        "end": [
+            417,
+            714,
+            1,
+            2
+        ],
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "双人对决_识别是否回到寻找植物最顶上": {},
+    "双人对决_寻找二号位植物": {
         "action": "DoNothing",
         "next": [
             "寻找植物_仙人掌",
-            "寻找植物_甜薯",
+            "寻找植物_激光豆",
             "[JumpBack]双人对决_寻找植物_滑动"
         ]
     },
     "寻找植物_甜薯": {
+        "enabled": false,
         "recognition": "TemplateMatch",
         "template": [
             "双人对决_植物_甜薯.png"
@@ -89,10 +127,35 @@
         "max_hit": 1,
         "action": "Click",
         "next": [
-            "双人对决_寻找植物"
+            "双人对决_回到寻找植物最顶上"
+        ]
+    },
+    "寻找植物_热辣海枣": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_热辣海枣.png"
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "next": [
+            "双人对决_回到寻找植物最顶上"
+        ]
+    },
+    "寻找植物_金蝉花": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_金蝉花.png"
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "next": [
+            "双人对决_回到寻找植物最顶上"
         ]
     },
     "寻找植物_仙人掌": {
+        "enabled": false,
         "recognition": "TemplateMatch",
         "template": [
             "双人对决_植物_仙人掌.png"
@@ -100,7 +163,20 @@
         "max_hit": 1,
         "action": "Click",
         "next": [
-            "双人对决_寻找植物"
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_激光豆": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_激光豆.png",
+            "双人对决_植物_激光豆_超皮.png"
+        ],
+        "max_hit": 1,
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
         ]
     },
     "双人对决_寻找植物_滑动": {
@@ -115,10 +191,10 @@
             1
         ],
         "end": [
-            135,
-            375,
-            1,
-            1
+            380,
+            459,
+            110,
+            5
         ],
         "next": [
             "双人对决_识别一号位是否满足"
@@ -175,8 +251,7 @@
         "action": "Click",
         "next": [
             "识别已找到对手"
-        ],
-        "focus": "[color:darkgray]已成功选好植物，等待匹配对手[/color]"
+        ]
     },
     "识别已找到对手": {
         "timeout": 10000,
@@ -186,6 +261,7 @@
             "双人对决_已找到对手.png"
         ],
         "action": "DoNothing",
+        "focus": "[color:darkgray]开始匹配[/color]",
         "next": [
             "准备卡双赢"
         ]
@@ -203,10 +279,10 @@
     "放置一号位植物2": {
         "action": "Click",
         "target": [
-            831,
-            211,
-            3,
-            1
+            558,
+            189,
+            41,
+            47
         ],
         "next": [
             "放置二号位植物1"
@@ -309,7 +385,10 @@
             {
                 "recognition": "TemplateMatch",
                 "template": [
-                    "双人对决_局内.png"
+                    "双人对决_局内.png",
+                    "双人对决_晋升.png",
+                    "双人对决_突发情况1.png",
+                    "双人对决_失败掉分.png"
                 ],
                 "threshold": [
                     0.9
@@ -336,13 +415,53 @@
         ],
         "next": [
             "检查血量是否为2",
+            "检查血量是否为4",
+            "检查血量是否为6",
             "判断游戏是否胜利",
             "判断游戏是否失败",
             "识别第7回合",
             "放一号位僵尸"
         ]
     },
+    "检查血量是否为6": {
+        "enabled": false,
+        "timeout": 1000,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_六滴血.png",
+            "双人对决_四滴血.png",
+            "双人对决_两血.png"
+        ],
+        "roi": [
+            537,
+            372,
+            150,
+            20
+        ],
+        "next": [
+            "大退"
+        ]
+    },
+    "检查血量是否为4": {
+        "enabled": false,
+        "timeout": 1000,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_四滴血.png",
+            "双人对决_两血.png"
+        ],
+        "roi": [
+            537,
+            372,
+            150,
+            20
+        ],
+        "next": [
+            "大退"
+        ]
+    },
     "检查血量是否为2": {
+        "enabled": false,
         "timeout": 1000,
         "recognition": "TemplateMatch",
         "template": [
@@ -351,8 +470,8 @@
         "roi": [
             537,
             372,
-            144,
-            15
+            150,
+            20
         ],
         "next": [
             "大退"
@@ -381,7 +500,7 @@
     "大退_下拉": {
         "action": "Swipe",
         "pre_delay": 0,
-        "post_delay": 15000,
+        "post_delay": 20000,
         "begin": [
             665,
             1,
@@ -414,6 +533,7 @@
             1,
             1
         ],
+        "focus": "检测到血量较低，大退",
         "next": [
             "大退成功"
         ]
@@ -424,7 +544,7 @@
             "双人对决_确定.png"
         ],
         "action": "Click",
-        "focus": "检测到血量为2，大退",
+        "focus": "大退成功",
         "next": [
             "重开"
         ]
