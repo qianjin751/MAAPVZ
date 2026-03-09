@@ -196,6 +196,7 @@
     },
     "双人对决_寻找植物_滑动": {
         "timeout": 2000,
+        "max_hit": 1000,
         "action": "Swipe",
         "end_hold": 200,
         "duration": 500,
