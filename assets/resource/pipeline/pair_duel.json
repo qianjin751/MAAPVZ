@@ -115,6 +115,15 @@
         "next": [
             "寻找植物_仙人掌",
             "寻找植物_激光豆",
+            "寻找植物_冰龙草",
+            "寻找植物_尖刺秋葵",
+            "寻找植物_虎头菇",
+            "寻找植物_雷龙草",
+            "寻找植物_大喷菇",
+            "寻找植物_熊果臼炮",
+            "寻找植物_原神",
+            "寻找植物_龙舌兰",
+            "寻找植物_苹果迫机炮",
             "[JumpBack]双人对决_寻找植物_滑动"
         ]
     },
@@ -168,6 +177,141 @@
         "recognition": "TemplateMatch",
         "template": [
             "双人对决_植物_仙人掌.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_苹果迫机炮": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_苹果迫机炮.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_熊果臼炮": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_熊果臼炮.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_原神": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_原始豌豆射手.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_冰龙草": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_冰龙草.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_大喷菇": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_大喷菇.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_虎头菇": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_虎头菇.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_雷龙草": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_雷龙草.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_龙舌兰": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_龙舌兰.png"
+        ],
+        "max_hit": 1,
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_寻找二号位植物"
+        ]
+    },
+    "寻找植物_尖刺秋葵": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_尖刺秋葵.png"
         ],
         "max_hit": 1,
         "threshold": [
@@ -256,8 +400,8 @@
             0.8
         ],
         "next": [
-            "识别成功，启动！",
-            "[JumpBack]检查突发情况"
+            "识别成功，启动！"
+            // "[JumpBack]检查突发情况"
         ]
     },
     "识别成功，启动！": {
@@ -268,7 +412,9 @@
         ],
         "action": "Click",
         "next": [
-            "识别局内",
+            "识别局内"
+        ],
+        "on_error": [
             "突发情况处理"
         ]
     },
@@ -287,18 +433,22 @@
             "突发情况处理"
         ]
     },
-    "放置一号位植物1": {
+    "放置远程一号位植物1": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "enabled": false,
         "action": "Click",
         "target": [
             82,
             167
         ],
         "next": [
-            "放置一号位植物2"
+            "放置远程一号位植物2"
         ]
     },
-    //一号位植物记得做一个远程和近战的区分
-    "放置一号位植物2": {
+    "放置远程一号位植物2": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Click",
         "target": [
             619,
@@ -310,7 +460,37 @@
             "放置二号位植物1"
         ]
     },
+    "放置近战一号位植物1": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "enabled": false,
+        "action": "Click",
+        "target": [
+            82,
+            167
+        ],
+        "next": [
+            "放置近战一号位植物2"
+        ]
+    },
+    "放置近战一号位植物2": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "action": "Click",
+        "target": [
+            488,
+            187,
+            58,
+            59
+        ],
+        "next": [
+            "放置二号位植物1"
+        ]
+    },
+    //二号位植物记得做一个远程和近战的区分
     "放置二号位植物1": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Click",
         "target": [
             189,
@@ -323,6 +503,8 @@
         ]
     },
     "放置二号位植物2": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Click",
         "target": [
             443,
@@ -408,6 +590,7 @@
                 "recognition": "TemplateMatch",
                 "template": [
                     "双人对决_晋升.png",
+                    "双人对决_数据异常_确定.png",
                     "双人对决_突发情况1.png",
                     "双人对决_突发情况2.png",
                     "双人对决_失败掉分.png"
@@ -425,10 +608,10 @@
                     "双人对决_六滴血.png"
                 ],
                 "roi": [
-                    537,
-                    372,
-                    150,
-                    20
+                    525,
+                    363,
+                    174,
+                    34
                 ],
                 "threshold": [
                     0.8
@@ -509,12 +692,34 @@
                     169,
                     27
                 ]
+            },
+            {
+                "recognition": "ColorMatch",
+                "lower": [
+                    255,
+                    231,
+                    131
+                ],
+                "upper": [
+                    255,
+                    231,
+                    131
+                ],
+                "roi": [
+                    534,
+                    367,
+                    169,
+                    27
+                ]
             }
-            //[255, 162, 57]
+            //[255, 231, 131]
             //[255, 174, 82]
         ],
+        "post_delay": 0,
+        "pre_delay": 0,
         "next": [
-            "放置一号位植物1"
+            "放置远程一号位植物1",
+            "放置近战一号位植物1"
         ]
     },
     "检查血量是否为6": {
@@ -609,20 +814,45 @@
     },
     "补种_放置一号位僵尸_升级": {
         "next": [
-            "补种一号位植物1"
+            "补种远程一号位植物1",
+            "补种近战一号位植物1"
         ]
     },
-    "补种一号位植物1": {
+    "补种近战一号位植物1": {
+        "action": "Click",
+        "enabled": false,
+        "target": [
+            82,
+            167
+        ],
+        "next": [
+            "补种近战一号位植物2"
+        ]
+    },
+    "补种近战一号位植物2": {
+        "action": "Click",
+        "target": [
+            488,
+            187,
+            58,
+            59
+        ],
+        "next": [
+            "补种二号位植物1"
+        ]
+    },
+    "补种远程一号位植物1": {
+        "enabled": false,
         "action": "Click",
         "target": [
             82,
             167
         ],
         "next": [
-            "补种一号位植物2"
+            "补种远程一号位植物2"
         ]
     },
-    "补种一号位植物2": {
+    "补种远程一号位植物2": {
         "action": "Click",
         "target": [
             619,
@@ -696,6 +926,7 @@
         "next": [
             "判断游戏是否胜利",
             "判断游戏是否失败",
+            "检查突发情况",
             "放置五号位僵尸"
         ]
     },
@@ -767,7 +998,13 @@
             "确定"
         ],
         "action": "Click",
-        "focus": "发现异常情况中断进程，已处理"
+        "focus": "发现异常情况！请告知该项目负责人！",
+        "next": [
+            "关闭任务"
+        ]
+    },
+    "关闭任务": {
+        "action": "StopTask"
     }
     //这个是双人对决己方血量的roi[567,372,66,21]，用于制作双人对决大退
 }

@@ -206,6 +206,12 @@
                     "pipeline_override": {
                         "寻找植物_仙人掌": {
                             "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
                         }
                     }
                 },
@@ -213,6 +219,139 @@
                     "name": "激光豆",
                     "pipeline_override": {
                         "寻找植物_激光豆": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "苹果迫机炮",
+                    "description": "不太建议，这个植物打不过加速的鸡（笑）",
+                    "pipeline_override": {
+                        "寻找植物_苹果迫机炮": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "熊果臼炮",
+                    "pipeline_override": {
+                        "寻找植物_熊果臼炮": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "原始豌豆射手",
+                    "pipeline_override": {
+                        "寻找植物_原神": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "冰龙草",
+                    "pipeline_override": {
+                        "寻找植物_冰龙草": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "尖刺秋葵",
+                    "pipeline_override": {
+                        "寻找植物_尖刺秋葵": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "大喷菇",
+                    "pipeline_override": {
+                        "寻找植物_大喷菇": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "虎头菇",
+                    "pipeline_override": {
+                        "寻找植物_虎头菇": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "雷龙草",
+                    "pipeline_override": {
+                        "寻找植物_雷龙草": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "龙舌兰",
+                    "pipeline_override": {
+                        "寻找植物_龙舌兰": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
                             "enabled": true
                         }
                     }
