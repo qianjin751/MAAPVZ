@@ -139,6 +139,7 @@
             "cases": [
                 {
                     "name": "放置3阶植物任务",
+                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "取消三四号位植物(三阶植物任务)1": {
                             "enabled": true
@@ -153,6 +154,7 @@
                 },
                 {
                     "name": "放置5阶植物任务",
+                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "取消五六号位植物(五阶植物任务)1": {
                             "enabled": true
@@ -175,13 +177,34 @@
             "description": "用于做双人对决任务",
             "cases": [
                 {
-                    "name": "加速"
+                    "name": "加速",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "buff_加速": {
+                            "enabled": true
+                        }
+                    }
                 },
                 {
-                    "name": "血量提升"
+                    "name": "血量提升",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "buff_加血": {
+                            "enabled": true
+                        },
+                        "识别第2回合": {
+                            "enabled": true
+                        }
+                    }
                 },
                 {
-                    "name": "免控"
+                    "name": "免控",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "buff_免控": {
+                            "enabled": true
+                        }
+                    }
                 }
             ]
         },

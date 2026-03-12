@@ -452,7 +452,7 @@
     },
     "双人对决_识别一号位是否满足_植物任务中间节点": {
         "action": "Swipe",
-        "post_delay": 1000,
+        "post_delay": 3000,
         "repeat": 10,
         "begin": [
             422,
@@ -838,7 +838,46 @@
                     169,
                     27
                 ]
+            },
+            {
+                "recognition": "ColorMatch",
+                "lower": [
+                    255,
+                    239,
+                    173
+                ],
+                "upper": [
+                    255,
+                    239,
+                    173
+                ],
+                "roi": [
+                    534,
+                    367,
+                    169,
+                    27
+                ]
+            },
+            {
+                "recognition": "ColorMatch",
+                "lower": [
+                    255,
+                    226,
+                    107
+                ],
+                "upper": [
+                    255,
+                    226,
+                    107
+                ],
+                "roi": [
+                    534,
+                    367,
+                    169,
+                    27
+                ]
             }
+            //[255, 239, 173]
             //[255, 231, 131]
             //[255, 174, 82]
         ],
@@ -860,11 +899,32 @@
         "next": [
             "判断游戏是否胜利",
             "判断游戏是否失败",
+            "buff_加速",
+            "buff_加血",
+            "buff_免控",
             "识别第5回合",
             "识别第6及以上回合",
             "识别第7回合",
             "检查突发情况",
             "补种_放置一号位僵尸_升级"
+        ]
+    },
+    "buff_加速": {
+        "enabled": false,
+        "timeout": 10,
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_僵尸buff_加速.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "method": 10001,
+        "action": "Click",
+        "next": [
+            "放一号位僵尸"
         ]
     },
     "补种_放置一号位僵尸_升级": {
@@ -1010,6 +1070,24 @@
     //[160,212,70,33]点击3//
     // [1203,112,35,48]放置//
     //[1203,189,42,48]放置//
+    "buff_免控": {
+        "enabled": false,
+        "timeout": 10,
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_僵尸buff_免控.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "method": 10001,
+        "action": "Click",
+        "next": [
+            "放一号位僵尸"
+        ]
+    },
     "识别第5回合": {
         "enabled": false,
         "timeout": 10,
@@ -1039,25 +1117,43 @@
             "判断游戏是否胜利",
             "判断游戏是否失败",
             "检查突发情况",
+            "buff_免控",
             "识别第7回合",
             "识别第6及以上回合",
             "放置六号位僵尸"
         ]
     },
-    "识别第3回合": {
+    "识别第2回合": {
+        "enabled": false,
         "timeout": 10,
         "recognition": "Or",
         "any_of": [
             {
                 "recognition": "OCR",
                 "expected": [
-                    "3/20"
+                    "2/20"
                 ]
             }
         ],
+        "next": [] //四号位僵尸的roi[160,429,63,37]（雕像僵尸）
+    },
+    "buff_加血": {
+        "enabled": false,
+        "timeout": 10,
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_僵尸buff_加血.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "method": 10001,
+        "action": "Click",
         "next": [
-            "放置四号位僵尸"
-        ] //四号位僵尸的roi[160,429,63,37]（雕像僵尸）
+            "放一号位僵尸"
+        ]
     },
     "放置四号位僵尸": {
         "enabled": false,
@@ -1179,8 +1275,8 @@
             55
         ],
         "next": [
-            "放置六号位僵尸",
             "识别第7回合",
+            "放置六号位僵尸",
             "放一号位僵尸"
         ]
     },
@@ -1212,6 +1308,8 @@
             "判断游戏是否胜利",
             "判断游戏是否失败",
             "检查突发情况",
+            "buff_免控",
+            "识别第6及以上回合",
             "放置巨人位僵尸"
         ]
     },
@@ -1270,6 +1368,7 @@
         ]
     },
     "检查突发情况": {
+        "timeout": 10,
         "recognition": "TemplateMatch",
         "template": [
             "双人对决_突发情况1.png",
