@@ -12,6 +12,7 @@
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
     "version": "1.0.0",
+    "icon": "app.ico",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -107,14 +108,13 @@
             ],
             "option": [
                 "一号位植物",
-                "二号位植物"
+                "二号位植物",
+                "到达特定回合释放特定的僵尸",
+                "僵尸强化buff",
+                "放置3阶5阶植物"
                 //  "多少血量大退"
             ],
-            "description": "会卡时差，在血量降低2后放植物以及僵尸，一号位卡槽僵尸放至6回合后会放巨人卡槽类僵尸，在血量低于2时自动大退，本任务目前还在测试阶段，可能会有意想不到的bug，如有发现，请及时反馈！"
-        },
-        {
-            "name": "dbug",
-            "entry": "下拉栏第一次"
+            "description": "会卡时差，在血量降低后放植物以及僵尸，本任务目前还在测试阶段，可能会有意想不到的bug，如有发现，请及时反馈！"
         }
         // {
         //     "name": "参数任务",
@@ -130,6 +130,116 @@
         // }
     ],
     "option": {
+        "放置3阶5阶植物": {
+            "type": "checkbox",
+            "description": "用于做双人对决任务，会把你原本设置的所有植物挤掉",
+            "cases": [
+                {
+                    "name": "放置3阶植物任务",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "取消三四号位植物(三阶植物任务)1": {
+                            "enabled": true
+                        },
+                        "双人对决_回到寻找植物最顶上_3阶任务植物1": {
+                            "enabled": true
+                        },
+                        "三阶任务植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "放置5阶植物任务",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "取消五六号位植物(五阶植物任务)1": {
+                            "enabled": true
+                        },
+                        "双人对决_回到寻找植物最顶上_5阶任务植物1": {
+                            "enabled": true
+                        },
+                        "识别第6及以上回合": {
+                            "enabled": true
+                        },
+                        "五阶任务植物1": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "僵尸强化buff": {
+            "type": "checkbox",
+            "description": "用于做双人对决任务",
+            "cases": [
+                {
+                    "name": "加速",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "buff_加速": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "血量提升",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "buff_加血": {
+                            "enabled": true
+                        },
+                        "识别第2回合": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "免控",
+                    "description": "我没怎么跑过，bug可能会有点多",
+                    "pipeline_override": {
+                        "buff_免控": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "到达特定回合释放特定的僵尸": {
+            "description": "除了做任务，一般只建议用橄榄",
+            "default_case": [
+                "放置橄榄位僵尸"
+            ],
+            "type": "checkbox",
+            "cases": [
+                // {
+                //     "name": "放置4号位僵尸"
+                // },
+                // {
+                //     "name": "放置5号位僵尸"
+                // },
+                {
+                    "name": "放置橄榄位僵尸",
+                    "pipeline_override": {
+                        "识别第5回合": {
+                            "enabled": true
+                        },
+                        "放置六号位僵尸": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "放置巨人位僵尸",
+                    "pipeline_override": {
+                        "识别第7回合": {
+                            "enabled": true
+                        }
+                    },
+                    "description": "不做任务不推荐开启"
+                }
+            ]
+        },
         //"多少血量大退": {
         //        "type": "select",
         //       "description": "防止掉分，检测自己的血量低于一定值时大退，特殊情况血量会被遮住，从而导致大退失败",
@@ -169,7 +279,8 @@
         //    },
         "一号位植物": {
             "type": "select",
-            "description": "选择处理鸡和冰鼬的植物，通常都是能够吸引僵尸的植物",
+            "description": "能够吸引僵尸的植物，注意不要放在3阶和五阶的位置，不然脚本会找不到",
+            "default_case": "热辣海枣",
             "cases": [
                 {
                     "name": "甜薯",
@@ -199,12 +310,18 @@
         },
         "二号位植物": {
             "type": "select",
-            "description": "选择处理鸡和冰鼬的植物，通常都是拥有穿透能力的植物",
+            "description": "攻击类型的植物，注意不要放在3阶和5阶的位置，不然脚本会找不到",
             "cases": [
                 {
                     "name": "仙人掌",
                     "pipeline_override": {
                         "寻找植物_仙人掌": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
                             "enabled": true
                         }
                     }
@@ -213,6 +330,139 @@
                     "name": "激光豆",
                     "pipeline_override": {
                         "寻找植物_激光豆": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "苹果迫机炮",
+                    "description": "不太建议，这个植物打不过加速的鸡（笑）",
+                    "pipeline_override": {
+                        "寻找植物_苹果迫机炮": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "熊果臼炮",
+                    "pipeline_override": {
+                        "寻找植物_熊果臼炮": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "原始豌豆射手",
+                    "pipeline_override": {
+                        "寻找植物_原神": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "冰龙草",
+                    "pipeline_override": {
+                        "寻找植物_冰龙草": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "尖刺秋葵",
+                    "pipeline_override": {
+                        "寻找植物_尖刺秋葵": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "大喷菇",
+                    "pipeline_override": {
+                        "寻找植物_大喷菇": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "虎头菇",
+                    "pipeline_override": {
+                        "寻找植物_虎头菇": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "雷龙草",
+                    "pipeline_override": {
+                        "寻找植物_雷龙草": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "龙舌兰",
+                    "pipeline_override": {
+                        "寻找植物_龙舌兰": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
                             "enabled": true
                         }
                     }
