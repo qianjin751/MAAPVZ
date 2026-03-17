@@ -1364,6 +1364,7 @@
         ],
         "action": "Click",
         "next": [
+            "只重开十次",
             "重开",
             "[JumpBack]检查突发情况"
         ],
@@ -1382,14 +1383,43 @@
         "focus": "[color:darkgray]呜呜输了[/color]"
     },
     "重开": {
+        "enabled": true,
         "recognition": "TemplateMatch",
         "template": [
             "双人对决竞技.png"
         ],
         "action": "Click",
         "next": [
+            "检查是否到宗师锅",
             "双人对决_识别一号位是否满足"
         ]
+    },
+    "只重开十次": {
+        "enabled": false,
+        "max_hit": 10,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决竞技.png"
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_识别一号位是否满足",
+            "[JumpBack]检查突发情况"
+        ]
+    },
+    "检查是否到宗师锅": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_宗师锅.png"
+        ],
+        "next": [
+            "已到达宗师锅"
+        ]
+    },
+    "已到达宗师锅": {
+        "action": "StopTask",
+        "focus": "已到达宗师锅！"
     },
     "检查突发情况": {
         "timeout": 10,

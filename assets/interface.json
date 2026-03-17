@@ -109,11 +109,12 @@
                 "PVZ_2_国服通用"
             ],
             "option": [
-                "一号位植物",
-                "二号位植物",
+                "配置模式",
+                "匹配模式",
                 "到达特定回合释放特定的僵尸",
                 "僵尸强化buff",
-                "放置3阶5阶植物"
+                "放置3阶5阶植物",
+                "额外弹窗直接关闭"
                 //  "多少血量大退"
             ],
             "description": "会卡时差，在血量降低后放植物以及僵尸，本任务目前还在测试阶段，可能会有意想不到的bug，如有发现，请及时反馈！"
@@ -137,13 +138,117 @@
         // }
     ],
     "option": {
+        "额外弹窗直接关闭": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "突发情况处理": {
+                            "next": [
+                                "识别第5回合",
+                                "识别第6及以上回合",
+                                "识别第7回合",
+                                "放一号位僵尸"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "匹配模式": {
+            "type": "select",
+            "default_case": "不停止",
+            "cases": [
+                {
+                    "name": "不停止"
+                },
+                {
+                    "name": "到达大师锅后停止",
+                    "pipeline_override": {
+                        "检查是否到宗师锅": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "胜利十把后停止",
+                    "pipeline_override": {
+                        "重开": {
+                            "enabled": false
+                        },
+                        "只重开十次": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "配置模式": {
+            "type": "select",
+            "default_case": "帮选模式",
+            "cases": [
+                {
+                    "description": "启用该选项，会直接开始游戏",
+                    "name": "自选植物模式",
+                    "pipeline_override": {
+                        "双人对决_竞技": {
+                            "next": [
+                                "双人对决_竞技",
+                                "识别成功，启动！"
+                            ]
+                        }
+                    },
+                    "option": [
+                        "植物摆位"
+                    ]
+                },
+                {
+                    "name": "帮选模式",
+                    "description": "启用该选项，系统会自动帮你配置植物",
+                    "option": [
+                        "一号位植物",
+                        "二号位植物"
+                    ]
+                }
+            ]
+        },
+        "植物摆位": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "近战植物摆位",
+                    "pipeline_override": {
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "远程植物摆位",
+                    "pipeline_override": {
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
         "放置3阶5阶植物": {
             "type": "checkbox",
             "description": "用于做双人对决任务，会把你原本设置的所有植物挤掉",
             "cases": [
                 {
                     "name": "放置3阶植物任务",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "取消三四号位植物(三阶植物任务)1": {
                             "enabled": true
@@ -158,7 +263,6 @@
                 },
                 {
                     "name": "放置5阶植物任务",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "取消五六号位植物(五阶植物任务)1": {
                             "enabled": true
@@ -182,7 +286,6 @@
             "cases": [
                 {
                     "name": "加速",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "buff_加速": {
                             "enabled": true
@@ -191,7 +294,6 @@
                 },
                 {
                     "name": "血量提升",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "buff_加血": {
                             "enabled": true
@@ -203,7 +305,6 @@
                 },
                 {
                     "name": "免控",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "buff_免控": {
                             "enabled": true
