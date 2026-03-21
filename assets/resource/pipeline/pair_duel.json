@@ -541,9 +541,7 @@
         ],
         "action": "Click",
         "next": [
-            "识别局内"
-        ],
-        "on_error": [
+            "识别局内",
             "突发情况处理"
         ]
     },
@@ -1378,9 +1376,22 @@
         "action": "Click",
         "next": [
             "重开",
+            "失败重开",
             "[JumpBack]检查突发情况"
         ],
         "focus": "[color:darkgray]呜呜输了[/color]"
+    },
+    "失败重开": {
+        "enabled": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决竞技.png"
+        ],
+        "action": "Click",
+        "next": [
+            "检查是否到宗师锅",
+            "双人对决_识别一号位是否满足"
+        ]
     },
     "重开": {
         "enabled": true,
