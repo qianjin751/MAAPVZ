@@ -34,9 +34,9 @@
         ]
     },
     "碎片挑战_查找胆小菇": {
-        "recognition": "TemplateMatch",
-        "template": [
-            "碎片挑战_胆小菇文本.png"
+        "recognition": "OCR",
+        "expected": [
+            "向敌人发射孢子"
         ],
         "roi": [
             228,
