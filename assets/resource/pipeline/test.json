@@ -32,5 +32,24 @@
         "next": [
             "调节音量"
         ]
+    },
+    "碎片挑战_查找胆小菇": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片挑战_胆小菇文本.png"
+        ],
+        "roi": [
+            228,
+            481,
+            831,
+            162
+        ],
+        "action": "Click",
+        "target": [
+            710,
+            580,
+            123,
+            50
+        ]
     }
 }
