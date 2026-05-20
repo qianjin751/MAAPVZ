@@ -407,7 +407,11 @@
             5
         ],
         "next": [
-            "双人对决_识别一号位是否满足"
+            "双人对决_识别一号位是否满足",
+            "双人对决_识别二号位是否满足",
+            "双人对决_寻找一号位植物",
+            "双人对决_寻找二号位植物",
+            "双人对决_寻找植物_滑动"
         ]
     },
     "双人对决_识别一号位是否满足": {
@@ -425,10 +429,11 @@
         ],
         "action": "DoNothing",
         "threshold": [
-            1
+            0.8
         ],
         "next": [
-            "双人对决_识别二号位是否满足"
+            "双人对决_识别二号位是否满足",
+            "双人对决_寻找二号位植物"
         ]
     },
     "双人对决_识别二号位是否满足": {
@@ -541,9 +546,7 @@
         ],
         "action": "Click",
         "next": [
-            "识别局内"
-        ],
-        "on_error": [
+            "识别局内",
             "突发情况处理"
         ]
     },
@@ -1364,6 +1367,7 @@
         ],
         "action": "Click",
         "next": [
+            "只重开十次",
             "重开",
             "[JumpBack]检查突发情况"
         ],
@@ -1377,19 +1381,61 @@
         "action": "Click",
         "next": [
             "重开",
+            "失败重开",
             "[JumpBack]检查突发情况"
         ],
         "focus": "[color:darkgray]呜呜输了[/color]"
     },
-    "重开": {
+    "失败重开": {
+        "enabled": true,
         "recognition": "TemplateMatch",
         "template": [
             "双人对决竞技.png"
         ],
         "action": "Click",
         "next": [
+            "检查是否到宗师锅",
             "双人对决_识别一号位是否满足"
         ]
+    },
+    "重开": {
+        "enabled": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决竞技.png"
+        ],
+        "action": "Click",
+        "next": [
+            "检查是否到宗师锅",
+            "双人对决_识别一号位是否满足"
+        ]
+    },
+    "只重开十次": {
+        "enabled": false,
+        "max_hit": 10,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决竞技.png"
+        ],
+        "action": "Click",
+        "next": [
+            "双人对决_识别一号位是否满足",
+            "[JumpBack]检查突发情况"
+        ]
+    },
+    "检查是否到宗师锅": {
+        "enabled": false,
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_宗师锅.png"
+        ],
+        "next": [
+            "已到达宗师锅"
+        ]
+    },
+    "已到达宗师锅": {
+        "action": "StopTask",
+        "focus": "已到达宗师锅！"
     },
     "检查突发情况": {
         "timeout": 10,
