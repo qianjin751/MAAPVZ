@@ -34,29 +34,31 @@
         ],
         "action": "Click",
         "next": [
-            "按优先级选择植物"
+            "巨人危机_难度选择",
+            "巨人危机_尚未开放",
+            "邪恶入侵_难度选择",
+            "邪恶入侵_尚未开放",
+            "暴走雪人_难度选择",
+            "暴走雪人_尚未开放",
+            "碎片挑战_已完成"
         ]
     },
-    "按优先级选择植物": {
-        "timeout": 10000,
-        "action": "DoNothing",
-        "max_hit": 5,
-        "next": [
-            "[JumpBack]第一批期望植物"
-        ]
-    },
-    "第一批期望植物": {
-        "next": [
-            "碎片挑战_胆小菇_1",
-        ]
-    },
-    "碎片挑战_胆小菇_1": {
-        "enabled": false,
-        "next": [
-            "巨人危机_难度选择"
-        ]
+    "碎片挑战_已完成": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "叉叉.png"
+        ],
+        "roi": [
+            1032,
+            26,
+            83,
+            81
+        ],
+        "action": "Click",
+        "focus": "碎片挑战已完成"
     },
     "巨人危机_难度选择": {
+        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_难度选择.png"
@@ -73,6 +75,7 @@
         ]
     },
     "巨人危机_尚未开放": {
+        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_尚未开放.png"
@@ -84,6 +87,7 @@
         ]
     },
     "邪恶入侵_难度选择": {
+        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_难度选择.png"
@@ -96,10 +100,11 @@
         ],
         "action": "Click",
         "next": [
-            "邪恶入侵_难度选择"
+            "碎片挑战_传奇模式"
         ]
     },
     "邪恶入侵_尚未开放": {
+        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_尚未开放.png"
@@ -111,6 +116,7 @@
         ]
     },
     "暴走雪人_难度选择": {
+        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_难度选择.png"
@@ -123,10 +129,11 @@
         ],
         "action": "Click",
         "next": [
-            "暴走雪人_难度选择"
+            "碎片挑战_传奇模式"
         ]
     },
     "暴走雪人_尚未开放": {
+        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_尚未开放.png"
@@ -137,6 +144,11 @@
         ]
     },
     "碎片挑战_传奇模式": {
+        "post_wait_freezes": {
+            "time": 500,
+            "threshold": 0.90,
+            "timeout": 10000
+        },
         "recognition": "TemplateMatch",
         "template": [
             "碎片挑战_传奇模式.png"
@@ -149,10 +161,253 @@
         ],
         "action": "Click",
         "next": [
-            "碎片挑战_查找第一个植物"
+            "碎片挑战_选择第一个植物"
         ]
     },
-    "碎片挑战_查找第一个植物": {
-        "next": []
-    }
+    "碎片挑战_选择第一个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 0,
+        "anchor": "传奇难度选择植物",
+        "action": "Click",
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "碎片挑战_选择第二个植物"
+        ]
+    },
+    "碎片挑战_检索植物是否为期望植物": {
+        "recognition": "OCR",
+        "roi": [
+            239,
+            531,
+            802,
+            53
+        ],
+        // "replace": [
+        //     [
+        //         "僵屍",
+        //         "僵尸"
+        //     ],
+        //     [
+        //         "並",
+        //         "并"
+        //     ]
+        // ],
+        "expected": [
+            "辣椒投手能攻击前方的僵尸并温暖周围的植物。"
+        ]
+    },
+    "碎片挑战_选择第二个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 1,
+        "action": "Click",
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "[Anchor]找不到退出",
+            "碎片挑战_选择第三个植物"
+        ]
+    },
+    "碎片挑战_选择第三个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 2,
+        "action": "Click",
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "[Anchor]普通选择模式",
+            "碎片挑战_选择第四个植物"
+        ]
+    },
+    "碎片挑战_选择第四个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 3,
+        "action": "Click",
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "碎片挑战_选择第五个植物"
+        ]
+    },
+    "碎片挑战_选择第五个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 4,
+        "action": "Click",
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "碎片挑战_翻页"
+        ]
+    },
+    "碎片挑战_翻页": {
+        "recognition": "OCR",
+        "expected": [
+            "许愿池"
+        ],
+        "post_wait_freezes": 1000,
+        "roi": [
+            570,
+            148,
+            160,
+            81
+        ],
+        "action": "Swipe",
+        "duration": 1000,
+        "begin": [
+            889,
+            302,
+            102,
+            54
+        ],
+        "end": [
+            280,
+            280,
+            96,
+            103
+        ],
+        "next": [
+            "碎片挑战_选择第六个植物"
+        ]
+    },
+    "碎片挑战_选择第六个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 2,
+        "action": "Click",
+        "anchor": {
+            "找不到退出": "没有选到准备退出"
+        },
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "[Anchor]困难选择模式",
+            "[Anchor]普通选择模式_翻页",
+            "碎片挑战_选择第七个植物"
+        ]
+    },
+    "碎片挑战_选择第七个植物": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片图标_碎片.png",
+            "碎片挑战_装扮碎片.png"
+        ],
+        "index": 3,
+        "action": "Click",
+        "anchor": {
+            "找不到退出": "",
+            "困难选择模式": "碎片挑战_选择第七个植物"
+        },
+        "next": [
+            "碎片挑战_检索植物是否为期望植物",
+            "[Anchor]返回简单",
+            "难度选择_返回_选择困难"
+        ]
+    },
+    "难度选择_返回_选择困难": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片挑战_难度选择_返回.png"
+        ],
+        "action": "Click",
+        "next": [
+            "碎片挑战_困难模式"
+        ]
+    },
+    "难度选择_返回_选择简单": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片挑战_难度选择_返回.png"
+        ],
+        "action": "Click",
+        "anchor": {
+            "返回简单": "",
+            "传奇难度选择植物": "",
+            "困难选择模式": "",
+            "普通选择模式": "碎片挑战_翻页",
+            "普通选择模式_翻页": "碎片挑战_选择第二个植物"
+        },
+        "next": [
+            "碎片挑战_普通模式"
+        ]
+    },
+    "碎片挑战_普通模式": {
+        "recognition": "TemplateMatch",
+        "post_wait_freezes": {
+            "time": 500,
+            "threshold": 0.90,
+            "timeout": 10000
+        },
+        "template": [
+            "碎片挑战_普通模式.png"
+        ],
+        "roi": [
+            259,
+            278,
+            239,
+            172
+        ],
+        "action": "Click",
+        "next": [
+            "碎片挑战_选择第一个植物"
+        ]
+    },
+    "碎片挑战_困难模式": {
+        "recognition": "TemplateMatch",
+        "post_wait_freezes": {
+            "time": 500,
+            "threshold": 0.90,
+            "timeout": 10000
+        },
+        "template": [
+            "碎片挑战_困难模式.png"
+        ],
+        "roi": [
+            516,
+            279,
+            236,
+            176
+        ],
+        "action": "Click",
+        "anchor": {
+            "返回简单": "难度选择_返回_选择简单"
+        },
+        "next": [
+            "碎片挑战_选择第一个植物"
+        ]
+    },
+    "没有选到准备退出": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片挑战_叉叉.png"
+        ],
+        "action": "Click",
+        "anchor": {
+            "返回简单": "",
+            "传奇难度选择植物": "",
+            "困难选择模式": "",
+            "普通选择模式": "",
+            "普通选择模式_翻页": "",
+            "找不到退出": ""
+        }, //清空一下，邪恶入侵还要复用
+        "next": [
+            "点击日常_碎片挑战"
+        ]
+    },
 }

@@ -1,64 +1,29 @@
 {
-    // 本文件主要定义了通用 UI 的行为和显示内容
-    // 可参考文档和示例添加更多您需要的功能
-    // 文档：https://maafw.xyz/docs/3.3-ProjectInterfaceV2
-    // 示例：https://github.com/MaaXYZ/MaaFramework/blob/main/sample/interface.json
     "interface_version": 2,
     "name": "MaaPVZ",
-    "description": "这是一个使用 MaaFramework 创建的新项目。",
-    "contact": "QQ群: 123456789",
+    "description": "这是超级冷门的游戏居然有人做脚本的pvzmaa。",
+    "contact": "QQ群: 669689256",
     "license": "MIT",
     "welcome": "首次使用！欢迎使用 MAA!",
-    // 填写项目地址和版本号可实现自动更新功能
-    "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
-    "version": "1.0.0",
-    "icon": "app.ico",
-    // Mirror酱为第三方分发服务，新项目默认关闭
-    // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
-    // "mirrorchyan_rid": "MaaXXX",
-    // "mirrorchyan_multiplatform": true,
+    "github": "https://github.com/Maa-Assistant-PVZ-The-best/MAAPVZ",
+    "version": "v0.0.0-ci.260518-9d6dd66",
+    "icon": ".\\resource\\logo.ico",
     "controller": [
         {
             "name": "安卓端",
             "type": "Adb",
-            "display_short_side": 720 // 默认缩放分辨率的短边长度
+            "icon": ".\\resource\\logo.ico",
+            "display_short_side": 720
         }
-        // {
-        //     "name": "桌面端",
-        //     "type": "Win32",
-        //     "win32": {
-        //         "class_regex": ".*",
-        //         "window_regex": "Visual Studio",
-        //         // 截图及控制方式，请根据项目实际情况修改
-        //         // 文档: https://maafw.xyz/docs/2.4-ControlMethods
-        //         "screencap": "PrintWindow", // 截图方式
-        //         "mouse": "PostMessageWithCursorPos", // 鼠标控制方式
-        //         "keyboard": "PostMessageWithCursorPos" // 键盘控制方式
-        //     }
-        // }
     ],
     "resource": [
         {
-            "name": "PVZ_2_国服通用", //更改
+            "name": "PVZ_2_国服通用",
             "path": [
                 "./resource"
             ]
         }
-        // {
-        //     "name": "B 服",
-        //     "path": [
-        //         "./resource",
-        //         "./resource_bilibili"
-        //     ]
-        // }
     ],
-    // 可选的 agent 示例
-    // "agent": {
-    //     "child_exec": "python",
-    //     "child_args": [
-    //         "./agent/main.py"
-    //     ]
-    // },
     "import": [
         "./resource/task/plants_explore_debris.json",
         "./resource/task/fragment_challenge.json"
@@ -68,6 +33,7 @@
             "name": "开始登录",
             "entry": "选择渠道服",
             "option": [
+                "重复启动时黑屏请打开",
                 "渠道服"
             ],
             "resource": [
@@ -108,47 +74,250 @@
                 "PVZ_2_国服通用"
             ],
             "option": [
-                "一号位植物",
-                "二号位植物",
+                "配置模式",
+                "匹配模式",
                 "到达特定回合释放特定的僵尸",
                 "僵尸强化buff",
-                "放置3阶5阶植物"
-                //  "多少血量大退"
+                "放置3阶5阶植物",
+                "额外弹窗直接关闭"
             ],
-            "description": "会卡时差，在血量降低后放植物以及僵尸，本任务目前还在测试阶段，可能会有意想不到的bug，如有发现，请及时反馈！"
+            "description": "在血量降低后放植物以及僵尸"
         },
         {
             "name": "碎片挑战",
             "entry": "碎片挑战_前置检查",
-            "option": [
-                "巨人危机/邪恶入侵_选择植物"
-            ],
+            // "option": [
+            //     "期望植物碎片",
+            //     "巨人危机配置",
+            //     "邪恶入侵配置",
+            //     "暴走雪人配置"
+            // ]
         },
         {
-            "name": "test",
-            "entry": "碎片挑战_查找胆小菇"
+            "name": "创意庭院",
+            "entry": "创意庭院_前置检查"
         }
-        // {
-        //     "name": "参数任务",
-        //     "entry": "MyTask3",
-        //     "option": [
-        //         "任务选项1"
-        //     ],
-        //     "pipeline_override": {}
-        // },
-        // {
-        //     "name": "带Custom的任务",
-        //     "entry": "MyTask4"
-        // }
     ],
     "option": {
+        // "期望植物碎片": {
+        //     "type": "select",
+        //     "cases": [
+        //         {
+        //             "name": "二阶猕猴桃",
+        //             "pipeline_override": {}
+        //         }
+        //     ]
+        // },
+        // "巨人危机配置": {
+        //     "type": "select",
+        //     "description": "你要保证你的box含有这个植物！",
+        //     "cases": [
+        //         {
+        //             "name": "二阶仙人掌",
+        //             "pipeline_override": {}
+        //         }
+        //     ]
+        // },
+        // "邪恶入侵配置": {
+        //     "type": "select",
+        //     "description": "你要保证你的box含有这个植物！",
+        //     "default_case": "二阶猕猴桃",
+        //     "cases": [
+        //         {
+        //             "name": "二阶猕猴桃",
+        //             "pipeline_override": {}
+        //         }
+        //     ]
+        // },
+        // "暴走雪人配置": {
+        //     "type": "select",
+        //     "cases": []
+        // },
+        "重复启动时黑屏请打开": {
+            "description": "会重启pvz",
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "关闭pvz_4399": {
+                            "enabled": true
+                        },
+                        "关闭pvz_XM": {
+                            "enabled": true
+                        },
+                        "关闭pvz_b服": {
+                            "enabled": true
+                        },
+                        "关闭pvz_荣耀": {
+                            "enabled": true
+                        },
+                        "关闭pvz_vivo": {
+                            "enabled": true
+                        },
+                        "关闭pvz_九游": {
+                            "enabled": true
+                        },
+                        "关闭pvz_OPPO": {
+                            "enabled": true
+                        },
+                        "关闭pvz_好游快报": {
+                            "enabled": true
+                        },
+                        "关闭pvz_百度": {
+                            "enabled": true
+                        },
+                        "关闭pvz_360": {
+                            "enabled": true
+                        },
+                        "关闭pvz_华为": {
+                            "enabled": true
+                        },
+                        "关闭pvz_7723": {
+                            "enabled": true
+                        },
+                        "关闭pvz_官服": {
+                            "enabled": true
+                        },
+                        "关闭pvz_应用宝_qq": {
+                            "enabled": true
+                        },
+                        "关闭pvz_应用宝_微信": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "额外弹窗直接关闭": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "突发情况处理": {
+                            "next": [
+                                "识别第5回合",
+                                "识别第6及以上回合",
+                                "识别第7回合",
+                                "游戏胜利",
+                                "游戏失败",
+                                "重开",
+                                "识别成功，启动！",
+                                "放一号位僵尸",
+                                "突发情况处理"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "匹配模式": {
+            "type": "select",
+            "default_case": "不停止",
+            "cases": [
+                {
+                    "name": "不停止"
+                },
+                {
+                    "name": "到达大师锅后停止",
+                    "pipeline_override": {
+                        "检查是否到宗师锅": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "胜利十把后停止",
+                    "pipeline_override": {
+                        "重开": {
+                            "enabled": false
+                        },
+                        "只重开十次": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "配置模式": {
+            "type": "select",
+            "default_case": "帮选模式",
+            "cases": [
+                {
+                    "description": "启用该选项，会直接开始游戏",
+                    "name": "自选植物模式",
+                    "pipeline_override": {
+                        "双人对决_竞技": {
+                            "next": [
+                                "双人对决_竞技",
+                                "取消三四号位植物(三阶植物任务)1",
+                                "取消五六号位植物(五阶植物任务)1",
+                                "双人对决_识别一号位是否满足_植物任务中间节点",
+                                "识别成功，启动！"
+                            ]
+                        },
+                        "取消五六号位植物(五阶植物任务)2": {
+                            "next": [
+                                "双人对决_识别一号位是否满足_植物任务中间节点",
+                                "识别成功，启动！"
+                            ]
+                        }
+                    },
+                    "option": [
+                        "植物摆位"
+                    ]
+                },
+                {
+                    "name": "帮选模式",
+                    "description": "启用该选项，系统会自动帮你配置植物",
+                    "option": [
+                        "一号位植物",
+                        "二号位植物"
+                    ]
+                }
+            ]
+        },
+        "植物摆位": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "近战植物摆位",
+                    "pipeline_override": {
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "远程植物摆位",
+                    "pipeline_override": {
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
         "放置3阶5阶植物": {
             "type": "checkbox",
             "description": "用于做双人对决任务，会把你原本设置的所有植物挤掉",
             "cases": [
                 {
                     "name": "放置3阶植物任务",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "取消三四号位植物(三阶植物任务)1": {
                             "enabled": true
@@ -163,7 +332,6 @@
                 },
                 {
                     "name": "放置5阶植物任务",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "取消五六号位植物(五阶植物任务)1": {
                             "enabled": true
@@ -187,7 +355,6 @@
             "cases": [
                 {
                     "name": "加速",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "buff_加速": {
                             "enabled": true
@@ -196,7 +363,6 @@
                 },
                 {
                     "name": "血量提升",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "buff_加血": {
                             "enabled": true
@@ -208,7 +374,6 @@
                 },
                 {
                     "name": "免控",
-                    "description": "我没怎么跑过，bug可能会有点多",
                     "pipeline_override": {
                         "buff_免控": {
                             "enabled": true
@@ -224,12 +389,6 @@
             ],
             "type": "checkbox",
             "cases": [
-                // {
-                //     "name": "放置4号位僵尸"
-                // },
-                // {
-                //     "name": "放置5号位僵尸"
-                // },
                 {
                     "name": "放置橄榄位僵尸",
                     "pipeline_override": {
@@ -252,43 +411,6 @@
                 }
             ]
         },
-        //"多少血量大退": {
-        //        "type": "select",
-        //       "description": "防止掉分，检测自己的血量低于一定值时大退，特殊情况血量会被遮住，从而导致大退失败",
-        //     "cases": [
-        //      {
-        //        "name": "不进行大退",
-        //     "description": "不进行大退"
-        //     },
-        //   {
-        //     "name": "血量低于2时大退",
-        //    "description": "该选项不稳定,有时会检测不到2血",
-        //  "pipeline_override": {
-        //      "检查血量是否为2": {
-        //              "enabled": true
-        //           }
-        //      }
-        //    },
-        //    {
-        //      "name": "血量低于4时大退",
-        //   "description": "检查血量为4时大退",
-        //  "pipeline_override": {
-        //     "检查血量是否为4": {
-        //                 "enabled": true
-        //           }
-        //           }
-        //         },
-        //   {
-        //      "name": "血量低于6时大退",
-        //      "description": "检查血量为6时大退，特殊情况血量会被遮住，从而大退失败",
-        //    "pipeline_override": {
-        //        "检查血量是否为6": {
-        //         "enabled": true
-        //       }
-        //         }
-        //           }
-        //      ]
-        //    },
         "一号位植物": {
             "type": "select",
             "description": "能够吸引僵尸的植物，注意不要放在3阶和五阶的位置，不然脚本会找不到",
@@ -490,6 +612,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_4399",
                                 "打开pvz_4399"
                             ]
                         }
@@ -500,6 +623,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_XM",
                                 "打开pvz_XM"
                             ]
                         }
@@ -516,6 +640,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_b服",
                                 "打开pvz_b服"
                             ]
                         }
@@ -526,6 +651,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_荣耀",
                                 "打开pvz_荣耀"
                             ]
                         }
@@ -536,6 +662,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_vivo",
                                 "打开pvz_vivo"
                             ]
                         }
@@ -546,6 +673,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_九游",
                                 "打开pvz_九游"
                             ]
                         }
@@ -556,6 +684,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_OPPO",
                                 "打开pvz_OPPO"
                             ]
                         }
@@ -566,6 +695,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_好游快报",
                                 "打开pvz_好游快报"
                             ]
                         }
@@ -576,6 +706,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_百度",
                                 "打开pvz_百度"
                             ]
                         }
@@ -586,6 +717,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_360",
                                 "打开pvz_360"
                             ]
                         }
@@ -596,6 +728,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_华为",
                                 "打开pvz_华为"
                             ]
                         }
@@ -606,6 +739,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_7723",
                                 "打开pvz_7723"
                             ]
                         }
@@ -616,6 +750,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_官服",
                                 "打开pvz_官服"
                             ]
                         }
@@ -631,6 +766,7 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_应用宝_qq",
                                 "打开pvz_应用宝_qq"
                             ]
                         }
@@ -641,38 +777,362 @@
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
+                                "关闭pvz_应用宝_微信",
                                 "打开pvz_应用宝_微信"
                             ]
                         }
                     }
                 }
             ]
+        },
+        "海盗/埃及": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "豌豆射手",
+                    "pipeline_override": {
+                        "探索_豌豆射手": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "卷心菜投手",
+                    "pipeline_override": {
+                        "探索_卷心菜投手": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "向日葵",
+                    "pipeline_override": {
+                        "探索_向日葵": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "玉米投手",
+                    "pipeline_override": {
+                        "探索_玉米投手": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "地刺",
+                    "pipeline_override": {
+                        "探索_地刺": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "弹簧豆",
+                    "pipeline_override": {
+                        "探索_弹簧豆": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "西部/功夫": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "双向射手",
+                    "pipeline_override": {
+                        "探索_双向射手": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "巴豆",
+                    "pipeline_override": {
+                        "探索_巴豆": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "闪电芦苇",
+                    "pipeline_override": {
+                        "探索_闪电芦苇": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "火葫芦",
+                    "pipeline_override": {
+                        "探索_火葫芦": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "白萝卜",
+                    "pipeline_override": {
+                        "探索_白萝卜": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "未来/黑暗": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "土豆地雷",
+                    "pipeline_override": {
+                        "探索_土豆地雷": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "坚果",
+                    "pipeline_override": {
+                        "探索_坚果": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "冰冻生菜",
+                    "pipeline_override": {
+                        "探索_冰冻生菜": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "大喷菇",
+                    "pipeline_override": {
+                        "探索_大喷菇": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "磁力菇",
+                    "pipeline_override": {
+                        "探索_磁力菇": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "海滩/冰河": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "缠绕水草",
+                    "pipeline_override": {
+                        "探索_缠绕水草": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "鳄梨",
+                    "pipeline_override": {
+                        "探索_鳄梨": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "火焰豌豆",
+                    "pipeline_override": {
+                        "探索_火焰豌豆": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "天空/失落": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "旋转芜菁",
+                    "pipeline_override": {
+                        "探索_旋转芜菁": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "旋涡枇杷",
+                    "pipeline_override": {
+                        "探索_旋涡枇杷": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "电离红掌",
+                    "pipeline_override": {
+                        "探索_电离红掌": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "红针花",
+                    "pipeline_override": {
+                        "探索_红针花": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "菠萝蜜",
+                    "pipeline_override": {
+                        "探索_菠萝蜜": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "摇滚/恐龙": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "潜伏芹菜",
+                    "pipeline_override": {
+                        "探索_潜伏芹菜": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "复活萝卜",
+                    "pipeline_override": {
+                        "探索_复活萝卜": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "原始豌豆射手",
+                    "pipeline_override": {
+                        "探索_原始豌豆射手": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "香水蘑菇",
+                    "pipeline_override": {
+                        "探索_香水蘑菇": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "摩登/蒸汽": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "毒影菇",
+                    "pipeline_override": {
+                        "探索_毒影菇": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "月光花",
+                    "pipeline_override": {
+                        "探索_月光花": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "番莲工程师",
+                    "pipeline_override": {
+                        "探索_番莲工程师": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "莲藕射手",
+                    "pipeline_override": {
+                        "探索_莲藕射手": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "平安/复兴": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "冬瓜守卫",
+                    "pipeline_override": {
+                        "探索_冬瓜守卫": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "芦荟医师",
+                    "pipeline_override": {
+                        "探索_芦荟医师": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "石斛防风网",
+                    "pipeline_override": {
+                        "探索_石斛防风网": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "千金藤",
+                    "pipeline_override": {
+                        "探索_千金藤": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "海底世界": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "海蘑菇",
+                    "pipeline_override": {
+                        "探索_海蘑菇": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "噗噗鱼藤",
+                    "pipeline_override": {
+                        "探索_噗噗鱼藤": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
         }
     }
-    //1
-    // "type": "select", //有“select（多选一）”,“switch（二选一）”,“input(输入)”三种形式
-    // "label": "选择植物", //标识符，不写默认为”name“中的字符串，“$”表示国际化
-    // "description": "选择要探索的植物", //详细信息解释
-    // "option": {
-    //     "任务选项1": {
-    //         "cases": [
-    //             {
-    //                 "name": "文本1",
-    //                 "pipeline_override": {
-    //                     "OcrTask": {
-    //                         "text": "文本1"
-    //                     }
-    //                 }
-    //             },
-    //             {
-    //                 "name": "文本2",
-    //                 "pipeline_override": {
-    //                     "OcrTask": {
-    //                         "text": "文本2"
-    //                     }
-    //                 }
-    //             }
-    //         ]
-    //     }
-    // }
 }
