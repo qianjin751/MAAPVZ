@@ -6,7 +6,7 @@
     "license": "MIT",
     "welcome": "首次使用！欢迎使用 MAA!",
     "github": "https://github.com/Maa-Assistant-PVZ-The-best/MAAPVZ",
-    "version": "v0.0.0-ci.260518-9d6dd66",
+    "version": "dbugv0.0.7",
     "icon": ".\\resource\\logo.ico",
     "controller": [
         {
