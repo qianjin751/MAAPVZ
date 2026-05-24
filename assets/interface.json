@@ -1,11 +1,11 @@
 {
     "interface_version": 2,
     "name": "MaaPVZ",
-    "description": "这是一个使用 MaaFramework 创建的新项目。",
-    "contact": "QQ群: 123456789",
+    "description": "这是超级冷门的游戏居然有人做脚本的pvzmaa。",
+    "contact": "QQ群: 669689256",
     "license": "MIT",
     "welcome": "首次使用！欢迎使用 MAA!",
-    "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
+    "github": "https://github.com/Maa-Assistant-PVZ-The-best/MAAPVZ",
     "version": "v0.0.0-ci.260518-9d6dd66",
     "icon": ".\\resource\\logo.ico",
     "controller": [
@@ -81,12 +81,17 @@
                 "放置3阶5阶植物",
                 "额外弹窗直接关闭"
             ],
-            "description": "会卡时差，在血量降低后放植物以及僵尸，本任务目前还在测试阶段，可能会有意想不到的bug，如有发现，请及时反馈！"
+            "description": "在血量降低后放植物以及僵尸"
         },
         {
             "name": "碎片挑战",
             "entry": "碎片挑战_前置检查",
-            "option": []
+            // "option": [
+            //     "期望植物碎片",
+            //     "巨人危机配置",
+            //     "邪恶入侵配置",
+            //     "暴走雪人配置"
+            // ]
         },
         {
             "name": "创意庭院",
@@ -94,6 +99,40 @@
         }
     ],
     "option": {
+        // "期望植物碎片": {
+        //     "type": "select",
+        //     "cases": [
+        //         {
+        //             "name": "二阶猕猴桃",
+        //             "pipeline_override": {}
+        //         }
+        //     ]
+        // },
+        // "巨人危机配置": {
+        //     "type": "select",
+        //     "description": "你要保证你的box含有这个植物！",
+        //     "cases": [
+        //         {
+        //             "name": "二阶仙人掌",
+        //             "pipeline_override": {}
+        //         }
+        //     ]
+        // },
+        // "邪恶入侵配置": {
+        //     "type": "select",
+        //     "description": "你要保证你的box含有这个植物！",
+        //     "default_case": "二阶猕猴桃",
+        //     "cases": [
+        //         {
+        //             "name": "二阶猕猴桃",
+        //             "pipeline_override": {}
+        //         }
+        //     ]
+        // },
+        // "暴走雪人配置": {
+        //     "type": "select",
+        //     "cases": []
+        // },
         "重复启动时黑屏请打开": {
             "description": "会重启pvz",
             "type": "switch",
@@ -167,9 +206,10 @@
                                 "识别第7回合",
                                 "游戏胜利",
                                 "游戏失败",
-                                "识别成功，启动！",
                                 "重开",
-                                "放一号位僵尸"
+                                "识别成功，启动！",
+                                "放一号位僵尸",
+                                "突发情况处理"
                             ]
                         }
                     }
@@ -218,6 +258,15 @@
                         "双人对决_竞技": {
                             "next": [
                                 "双人对决_竞技",
+                                "取消三四号位植物(三阶植物任务)1",
+                                "取消五六号位植物(五阶植物任务)1",
+                                "双人对决_识别一号位是否满足_植物任务中间节点",
+                                "识别成功，启动！"
+                            ]
+                        },
+                        "取消五六号位植物(五阶植物任务)2": {
+                            "next": [
+                                "双人对决_识别一号位是否满足_植物任务中间节点",
                                 "识别成功，启动！"
                             ]
                         }
