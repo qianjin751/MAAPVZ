@@ -1,0 +1,97 @@
+{
+    "埃及第一关刷金币_前置检查": {
+        "timeout": 10000,
+        "action": "DoNothing",
+        "next": [
+            "[JumpBack]返回主界面",
+            "点击星系"
+        ]
+    },
+    "点击星系": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "星系.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "查找埃及世界"
+        ]
+    },
+    "查找埃及世界": {
+        "timeout": 500,
+        "recognition": "TemplateMatch",
+        "template": [
+            "星系_神秘埃及.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "星系_进入世界"
+        ],
+        "on_error": [
+            "星系滑动"
+        ]
+    },
+    "星系_进入世界": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "星系_进入.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "埃及第一关"
+        ]
+    },
+    "星系滑动": {
+        "timeout": 1500,
+        "max_hit": 16,
+        "action": "Swipe",
+        "begin": [
+            637,
+            572,
+            5,
+            9
+        ],
+        "end": [
+            366,
+            576,
+            3,
+            2
+        ],
+        "end_hold": 500,
+        "post_delay": 1000,
+        "next": [
+            "[JumpBack]查找埃及世界"
+        ]
+    },
+    "埃及第一关": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关卡_蓝色按钮.png"
+        ],
+        "roi": [
+            364,
+            98,
+            440,
+            468
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "世界_开始战斗"
+        ]
+    },
+    "世界_开始战斗": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "世界_开始战斗.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "世界_开始战斗"
+        ]
+    }
+}
