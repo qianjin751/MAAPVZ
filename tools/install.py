@@ -136,7 +136,6 @@ def install_deps():
         print("Warning: MaaAgentBinary not found, skipping.")
         
 def install_resource():
-
     configure_ocr_model()
 
     shutil.copytree(
@@ -149,12 +148,29 @@ def install_resource():
         install_path,
     )
 
-    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
+    interface_path = install_path / "interface.json"
+    with open(interface_path, "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
+    # 设置版本
     interface["version"] = version
 
-    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
+    # 修正 agent 配置
+    if "agent" in interface:
+        # 根据平台设置正确的 Python 可执行文件路径（相对于 install 根目录）
+        if os_name == "win":
+            interface["agent"]["child_exec"] = "python\\python.exe"
+        else:
+            interface["agent"]["child_exec"] = "python/bin/python3"
+        
+        # 修正脚本参数中的路径
+        if "child_args" in interface["agent"] and len(interface["agent"]["child_args"]) >= 2:
+            # 假设第二个参数是脚本路径，将其中的 "../agent/main.py" 改为 "agent/main.py"
+            script_path = interface["agent"]["child_args"][1]
+            if script_path.startswith(".."):
+                interface["agent"]["child_args"][1] = "agent/main.py"
+
+    with open(interface_path, "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
 
