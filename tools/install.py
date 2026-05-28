@@ -1,3 +1,10 @@
+import sys
+import io
+
+# 修复 Windows 控制台编码
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 from pathlib import Path
 
 import shutil
@@ -55,20 +62,56 @@ def get_dotnet_platform_tag():
 
 
 def install_deps():
-    if not (working_dir / "deps" / "bin").exists():
-        print('Please download the MaaFramework to "deps" first.')
-        print('请先下载 MaaFramework 到 "deps"。')
-        sys.exit(1)
+    print("=== [DEBUG] Running install_deps (with auto-flatten) ===")
+    deps_dir = working_dir / "deps"
+    print(f"[DEBUG] deps_dir = {deps_dir}")
 
+    bin_source = deps_dir / "bin"
+    if not bin_source.exists():
+        # 尝试自动扁平化：查找以 MAA- 开头的子目录
+        subdirs = [d for d in deps_dir.iterdir() if d.is_dir() and d.name.startswith("MAA-")]
+        if subdirs:
+            print(f"Found MaaFramework subdirectories: {subdirs}")
+            for sub in subdirs:
+                print(f"Moving contents of {sub} to {deps_dir}")
+                for item in sub.iterdir():
+                    dest = deps_dir / item.name
+                    if dest.exists():
+                        if dest.is_dir():
+                            shutil.rmtree(dest)
+                        else:
+                            dest.unlink()
+                    shutil.move(str(item), str(dest))
+                sub.rmdir()
+            print("Finished flattening deps directory.")
+        # 再次检查 bin_source
+        if not bin_source.exists():
+            print('Please download the MaaFramework to "deps" first (missing bin directory).')
+            print('请先下载 MaaFramework 到 "deps"（缺少 bin 目录）。')
+            sys.exit(1)
+
+    # 验证关键库文件存在（Windows 用 .dll，其他用 .so 或 .dylib）
+    if os_name == "win":
+        if not (bin_source / "MaaFramework.dll").exists():
+            print("Error: MaaFramework.dll not found in bin directory.")
+            sys.exit(1)
+    else:
+        if not (bin_source / "libMaaFramework.so").exists() and not (bin_source / "libMaaFramework.dylib").exists():
+            print("Error: MaaFramework library not found in bin directory.")
+            sys.exit(1)
+
+    print(f"[DEBUG] Using binary source: {bin_source}")
+
+    # 复制二进制文件
     if os_name == "android":
         shutil.copytree(
-            working_dir / "deps" / "bin",
+            bin_source,
             install_path,
             dirs_exist_ok=True,
         )
     else:
         shutil.copytree(
-            working_dir / "deps" / "bin",
+            bin_source,
             install_path / "runtimes" / get_dotnet_platform_tag() / "native",
             ignore=shutil.ignore_patterns(
                 "*MaaDbgControlUnit*",
@@ -79,15 +122,20 @@ def install_deps():
             dirs_exist_ok=True,
         )
 
-    shutil.copytree(
-        working_dir / "deps" / "share" / "MaaAgentBinary",
-        install_path / "MaaAgentBinary",
-        dirs_exist_ok=True,
-    )
-
-
+    # 复制 MaaAgentBinary（通常位于 deps/share/MaaAgentBinary）
+    share_source = deps_dir / "share" / "MaaAgentBinary"
+    if not share_source.exists():
+        share_source = deps_dir / "MaaAgentBinary"
+    if share_source.exists():
+        shutil.copytree(
+            share_source,
+            install_path / "MaaAgentBinary",
+            dirs_exist_ok=True,
+        )
+    else:
+        print("Warning: MaaAgentBinary not found, skipping.")
+        
 def install_resource():
-
     configure_ocr_model()
 
     shutil.copytree(
@@ -100,26 +148,29 @@ def install_resource():
         install_path,
     )
 
-    shutil.copytree(
-        working_dir / "assets" / "resource" / "task",
-        install_path / "assets" / "resource" / "task",
-        dirs_exist_ok=True,
-    )
-    shutil.copy2(
-        working_dir / "assets" / "resource" / "task" / "plants_explore_debris.json",
-        install_path / "assets" / "resource" / "task" / "plants_explore_debris.json",
-    )
-    shutil.copy2(
-        working_dir / "assets" /"resource" / "task"/"fragment_challenge.json",
-        install_path / "assets" / "resource" / "task" / "fragment_challenge.json",
-    )
-
-    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
+    interface_path = install_path / "interface.json"
+    with open(interface_path, "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
+    # 设置版本
     interface["version"] = version
 
-    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
+    # 修正 agent 配置
+    if "agent" in interface:
+        # 根据平台设置正确的 Python 可执行文件路径（相对于 install 根目录）
+        if os_name == "win":
+            interface["agent"]["child_exec"] = "python\\python.exe"
+        else:
+            interface["agent"]["child_exec"] = "python/bin/python3"
+        
+        # 修正脚本参数中的路径
+        if "child_args" in interface["agent"] and len(interface["agent"]["child_args"]) >= 2:
+            # 假设第二个参数是脚本路径，将其中的 "../agent/main.py" 改为 "agent/main.py"
+            script_path = interface["agent"]["child_args"][1]
+            if script_path.startswith(".."):
+                interface["agent"]["child_args"][1] = "agent/main.py"
+
+    with open(interface_path, "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
 
