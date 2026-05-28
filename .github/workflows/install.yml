@@ -96,6 +96,14 @@ jobs:
           tag: ${{ env.MAA_FRAMEWORK_VERSION }}
           out-file-path: "deps"
           extract: true
+      - name: Debug deps content
+        shell: bash
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "deps directory content:"
+          ls -la deps/
+          echo "deps/bin exists? $([ -d deps/bin ] && echo YES || echo NO)"
           
       - name: Flatten MaaFramework directory
         shell: bash
