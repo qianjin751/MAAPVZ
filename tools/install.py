@@ -62,48 +62,57 @@ def get_dotnet_platform_tag():
 
 
 def install_deps():
-    # === DEBUG: 添加调试输出，确认代码已更新 ===
     print("=== [DEBUG] Running install_deps (with auto-flatten) ===")
     deps_dir = working_dir / "deps"
     print(f"[DEBUG] deps_dir = {deps_dir}")
-    print(f"[DEBUG] deps_dir/bin exists = {(deps_dir / 'bin').exists()}")
-    # =======================================
+    
+    # 根据平台确定二进制文件源目录
+    if os_name == "win":
+        # Windows: 二进制文件直接在 deps/ 根目录
+        bin_source = deps_dir
+        # 检查是否存在 MaaFramework.dll 作为标志
+        if not (bin_source / "MaaFramework.dll").exists():
+            print('Please download the MaaFramework to "deps" first (missing MaaFramework.dll).')
+            print('请先下载 MaaFramework 到 "deps"（缺少 MaaFramework.dll）。')
+            sys.exit(1)
+    else:
+        # 非 Windows: 二进制文件在 deps/bin/ 下
+        bin_source = deps_dir / "bin"
+        if not bin_source.exists():
+            # 尝试自动扁平化（仅当 bin 不存在时）
+            subdirs = [d for d in deps_dir.iterdir() if d.is_dir() and d.name.startswith("MAA-")]
+            if subdirs:
+                print(f"Found MaaFramework subdirectories: {subdirs}")
+                for sub in subdirs:
+                    print(f"Moving contents of {sub} to {deps_dir}")
+                    for item in sub.iterdir():
+                        dest = deps_dir / item.name
+                        if dest.exists():
+                            if dest.is_dir():
+                                shutil.rmtree(dest)
+                            else:
+                                dest.unlink()
+                        shutil.move(str(item), str(dest))
+                    sub.rmdir()
+                print("Finished flattening deps directory.")
+            # 再次检查 bin_source
+            if not bin_source.exists():
+                print('Please download the MaaFramework to "deps" first (missing bin directory).')
+                print('请先下载 MaaFramework 到 "deps"（缺少 bin 目录）。')
+                sys.exit(1)
 
-    # 自动处理：如果 deps/bin 不存在，但 deps 下存在以 MAA- 开头的子目录，则将其内容上移
-    if not (deps_dir / "bin").exists():
-        subdirs = [d for d in deps_dir.iterdir() if d.is_dir() and d.name.startswith("MAA-")]
-        if subdirs:
-            print(f"Found MaaFramework subdirectories: {subdirs}")
-            for sub in subdirs:
-                print(f"Moving contents of {sub} to {deps_dir}")
-                for item in sub.iterdir():
-                    dest = deps_dir / item.name
-                    # 如果目标已存在，先删除（避免冲突）
-                    if dest.exists():
-                        if dest.is_dir():
-                            shutil.rmtree(dest)
-                        else:
-                            dest.unlink()
-                    shutil.move(str(item), str(dest))
-                sub.rmdir()
-            print("Finished flattening deps directory.")
+    print(f"[DEBUG] Using binary source: {bin_source}")
 
-    # 原检查逻辑
-    if not (deps_dir / "bin").exists():
-        print('Please download the MaaFramework to "deps" first.')
-        print('请先下载 MaaFramework 到 "deps"。')
-        sys.exit(1)
-
-    # 下面的代码保持不变
+    # 复制二进制文件到安装目录
     if os_name == "android":
         shutil.copytree(
-            deps_dir / "bin",
+            bin_source,
             install_path,
             dirs_exist_ok=True,
         )
     else:
         shutil.copytree(
-            deps_dir / "bin",
+            bin_source,
             install_path / "runtimes" / get_dotnet_platform_tag() / "native",
             ignore=shutil.ignore_patterns(
                 "*MaaDbgControlUnit*",
@@ -114,11 +123,19 @@ def install_deps():
             dirs_exist_ok=True,
         )
 
-    shutil.copytree(
-        deps_dir / "share" / "MaaAgentBinary",
-        install_path / "MaaAgentBinary",
-        dirs_exist_ok=True,
-    )
+    # 复制 MaaAgentBinary (share 目录结构在所有平台一致)
+    share_source = deps_dir / "share" / "MaaAgentBinary"
+    if not share_source.exists():
+        # 尝试其他可能路径（例如 deps/share/MaaAgentBinary 不存在时？一般不发生）
+        share_source = deps_dir / "MaaAgentBinary"
+    if share_source.exists():
+        shutil.copytree(
+            share_source,
+            install_path / "MaaAgentBinary",
+            dirs_exist_ok=True,
+        )
+    else:
+        print("Warning: MaaAgentBinary not found, skipping.")
 
 def install_resource():
 
