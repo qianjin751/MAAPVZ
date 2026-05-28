@@ -46,6 +46,7 @@ def cleanup_maafw_bak_logs(context=None, keep_count: int = 3):
 
     try:
         debug_folder = root / "debug"
+        print(f"[调试] debug_folder 的实际路径是: {debug_folder.resolve()}")
 
         if not debug_folder.exists():
             print("[日志清理] debug文件夹不存在")
