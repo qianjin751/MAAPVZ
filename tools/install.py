@@ -62,7 +62,12 @@ def get_dotnet_platform_tag():
 
 
 def install_deps():
+    # === DEBUG: 添加调试输出，确认代码已更新 ===
+    print("=== [DEBUG] Running install_deps (with auto-flatten) ===")
     deps_dir = working_dir / "deps"
+    print(f"[DEBUG] deps_dir = {deps_dir}")
+    print(f"[DEBUG] deps_dir/bin exists = {(deps_dir / 'bin').exists()}")
+    # =======================================
 
     # 自动处理：如果 deps/bin 不存在，但 deps 下存在以 MAA- 开头的子目录，则将其内容上移
     if not (deps_dir / "bin").exists():
@@ -114,7 +119,6 @@ def install_deps():
         install_path / "MaaAgentBinary",
         dirs_exist_ok=True,
     )
-
 
 def install_resource():
 
