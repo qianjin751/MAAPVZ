@@ -118,6 +118,10 @@
             ],
             "default_check": true,
             "description": "清理多余的日志,节省空间"
+        },
+        {
+            "name": "埃及第一关刷金币",
+            "entry": "埃及第一关刷金币_前置检查"
         }
     ],
     "option": {

@@ -1,0 +1,268 @@
+{
+    "埃及第一关刷金币_前置检查": {
+        "timeout": 10000,
+        "action": "DoNothing",
+        "next": [
+            "[JumpBack]返回主界面",
+            "点击星系"
+        ]
+    },
+    "点击星系": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "星系.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "查找埃及世界",
+            "星系滑动"
+        ]
+    },
+    "查找埃及世界": {
+        "timeout": 1000,
+        "recognition": "OCR",
+        "expected": [
+            "神秘埃及"
+        ],
+        "roi": [
+            571,
+            473,
+            142,
+            37
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "星系_进入世界",
+            "查找埃及世界"
+        ],
+        "on_error": [
+            "星系滑动"
+        ]
+    },
+    "星系_进入世界": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "星系_进入.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "埃及1_进入关卡"
+        ]
+    },
+    "星系滑动": {
+        "timeout": 1500,
+        "action": "Swipe",
+        "begin": [
+            637,
+            572,
+            5,
+            9
+        ],
+        "end": [
+            366,
+            576,
+            3,
+            2
+        ],
+        "end_hold": 50,
+        "post_delay": 1000,
+        "next": [
+            "查找埃及世界",
+            "星系滑动"
+        ]
+    },
+    "埃及1_进入关卡": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关卡_蓝色按钮.png"
+        ],
+        "roi": [
+            364,
+            98,
+            440,
+            468
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "埃及1_开始战斗"
+        ]
+    },
+    "埃及1_开始战斗": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "世界_开始战斗.png"
+        ],
+        "action": "Click",
+        "post_delay": 10000,
+        "next": [
+            "埃及1_清空植物栏"
+        ]
+    },
+    "埃及1_清空植物栏": {
+        "recognition": "OCR",
+        "expected": [
+            "清空卡牌"
+        ],
+        "max_hit": 3,
+        "roi": [
+            11,
+            656,
+            99,
+            37
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "埃及1_清空植物栏",
+            "埃及1_选择第一个植物"
+        ]
+    },
+    "埃及1_选择第一个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_原始向日葵.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第一个植物"
+        ]
+    },
+    "埃及1_选择第二个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_仙人掌.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第二个植物"
+        ]
+    },
+    "埃及1_选择第三个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_向日葵.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第三个植物"
+        ]
+    },
+    "埃及1_选择第四个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_豌豆射手.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第四个植物"
+        ]
+    },
+    "埃及1_选择第五个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_坚果.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第五个植物"
+        ]
+    },
+    "埃及1_选择第六个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_冰冻生菜.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第六个植物"
+        ]
+    },
+    "埃及1_选择第七个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_土豆地雷.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第七个植物"
+        ]
+    },
+    "埃及1_选择第八个植物": {
+        "recognition": "TemplateMatch",
+        "max_hit": 2,
+        "template": [
+            "选择卡牌_卷心菜投手.png"
+        ],
+        "roi": [
+            131,
+            386,
+            614,
+            314
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "埃及1_选择第八个植物"
+        ]
+    },
+}
