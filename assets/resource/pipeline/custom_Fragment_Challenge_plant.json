@@ -24,6 +24,7 @@
     //  """
     "碎片挑战_选择多余植物进行占位": {
         "recognition": "DirectHit",
+        "max_hit": 16,
         "action": {
             "type": "Custom",
             "param": {
@@ -32,14 +33,38 @@
                     "initial_x": 193,
                     "initial_y": 437,
                     "dx": 119,
-                    "max_hits": 5,
-                    "n": 286
+                    "max_hits": 6,
+                    "n": -100
                 },
                 "target": true
             }
         },
         "next": [
-            "碎片挑战_选择多余植物进行占位"
+            "碎片挑战_选择多余植物进行占位",
+            "碎片挑战_仙人掌_开始战斗"
+        ]
+    },
+    "巨人西部_种植仙人掌": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick",
+                "custom_action_param": {
+                    "initial_x": 467,
+                    "initial_y": 168,
+                    "dx": 90,
+                    "max_hits": 7,
+                    "n": -110
+                },
+                "target": true
+            }
+        },
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": [
+            "巨人西部_种植仙人掌_选择仙人掌",
+            "碎片挑战_二倍速"
         ]
     }
 }

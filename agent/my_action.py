@@ -4,7 +4,6 @@ from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
 from maa.context import Context
 import json
-import time
 
 _offset_state_map = {}
 
@@ -43,11 +42,30 @@ def cleanup_maafw_bak_logs(context=None, keep_count: int = 3):
     except Exception as e:
         print(f"[日志清理] 异常:{e}")
 
+def get_node_name_from_argv(argv):
+    """尝试从 argv 对象中获取节点名称，如果失败则打印属性并返回 None"""
+    # 常见的属性名列表
+    candidates = ['node', 'node_name', 'name', 'task_node', 'current_node', 'recognition_name']
+    for attr in candidates:
+        if hasattr(argv, attr):
+            val = getattr(argv, attr)
+            if val is not None and isinstance(val, str):
+                return val
+    # 调试：打印所有属性
+    attrs = [a for a in dir(argv) if not a.startswith('_')]
+    print(f"[DEBUG] argv 属性: {attrs}")
+    return None
+
 @AgentServer.custom_action("OffsetClick")
 class OffsetClick(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
-            key = "FragmentChallenge"
+            node_name = get_node_name_from_argv(argv)
+            if node_name is None:
+                print("[OffsetClick] 警告：无法获取节点名称，使用固定键'DefaultNode'，状态可能串扰")
+                node_name = "DefaultNode"
+            
+            key = f"OffsetState_{node_name}"
             state = _offset_state_map.get(key)
 
             param = {}
@@ -60,7 +78,7 @@ class OffsetClick(CustomAction):
             initial_x = param.get("initial_x")
             initial_y = param.get("initial_y")
             if initial_x is None or initial_y is None:
-                print("[OffsetClick] 缺少 initial_x 或 initial_y")
+                print(f"[OffsetClick][{node_name}] 缺少 initial_x 或 initial_y")
                 return CustomAction.RunResult(success=False)
 
             dx = param.get("dx", 50)
@@ -70,29 +88,36 @@ class OffsetClick(CustomAction):
             if state is None:
                 state = {
                     "current_x": initial_x,
-                    "current_y": initial_y,
+                    "base_y_offset": 0,
                     "hit_count": 0
                 }
                 _offset_state_map[key] = state
+                print(f"[OffsetClick][{node_name}] 初始化: x={initial_x}, y基={initial_y}, dx={dx}, max_hits={max_hits}, n={n}")
 
-            click_x = state["current_x"]
-            click_y = state["current_y"]
+            current_y = initial_y + state["base_y_offset"]
+            will_reset = (state["hit_count"] + 1) >= max_hits
 
-            print(f"[OffsetClick] 准备点击 ({click_x}, {click_y})")
+            if will_reset:
+                new_offset = state["base_y_offset"] - n
+                click_y = initial_y + new_offset
+                click_x = initial_x
+                print(f"[OffsetClick][{node_name}] 重置点击 ({click_x}, {click_y}) (第{state['hit_count']+1}次)")
+            else:
+                click_x = state["current_x"]
+                click_y = current_y
+                print(f"[OffsetClick][{node_name}] 正常点击 ({click_x}, {click_y}) (第{state['hit_count']+1}次)")
 
-            # 正确获取控制器：通过 tasker.controller
             ctrl = context.tasker.controller
-            ctrl.click(click_x, click_y)
-            print(f"[OffsetClick] 已执行点击 ({click_x}, {click_y})")
+            ctrl.post_click(click_x, click_y, contact=0)
 
-            state["current_x"] += dx
-            state["hit_count"] += 1
-
-            if state["hit_count"] >= max_hits:
-                state["current_x"] = initial_x
-                state["current_y"] = initial_y - n
+            if will_reset:
+                state["current_x"] = initial_x + dx
+                state["base_y_offset"] -= n
                 state["hit_count"] = 0
-                print(f"[OffsetClick] 重置: 新基准 y = {state['current_y']}")
+                print(f"[OffsetClick][{node_name}] 重置后: 偏移={state['base_y_offset']}, x起点={state['current_x']}")
+            else:
+                state["current_x"] += dx
+                state["hit_count"] += 1
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
