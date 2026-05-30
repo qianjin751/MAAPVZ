@@ -118,6 +118,36 @@
             "巨人_西部"
         ]
     },
+    "巨人_埃及": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片挑战_巨人埃及.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "target": [
+            1208,
+            82,
+            57,
+            53
+        ],
+        "next": []
+    },
+    "巨人_海盗": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "碎片挑战_巨人海盗.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "target": [
+            1208,
+            82,
+            57,
+            53
+        ],
+        "next": []
+    },
     "巨人_西部": {
         "recognition": "TemplateMatch",
         "template": [
@@ -131,9 +161,7 @@
             57,
             53
         ],
-        "next": [
-            "巨人危机_西部_使用仙人掌"
-        ]
+        "next": []
     },
     //识别局内区域 我是下划线，别几把往这里塞东西听到没有！！！！！！
     //植物配置区域 我是下划线，别几把往这里塞东西听到没有！！！！！！
@@ -359,10 +387,10 @@
         ],
         "action": "Click",
         "next": [
-            "碎片挑战_确定"
+            "碎片挑战_完成对局__确定"
         ]
     },
-    "碎片挑战_确定": {
+    "碎片挑战_完成对局__确定": {
         "post_wait_freezes": 500,
         "recognition": "OCR",
         "expected": [
@@ -374,6 +402,9 @@
             110,
             71
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "点击碎片挑战"
+        ]
     }
 }

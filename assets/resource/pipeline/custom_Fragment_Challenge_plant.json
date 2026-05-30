@@ -66,5 +66,28 @@
             "巨人西部_种植仙人掌_选择仙人掌",
             "碎片挑战_二倍速"
         ]
+    },
+    "巨人海盗_种植仙人掌": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick",
+                "custom_action_param": {
+                    "initial_x": 467,
+                    "initial_y": 168,
+                    "dx": 90,
+                    "max_hits": 7,
+                    "n": -110
+                },
+                "target": true
+            }
+        },
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": [
+            "巨人西部_种植仙人掌_选择仙人掌",
+            "碎片挑战_二倍速"
+        ]
     }
 }

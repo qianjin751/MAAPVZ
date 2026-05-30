@@ -93,22 +93,22 @@
             "description": "在血量降低后放植物以及僵尸"
         },
         {
-            "name": "碎片挑战(bate)",
+            "name": "碎片挑战（没有做完不要开启）",
             "entry": "碎片挑战_前置检查",
-            // "option": [
-            //     "期望植物碎片",
-            //     "巨人危机配置",
-            //     "邪恶入侵配置",
-            //     "暴走雪人配置"
-            // ]
+            "option": [
+                "选择植物碎片",
+                "巨人危机配置",
+                "邪恶入侵配置"
+                // "暴走雪人配置"
+            ]
         },
         {
-            "name": "创意庭院",
+            "name": "创意庭院（没有做完不要开启）",
             "entry": "创意庭院_前置检查"
         },
         {
-            "name": "dbug",
-            "entry": "巨人西部_种植仙人掌_选择仙人掌"
+            "name": "dbug（不要开启）",
+            "entry": "巨人危机_西部_使用仙人掌"
         },
         {
             "name": "日志清理",
@@ -120,41 +120,57 @@
             "description": "清理多余的日志,节省空间"
         },
         {
-            "name": "埃及第一关刷金币",
+            "name": "埃及第一关刷金币（没有做完不要开启）",
             "entry": "埃及第一关刷金币_前置检查"
         }
     ],
     "option": {
-        // "期望植物碎片": {
-        //     "type": "select",
-        //     "cases": [
-        //         {
-        //             "name": "二阶猕猴桃",
-        //             "pipeline_override": {}
-        //         }
-        //     ]
-        // },
-        // "巨人危机配置": {
-        //     "type": "select",
-        //     "description": "你要保证你的box含有这个植物！",
-        //     "cases": [
-        //         {
-        //             "name": "二阶仙人掌",
-        //             "pipeline_override": {}
-        //         }
-        //     ]
-        // },
-        // "邪恶入侵配置": {
-        //     "type": "select",
-        //     "description": "你要保证你的box含有这个植物！",
-        //     "default_case": "二阶猕猴桃",
-        //     "cases": [
-        //         {
-        //             "name": "二阶猕猴桃",
-        //             "pipeline_override": {}
-        //         }
-        //     ]
-        // },
+        "选择植物碎片": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "还没弄好",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "巨人危机配置": {
+            "type": "select",
+            "description": "你要保证你有这个植物！",
+            "cases": [
+                {
+                    "name": "二阶仙人掌",
+                    "pipeline_override": {
+                        "巨人_西部": {
+                            "next": [
+                                "巨人危机_西部_使用仙人掌"
+                            ]
+                        },
+                        "巨人_海盗": {
+                            "next": [
+                                "巨人危机_西部_使用仙人掌"
+                            ]
+                        },
+                        "巨人_埃及": {
+                            "next": [
+                                "巨人危机_西部_使用仙人掌"
+                            ]
+                        },
+                    }
+                }
+            ]
+        },
+        "邪恶入侵配置": {
+            "type": "select",
+            "description": "你要保证你有这个植物！",
+            "default_case": "二阶猕猴桃",
+            "cases": [
+                {
+                    "name": "二阶猕猴桃",
+                    "pipeline_override": {}
+                }
+            ]
+        },
         // "暴走雪人配置": {
         //     "type": "select",
         //     "cases": []
@@ -508,20 +524,6 @@
                     }
                 },
                 {
-                    "name": "激光豆",
-                    "pipeline_override": {
-                        "寻找植物_激光豆": {
-                            "enabled": true
-                        },
-                        "放置远程一号位植物1": {
-                            "enabled": true
-                        },
-                        "补种远程一号位植物1": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
                     "name": "苹果迫机炮",
                     "description": "不太建议，这个植物打不过加速的鸡（笑）",
                     "pipeline_override": {
@@ -582,20 +584,6 @@
                     "name": "尖刺秋葵",
                     "pipeline_override": {
                         "寻找植物_尖刺秋葵": {
-                            "enabled": true
-                        },
-                        "放置近战一号位植物1": {
-                            "enabled": true
-                        },
-                        "补种近战一号位植物1": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "大喷菇",
-                    "pipeline_override": {
-                        "寻找植物_大喷菇": {
                             "enabled": true
                         },
                         "放置近战一号位植物1": {
