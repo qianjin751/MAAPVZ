@@ -1,5 +1,5 @@
 {
-    // 这是一个示例，展示如何在 pipeline 中使用自定义动作 "OffsetClick"。你需要根据实际情况修改节点名称、识别方式、模板路径和动作参数。 
+    // 这是一个示例，展示如何在 pipeline 中使用自定义动作 "OffsetClick_y"。你需要根据实际情况修改节点名称、识别方式、模板路径和动作参数。 
     // {
     //     "碎片挑战_选择多余植物进行占位": {
     //         "action": "Custom",
@@ -22,13 +22,14 @@
     //     max_hits: 触发重置的点击次数（默认 3）
     //     n: 重置时 y 坐标的变化量，新 y = initial_y - n（默认 100，n>0 表示减少 y）
     //  """
+    //仙人掌
     "碎片挑战_选择多余植物进行占位": {
         "recognition": "DirectHit",
         "max_hit": 16,
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "OffsetClick",
+                "custom_action": "OffsetClick_y",
                 "custom_action_param": {
                     "initial_x": 193,
                     "initial_y": 437,
@@ -49,7 +50,7 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "OffsetClick",
+                "custom_action": "OffsetClick_y",
                 "custom_action_param": {
                     "initial_x": 467,
                     "initial_y": 168,
@@ -72,12 +73,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "OffsetClick",
+                "custom_action": "OffsetClick_y",
                 "custom_action_param": {
                     "initial_x": 467,
                     "initial_y": 168,
                     "dx": 90,
-                    "max_hits": 7,
+                    "max_hits": 4,
                     "n": -110
                 },
                 "target": true
@@ -86,8 +87,55 @@
         "pre_delay": 100,
         "post_delay": 100,
         "next": [
-            "巨人西部_种植仙人掌_选择仙人掌",
+            "巨人海盗_种植仙人掌_选择仙人掌",
+            "碎片挑战_二倍速"
+        ]
+    },
+    "巨人埃及_种植仙人掌": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_y",
+                "custom_action_param": {
+                    "initial_x": 467,
+                    "initial_y": 168,
+                    "dx": 90,
+                    "max_hits": 3,
+                    "n": -110
+                },
+                "target": true
+            }
+        },
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": [
+            "巨人埃及_种植仙人掌_选择仙人掌",
+            "碎片挑战_二倍速"
+        ]
+    },
+    //仙人掌
+    //猕猴桃
+    "邪恶入侵_种植猕猴桃2": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_y",
+                "custom_action_param": {
+                    "initial_x": 560,
+                    "initial_y": 378,
+                    "dx": 90,
+                    "max_hits": 6,
+                    "n": -110
+                },
+                "target": true
+            }
+        },
+        "next": [
+            "邪恶入侵_种植猕猴桃_选择猕猴桃",
             "碎片挑战_二倍速"
         ]
     }
+    //猕猴桃
 }
