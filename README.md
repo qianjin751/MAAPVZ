@@ -1,4 +1,8 @@
-# 🌻 MaaPVZ - 植物大战僵尸2自动化脚本
+<div align="center">
+  <img src="./docs/imgs/PVZAA.png" alt="MaaPVZ" width="128">
+</div>
+
+# MaaPVZ - 植物大战僵尸2自动化脚本
 
 基于图像识别技术的《植物大战僵尸2》自动化工具。
 

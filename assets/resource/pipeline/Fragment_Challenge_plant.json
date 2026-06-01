@@ -2133,7 +2133,7 @@
             69
         ],
         "action": "Click",
-        "timeout": 30000,
+        "timeout": 50000,
         "next": [
             "碎片挑战_下一波",
             "碎片挑战_失败",
@@ -2144,7 +2144,7 @@
     },
     "碎片挑战_下一波": {
         "recognition": "TemplateMatch",
-        "timeout": 30000,
+        "timeout": 50000,
         "template": [
             "下一波.png"
         ],
