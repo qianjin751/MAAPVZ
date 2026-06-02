@@ -199,3 +199,62 @@ class OffsetClickSwapped(CustomAction):
             state["hit_count"] += 1
 
         return CustomAction.RunResult(success=True)
+    
+@AgentServer.custom_action("ResetOffset")
+class ResetOffset(CustomAction):
+    """
+    重置指定节点的偏移状态（使其下次点击时从初始值重新开始）
+    参数（custom_action_param）可选：
+    {
+        "node_name": "节点名"   // 如果不提供，则使用当前执行此动作的节点名
+    }
+    """
+    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+        # 初始化参数字典
+        param = {}
+        # 如果有自定义动作参数，则解析JSON格式的参数
+        if argv.custom_action_param:
+            param = json.loads(argv.custom_action_param)
+        
+        # 确定要重置的节点名称
+        target_node = param.get("node_name")
+        if target_node is None:
+            target_node = get_node_name_from_argv(argv)
+        
+        if target_node is None:
+            print("[ResetOffset] 错误：无法确定要重置的节点名")
+            return CustomAction.RunResult(success=False)
+        
+        # 删除该节点在两种偏移状态中可能存在的记录
+        key_y = f"OffsetState_{target_node}"
+        key_x = f"OffsetSwapped_{target_node}"
+        
+        removed_y = _offset_state_map.pop(key_y, None) is not None
+        removed_x = _offset_state_map.pop(key_x, None) is not None
+        
+        if removed_y or removed_x:
+            print(f"[ResetOffset] 已重置节点 '{target_node}' 的状态")
+        else:
+            print(f"[ResetOffset] 节点 '{target_node}' 没有偏移状态记录，无需重置")
+        
+        return CustomAction.RunResult(success=True)
+
+
+@AgentServer.custom_action("ResetAllOffsets")
+class ResetAllOffsets(CustomAction):
+    """
+    重置所有节点的偏移状态（清空整个状态字典）
+    不需要任何参数
+    """
+    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+        # 声明使用全局变量 _offset_state_map
+        global _offset_state_map
+        # 获取当前状态字典中的记录数量
+        count = len(_offset_state_map)
+        # 清空整个状态字典
+        _offset_state_map.clear()
+        # 打印已清空的记录数量信息
+        print(f"[ResetAllOffsets] 已清空所有偏移状态，共 {count} 条记录")
+        # 返回执行成功的结果
+        return CustomAction.RunResult(success=True)
+    

@@ -3,8 +3,9 @@
         "timeout": 10000,
         "action": "DoNothing",
         "next": [
+            "埃及1_进入关卡",
+            "点击星系",
             "[JumpBack]返回主界面",
-            "点击星系"
         ]
     },
     "点击星系": {
@@ -97,9 +98,10 @@
             "世界_开始战斗.png"
         ],
         "action": "Click",
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": 4000,
         "next": [
-            "埃及1_清空植物栏"
+            "埃及1_清空植物栏",
+            "埃及1_开始战斗"
         ]
     },
     "埃及1_清空植物栏": {
@@ -152,6 +154,7 @@
             "埃及1_原始向日葵",
             "埃及1_仙人掌",
             "埃及1_向日葵",
+            "埃及1_检索阵容完整性",
             "埃及1_滑动"
         ]
     },
@@ -250,7 +253,7 @@
             "埃及1_完整的植物阵容.png"
         ],
         "threshold": [
-            0.9
+            0.6
         ],
         "roi": [
             2,
@@ -275,13 +278,248 @@
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
+        "next": [
+            "埃及1_进入到局内"
+        ]
     },
-    "埃及1_进入到局内": {},
-    "埃及1_检查向日葵冷却": {},
-    "埃及1_检查向日葵冷却_点击": {},
-    "埃及1_检查原始向日葵冷却": {},
-    "埃及1_检查原始向日葵冷却_点击": {},
-    "埃及1_检查仙人掌冷却": {},
-    "埃及1_检查仙人掌冷却_点击": {},
-    "埃及1_滑一下全屏领取金币": {}
+    "埃及1_进入到局内": {
+        "recognition": "OCR",
+        "expected": [
+            "第1天"
+        ],
+        "threshold": 0.3,
+        "roi": [
+            823,
+            75,
+            77,
+            41
+        ],
+        "next": [
+            "埃及1_检查仙人掌冷却并点击",
+            "埃及1_检查向日葵冷却并点击",
+            "埃及1_检查原始向日葵冷却并点击"
+        ]
+    },
+    "埃及1_滑一下全屏领取金币": {
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "contact": 0,
+                "begin": [
+                    1197,
+                    123
+                ],
+                "end": [
+                    1200,
+                    615
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 1,
+                "begin": [
+                    1098,
+                    113
+                ],
+                "end": [
+                    1007,
+                    613
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 2,
+                "begin": [
+                    1007,
+                    613
+                ],
+                "end": [
+                    1018,
+                    625
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 3,
+                "begin": [
+                    926,
+                    113
+                ],
+                "end": [
+                    923,
+                    621
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 4,
+                "begin": [
+                    831,
+                    107
+                ],
+                "end": [
+                    824,
+                    617
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 5,
+                "begin": [
+                    738,
+                    106
+                ],
+                "end": [
+                    737,
+                    610
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 6,
+                "begin": [
+                    650,
+                    113
+                ],
+                "end": [
+                    650,
+                    622
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 7,
+                "begin": [
+                    556,
+                    115
+                ],
+                "end": [
+                    560,
+                    614
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            },
+            {
+                "contact": 8,
+                "begin": [
+                    458,
+                    122
+                ],
+                "end": [
+                    464,
+                    617
+                ],
+                "duration": 100,
+                "pressure": 1,
+                "starting": 0
+            }
+        ],
+        "repeat": 4,
+        "next": [
+            "埃及1_胜利",
+            "埃及1_检查仙人掌冷却并点击",
+            "埃及1_检查向日葵冷却并点击",
+            "埃及1_检查原始向日葵冷却并点击",
+        ]
+    },
+    "埃及1_检查仙人掌冷却并点击": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "双人对决_植物_仙人掌_新版.png"
+        ],
+        "method": 10001,
+        "roi": [
+            0,
+            210,
+            133,
+            89
+        ],
+        "threshold": [
+            0.7
+        ],
+        "action": "Click",
+        "next": [
+            "埃及1_检查仙人掌冷却并点击_种植"
+        ]
+    },
+    "埃及1_检查向日葵冷却并点击": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "选择卡牌_向日葵.png"
+        ],
+        "action": "Click",
+        "threshold": [
+            0.7
+        ],
+        "roi": [
+            3,
+            64,
+            243,
+            144
+        ],
+        "next": [
+            "埃及1_检查向日葵冷却并点击_种植"
+        ]
+    },
+    "埃及1_检查原始向日葵冷却并点击": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "选择卡牌_原始向日葵.png"
+        ],
+        "method": 10001,
+        "action": "Click",
+        "threshold": [
+            0.7
+        ],
+        "roi": [
+            4,
+            145,
+            136,
+            99
+        ],
+        "next": [
+            "埃及1_检查原始向日葵冷却并点击_种植"
+        ]
+    },
+    "埃及1_胜利": {
+        "recognition": "OCR",
+        "expected": [
+            "继续"
+        ],
+        "roi": [
+            583,
+            621,
+            106,
+            46
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "埃及1_重置所有偏移"
+        ]
+    },
+    "埃及1_重开": {
+        "post_wait_freezes": 1000,
+        "next": [
+            "埃及1_进入关卡",
+            "埃及1_胜利",
+            "埃及1_重开"
+        ]
+    }
 }
