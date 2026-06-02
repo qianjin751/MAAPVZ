@@ -1,0 +1,35 @@
+{
+    //     如何使用
+    // 1. 在 Pipeline 中调用重置动作
+    // 你可以在任何需要重置的地方插入一个节点，例如：
+    // json
+    // {
+    //     "重置偏移状态": {
+    //         "recognition": "DirectHit",
+    //         "action": "Custom",
+    //         "custom_action": "ResetOffset",
+    //         "custom_action_param": {
+    //             "node_name": "我的扫描按钮"   // 可选，不填则重置当前节点
+    //         },
+    //         "next": ["继续执行"]
+    //     }
+    // }
+    // 或者重置所有状态：
+    // json
+    // {
+    //     "重置所有偏移": {
+    //         "recognition": "DirectHit",
+    //         "action": "Custom",
+    //         "custom_action": "ResetAllOffsets",
+    //         "next": ["开始新一轮扫描"]
+    //     }
+    // }
+    "埃及1_重置所有偏移": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "ResetAllOffsets",
+        "next": [
+            "埃及1_重开"
+        ]
+    }
+}

@@ -1,7 +1,7 @@
 # MaaPVZ - 植物大战僵尸2自动化脚本
 
 <div align="center">
-  <img src="./docs/imgs/PVZAA.png" alt="MaaPVZ" width="512">
+  <img src="./docs/imgs/PVZAA.png" alt="MaaPVZ" width="400">
 </div>
 
 基于图像识别技术的《植物大战僵尸2》自动化工具。
@@ -20,6 +20,7 @@
 
 - [x] 碎片挑战（巨人危机、邪恶入侵，支持自定义植物配置）
 - [x] 双人对决（支持自选/帮选模式，僵尸释放时机及强化buff配置）
+- [x] 刷胜场/金币
 - [ ] 创意庭院（开发中...）
 
 ## 📋 前置条件

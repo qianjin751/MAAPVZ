@@ -1,0 +1,100 @@
+{
+    // """
+    // 交换版偏移点击：每次点击 y 增加 dy，每 max_hits 次后重置并改变 x 坐标
+    // 参数（JSON 字符串）：
+    //     initial_x: 初始 x 坐标（必需）
+    //     initial_y: 初始 y 坐标（必需）
+    //     dy: 每次点击后 y 坐标的增加量（默认 50）
+    //     max_hits: 触发重置的点击次数（默认 3）
+    //     n: 重置时 x 坐标的变化量，新 x = initial_x - n（默认 100，n>0 表示 x 减少）
+    // """
+    //示例：
+    //     {
+    //     "某节点": {
+    //         "recognition": "DirectHit",
+    //         "action": {
+    //             "type": "Custom",
+    //             "param": {
+    //                 "custom_action": "OffsetClick_x",
+    //                 "custom_action_param": {
+    //                     "initial_x": 193,
+    //                     "initial_y": 437,
+    //                     "dy": 119,
+    //                     "max_hits": 5,
+    //                     "n": 286
+    //                 },
+    //                 "target": true
+    //             }
+    //         },
+    //         "next": ["某节点"]
+    //     }
+    // }
+    "埃及1_检查仙人掌冷却并点击_种植": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_x",
+                "custom_action_param": {
+                    "initial_x": 467,
+                    "initial_y": 168,
+                    "dy": 110,
+                    "max_hits": 6,
+                    "n": 0
+                },
+                "target": true
+            }
+        },
+        "next": [
+            "埃及1_检查向日葵冷却并点击",
+            "埃及1_检查原始向日葵冷却并点击",
+            "埃及1_滑一下全屏领取金币"
+        ],
+        "pre_delay": 100,
+        "post_delay": 300,
+    },
+    "埃及1_检查向日葵冷却并点击_种植": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_x",
+                "custom_action_param": {
+                    "initial_x": 531,
+                    "initial_y": 168,
+                    "dy": 90,
+                    "max_hits": 5,
+                    "n": -100
+                },
+                "target": true
+            }
+        },
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "埃及1_滑一下全屏领取金币"
+        ],
+    },
+    "埃及1_检查原始向日葵冷却并点击_种植": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_x",
+                "custom_action_param": {
+                    "initial_x": 895,
+                    "initial_y": 168,
+                    "dy": 90,
+                    "max_hits": 6,
+                    "n": -100
+                },
+                "target": true
+            }
+        },
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "埃及1_滑一下全屏领取金币"
+        ],
+    },
+}
