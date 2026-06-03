@@ -1,1 +1,83 @@
-{}
+{
+    "检查序列_前置检查": {
+        "timeout": 10000,
+        "action": "DoNothing",
+        "next": [
+            "检查序列_点击植物",
+            "[JumpBack]检查当前是否在主界面"
+        ]
+    },
+    "检查序列_点击植物": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            875,
+            584,
+            154,
+            132
+        ],
+        "template": [
+            "植物.png"
+        ],
+        "action": "Click",
+        "next": [
+            "检查序列_点击神器强化",
+            "检查序列_点击植物"
+        ]
+    },
+    "检查序列_点击神器强化": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            797,
+            423,
+            186,
+            195
+        ],
+        "action": "Click",
+        "template": [
+            "神器强化.png"
+        ],
+        "next": [
+            "检查序列_点击进化神器",
+            "检查序列_滑动"
+        ]
+    },
+    "检查序列_点击进化神器": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "检查序列_进化神器1.png",
+            "检查序列_进化神器2.png"
+        ],
+        "action": "Click",
+        "next": []
+    },
+    "检查序列_滑动": {
+        "recognition": "OCR",
+        "expected": [
+            "神器强化"
+        ],
+        "roi": [
+            524,
+            43,
+            234,
+            58
+        ],
+        "action": "Swipe",
+        "begin": [
+            928,
+            618,
+            3,
+            5
+        ],
+        "end": [
+            217,
+            620,
+            2,
+            5
+        ],
+        "end_hold": 500,
+        "next": [
+            "检查序列_点击进化神器",
+            "检查序列_滑动"
+        ]
+    }
+}

@@ -1,4 +1,5 @@
 import sys
+import time
 from pathlib import Path
 from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
@@ -6,12 +7,15 @@ from maa.context import Context
 import json
 from PIL import Image
 
+# 智能获取根目录（兼容开发与 PyInstaller 打包）
+if getattr(sys, 'frozen', False):
+    ROOT_DIR = Path(sys.executable).parent
+else:
+    ROOT_DIR = Path(__file__).parent.parent
+
 _offset_state_map = {}
-
-# 植物计数状态：{ "植物名称": { "level": int, "counts": {1: int, 2: int, 3: int, 4: int} } }
 _plant_states = {}
-
-SCREENSHOT_DIR = Path("./screenshots")
+SCREENSHOT_DIR = ROOT_DIR / "screenshots"
 
 
 def _get_plant_state(name: str) -> dict:
@@ -20,6 +24,7 @@ def _get_plant_state(name: str) -> dict:
         _plant_states[name] = {
             "level": 1,
             "counts": {1: 0, 2: 0, 3: 0, 4: 0},
+            "run_counts": {1: 0, 2: 0, 3: 0, 4: 0},   # 各阶运行次数（用于自动递增点击次数）
         }
     return _plant_states[name]
 
@@ -42,9 +47,8 @@ class CleanupMaafwBakLogs(CustomAction):
 
 
 def cleanup_maafw_bak_logs(context=None, keep_count: int = 3):
-    root = Path(__file__).parent.parent
     try:
-        debug_folder = root / "debug"
+        debug_folder = ROOT_DIR / "debug"
         if not debug_folder.exists():
             print("[日志清理] debug文件夹不存在")
             return
@@ -267,15 +271,9 @@ class ResetAllOffsets(CustomAction):
         return CustomAction.RunResult(success=True)
 
 
+# ---------- 点击并计数（支持自动递增、ROI、延时） ----------
 @AgentServer.custom_action("ClickAndCount")
 class ClickAndCount(CustomAction):
-    """
-    识别模板并点击，同时对指定植物的当前阶数点击次数+1。
-    参数：
-        template: 模板图片路径（必需）
-        name: 植物名称，用于区分不同植物（必需）
-        level: （可选）指定点击对应的阶数，默认为状态中记录的当前阶数
-    """
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         param = {}
         if argv.custom_action_param:
@@ -288,6 +286,10 @@ class ClickAndCount(CustomAction):
         template = param.get("template", "")
         plant_name = param.get("name", "")
         specified_level = param.get("level", None)
+        threshold = param.get("threshold", 0.7)
+        roi = param.get("roi", None)           # 可选 [x, y, w, h]
+        delay = param.get("delay", 0)          # 每次点击后等待 ms
+        repeat_param = param.get("repeat", None)  # None=自动递增，数字=手动固定
 
         if not template or not plant_name:
             print("[ClickAndCount] 缺少 template 或 name 参数")
@@ -295,36 +297,84 @@ class ClickAndCount(CustomAction):
 
         state = _get_plant_state(plant_name)
         level = specified_level if specified_level is not None else state["level"]
-
         if level not in (1, 2, 3, 4):
             print(f"[ClickAndCount] 无效的阶数 {level}，仅支持 1~4")
             return CustomAction.RunResult(success=False)
 
+        # 确定本次点击次数
+        if repeat_param is not None:
+            actual_repeat = repeat_param
+            if actual_repeat < 1:
+                print("[ClickAndCount] repeat 必须 >= 1")
+                return CustomAction.RunResult(success=False)
+            mode_str = f"手动({actual_repeat})"
+        else:
+            # 自动模式：运行次数 +1 作为点击次数
+            run_count = state["run_counts"][level] + 1
+            state["run_counts"][level] = run_count
+            actual_repeat = run_count
+            mode_str = f"自动(第{run_count}次运行)"
+
+        # 调试信息
+        try:
+            res = context.tasker.controller.resolution
+            print(f"[ClickAndCount] 当前截图分辨率: {res[0]}x{res[1]}")
+        except:
+            pass
+
+        roi_str = f", roi={roi}" if roi else ""
+        print(f"[ClickAndCount] 准备识别: 植物={plant_name}, 模板={template}, 阶数={level}, 阈值={threshold}, {mode_str}, 实际点击={actual_repeat}次, 延迟={delay}ms{roi_str}")
+
+        # 构建识别参数（v1 扁平格式）
+        recognition_param = {
+            "recognition": "TemplateMatch",
+            "template": template,
+            "threshold": threshold,
+        }
+        if roi is not None:
+            recognition_param["roi"] = roi
+
         reco = context.run_recognition(
             "click_and_count_recog",
             context.tasker.controller.cached_image,
-            {
-                "click_and_count_recog": {
-                    "recognition": "TemplateMatch",
-                    "param": {"template": template}
-                }
-            }
+            {"click_and_count_recog": recognition_param}
         )
-        if reco is None or not reco.hit:
-            print(f"[ClickAndCount] 未识别到 {plant_name} 的模板")
+
+        if reco is None:
+            print("[ClickAndCount] 识别返回 None")
             return CustomAction.RunResult(success=False)
 
+        print(f"[ClickAndCount] 识别完成，命中状态: {reco.hit}")
+        if hasattr(reco, 'results') and reco.results:
+            print(f"[ClickAndCount] 候选结果数量: {len(reco.results)}")
+            for idx, res in enumerate(reco.results[:5]):
+                print(f"  候选{idx}: box={res.box}, score={res.score:.4f}")
+        elif reco.best_result:
+            print(f"[ClickAndCount] 最佳匹配: score={reco.best_result.score:.3f}, box={reco.best_result.box}")
+        else:
+            print("[ClickAndCount] 未获取到任何候选结果（请检查资源包是否加载）")
+
+        if not reco.hit:
+            return CustomAction.RunResult(success=False)
+
+        # 点击中心点
         box = reco.best_result.box
         x = box[0] + box[2] // 2
         y = box[1] + box[3] // 2
 
-        context.tasker.controller.post_click(x, y).wait()
+        # 执行 actual_repeat 次点击
+        for i in range(actual_repeat):
+            print(f"[ClickAndCount] 第 {i+1}/{actual_repeat} 次点击，坐标: ({x}, {y})")
+            context.tasker.controller.post_click(x, y).wait()
+            if delay > 0:
+                time.sleep(delay / 1000.0)
 
-        state["counts"][level] += 1
+        # 更新累计点击次数
+        state["counts"][level] += actual_repeat
         if specified_level is None:
             state["level"] = level
 
-        print(f"[ClickAndCount] 点击 {plant_name} {level}阶，当前该阶次数: {state['counts'][level]}")
+        print(f"[ClickAndCount] 完成 {actual_repeat} 次点击 {plant_name} {level}阶，该阶累计点击: {state['counts'][level]}次")
         return CustomAction.RunResult(success=True)
 
 
@@ -334,8 +384,6 @@ class TakeCountScreenshot(CustomAction):
     根据植物的各阶点击次数生成叠加文件名并保存截图。
     文件夹名：植物名称（参数 name）
     文件名：一阶X次_二阶X次_三阶X次_四阶X次.png
-    参数：
-        name: 植物名称（必需）
     """
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         param = {}
@@ -358,7 +406,6 @@ class TakeCountScreenshot(CustomAction):
             print(f"[TakeCountScreenshot] {plant_name} 尚未点击过，不保存截图")
             return CustomAction.RunResult(success=True)
 
-        # 文件夹名直接使用植物名称
         folder_path = SCREENSHOT_DIR / plant_name
         folder_path.mkdir(parents=True, exist_ok=True)
 
@@ -383,11 +430,11 @@ class TakeCountScreenshot(CustomAction):
 @AgentServer.custom_action("ResetPlantCount")
 class ResetPlantCount(CustomAction):
     """
-    重置所有点击计数状态，清空所有记录。
+    重置所有植物的计数状态（包括点击次数和运行次数）。
     不需要任何参数。
     """
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         count = len(_plant_states)
         _plant_states.clear()
-        print(f"[ResetPlantCount] 已清空所有植物计数器，共 {count} 条记录")
+        print(f"[ResetPlantCount] 已清空所有植物计数器（含运行次数），共 {count} 条记录")
         return CustomAction.RunResult(success=True)

@@ -3,9 +3,8 @@
         "timeout": 10000,
         "action": "DoNothing",
         "next": [
-            "埃及1_进入关卡",
             "点击星系",
-            "[JumpBack]返回主界面",
+            "[JumpBack]返回主界面"
         ]
     },
     "点击星系": {
