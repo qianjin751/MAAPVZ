@@ -40,6 +40,12 @@
 2. 本项目基于 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 驱动，Pipeline 配置存放于 `assets/resource/pipeline/` 目录。
 3. 本项目前端使用了 **[MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)**。
 4. 提交代码前，请配置 Pre-commit Hooks 以确保代码格式规范（参考 `.pre-commit-config.yaml`）。
+5. 版本推送说明
+触发方式说明
+方式 关键词 / 标签 生成的标签格式 发布类型
+推送 commit，消息含 #release #release 或 [release] 测试版‑YYMMDD‑短哈希 预发布
+推送 commit，消息含 #release-stable #release-stable 或 [release-stable] 正式版‑YYMMDD 正式版
+手动推送标签 标签名以 正式版‑ 或 测试版‑ 开头 直接使用推送的标签名 依标签名决定
 
 ## 💬 交流反馈
 
