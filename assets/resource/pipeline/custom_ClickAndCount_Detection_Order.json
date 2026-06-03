@@ -1,0 +1,36 @@
+{
+    // {
+    //     // 点击并计数：识别模板 → 点击 → 对应植物名称的阶数点击次数+1
+    //     "点击向日葵": {
+    //         "action": "Custom",
+    //         "custom_action": "ClickAndCount",             // 自定义动作名
+    //         "custom_action_param": {
+    //             "template": "sunflower_1.png",             // 模板图片路径（相对于 image 文件夹）
+    //             "name": "向日葵",                           // 植物名称，用于区分不同植物的计数状态
+    //             "level": 1                                 // 指定点击的阶数（1~4），可选，不填则使用当前阶数
+    //         }
+    //     },
+    //     // 截图保存：根据各阶点击次数生成叠加文件名，保存到 ./screenshots/植物名称/ 下
+    //     "截图保存": {
+    //         "action": "Custom",
+    //         "custom_action": "TakeCountScreenshot",        // 自定义动作名
+    //         "custom_action_param": {
+    //             "name": "向日葵"                            // 植物名称，需与 ClickAndCount 中的 name 一致
+    //         }
+    //     },
+    //     // 重置所有植物的计数状态，清空全部记录，之后从一阶 0 次重新开始
+    //     "重置": {
+    //         "action": "Custom",
+    //         "custom_action": "ResetPlantCount"             // 无参数，调用即清空所有计数器
+    //     }
+    // }
+    // screenshots/
+    // └── 向日葵/
+    //     └── 一阶1次_二阶0次_三阶0次_四阶0次.png   ← 文件名会随点击更新
+    "点击一阶": {},
+    "点击二阶": {},
+    "点击三阶": {},
+    "点击四阶": {},
+    "截图保存": {},
+    "重置": {}
+}

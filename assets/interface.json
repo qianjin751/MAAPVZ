@@ -30,6 +30,9 @@
             "name": "PVZ_2_国服通用",
             "path": [
                 "./resource"
+            ],
+            "option": [
+                "渠道服"
             ]
         }
     ],
