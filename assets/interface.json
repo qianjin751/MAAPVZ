@@ -114,6 +114,13 @@
             "description": "在血量降低后放植物以及僵尸"
         },
         {
+            "name": "小工具",
+            "entry": "mini_tools",
+            "option": [
+                "选择工具"
+            ]
+        },
+        {
             "name": "日志清理",
             "entry": "cleanup_maafw_bak_logs",
             "option": [
@@ -128,10 +135,129 @@
         },
         {
             "name": "dbug（不要开启）",
-            "entry": "点击一阶"
+            "entry": "序列检查_局内_使用进化神器"
         },
     ],
     "option": {
+        "选择工具": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "进化神器测序列",
+                    "option": [
+                        "点击一阶",
+                        "点击三阶",
+                        "点击四阶"
+                    ],
+                    "pipeline_override": {
+                        "mini_tools": {
+                            "next": [
+                                "选择渠道服"
+                            ]
+                        },
+                        "关闭公告": {
+                            "next": [
+                                "关闭公告",
+                                "检查序列_前置检查"
+                            ]
+                        },
+                        "关闭pvz_4399": {
+                            "enabled": true
+                        },
+                        "关闭pvz_XM": {
+                            "enabled": true
+                        },
+                        "关闭pvz_b服": {
+                            "enabled": true
+                        },
+                        "关闭pvz_荣耀": {
+                            "enabled": true
+                        },
+                        "关闭pvz_vivo": {
+                            "enabled": true
+                        },
+                        "关闭pvz_九游": {
+                            "enabled": true
+                        },
+                        "关闭pvz_OPPO": {
+                            "enabled": true
+                        },
+                        "关闭pvz_好游快报": {
+                            "enabled": true
+                        },
+                        "关闭pvz_百度": {
+                            "enabled": true
+                        },
+                        "关闭pvz_360": {
+                            "enabled": true
+                        },
+                        "关闭pvz_华为": {
+                            "enabled": true
+                        },
+                        "关闭pvz_7723": {
+                            "enabled": true
+                        },
+                        "关闭pvz_官服": {
+                            "enabled": true
+                        },
+                        "关闭pvz_应用宝_qq": {
+                            "enabled": true
+                        },
+                        "关闭pvz_应用宝_微信": {
+                            "enabled": true
+                        }
+                    }
+                },
+            ]
+        },
+        "点击一阶": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes"
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "点击一阶": {
+                            "enabled": false,
+                        }
+                    }
+                }
+            ]
+        },
+        "点击三阶": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes"
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "点击三阶": {
+                            "enabled": false,
+                        }
+                    }
+                }
+            ]
+        },
+        "点击四阶": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes"
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "点击四阶": {
+                            "enabled": false,
+                        }
+                    }
+                }
+            ]
+        },
         "选择植物碎片": {
             "type": "select",
             "cases": [

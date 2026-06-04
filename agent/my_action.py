@@ -271,7 +271,7 @@ class ResetAllOffsets(CustomAction):
         return CustomAction.RunResult(success=True)
 
 
-# ---------- 点击并计数（支持自动递增、ROI、延时） ----------
+# ---------- 点击并计数（支持自动递增、ROI、延时、自动重置） ----------
 @AgentServer.custom_action("ClickAndCount")
 class ClickAndCount(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
@@ -290,6 +290,7 @@ class ClickAndCount(CustomAction):
         roi = param.get("roi", None)           # 可选 [x, y, w, h]
         delay = param.get("delay", 0)          # 每次点击后等待 ms
         repeat_param = param.get("repeat", None)  # None=自动递增，数字=手动固定
+        reset_after = param.get("reset_after", 0) # 自动重置阈值，0 表示不重置
 
         if not template or not plant_name:
             print("[ClickAndCount] 缺少 template 或 name 参数")
@@ -323,7 +324,8 @@ class ClickAndCount(CustomAction):
             pass
 
         roi_str = f", roi={roi}" if roi else ""
-        print(f"[ClickAndCount] 准备识别: 植物={plant_name}, 模板={template}, 阶数={level}, 阈值={threshold}, {mode_str}, 实际点击={actual_repeat}次, 延迟={delay}ms{roi_str}")
+        reset_str = f", 重置阈值={reset_after}" if reset_after > 0 else ""
+        print(f"[ClickAndCount] 准备识别: 植物={plant_name}, 模板={template}, 阶数={level}, 阈值={threshold}, {mode_str}, 实际点击={actual_repeat}次, 延迟={delay}ms{roi_str}{reset_str}")
 
         # 构建识别参数（v1 扁平格式）
         recognition_param = {
@@ -375,6 +377,12 @@ class ClickAndCount(CustomAction):
             state["level"] = level
 
         print(f"[ClickAndCount] 完成 {actual_repeat} 次点击 {plant_name} {level}阶，该阶累计点击: {state['counts'][level]}次")
+
+        # 自动模式下的重置逻辑
+        if repeat_param is None and reset_after > 0 and state["run_counts"][level] >= reset_after:
+            state["run_counts"][level] = 0
+            print(f"[ClickAndCount] {plant_name} {level}阶运行次数已达 {reset_after}，已重置为 0（下次从 1 开始）")
+
         return CustomAction.RunResult(success=True)
 
 

@@ -1,13 +1,14 @@
 {
     // ======================== 点击并计数节点 ========================
     // 参数（均在 custom_action_param 中）：
-    //   template  : 模板图片路径（必需）
-    //   name      : 植物名称（必需）
-    //   level     : 点击阶数（1~4），可选，默认使用当前阶数
-    //   threshold : 模板匹配阈值（0~1），可选，默认 0.7
-    //   roi       : 限定识别区域 [x, y, w, h]，可选
-    //   delay     : 每次点击后等待毫秒数（含最后一次），可选，默认 0
-    //   repeat    : 不填则自动递增（第1次点1下，第2次点2下…），填数字则固定次数
+    //   template    : 模板图片路径（必需）
+    //   name        : 植物名称（必需）
+    //   level       : 点击阶数（1~4），可选，默认使用当前阶数
+    //   threshold   : 模板匹配阈值（0~1），可选，默认 0.7
+    //   roi         : 限定识别区域 [x, y, w, h]，可选
+    //   delay       : 每次点击后等待毫秒数（含最后一次），可选，默认 0
+    //   repeat      : 不填则自动递增（第1次点1下，第2次点2下…），填数字则固定次数
+    //   reset_after : 自动重置阈值，运行次数达到该值后重置为 1，可选，0 表示不重置
     "点击一阶": {
         "action": "Custom",
         "custom_action": "ClickAndCount",
@@ -21,28 +22,7 @@
                 65,
                 72
             ],
-            "delay": 2000 // 统一间隔 2 秒
-        },
-        "next": [
-            "点击二阶",
-            "点击三阶",
-            "点击四阶"
-        ]
-    },
-    "点击二阶": {
-        "action": "Custom",
-        "custom_action": "ClickAndCount",
-        "custom_action_param": {
-            "template": "神器二阶.png",
-            "name": "进化神器序列",
-            "level": 2,
-            "roi": [
-                695,
-                349,
-                60,
-                64
-            ],
-            "delay": 2000
+            "delay": 500,
         },
         "next": [
             "点击三阶",
@@ -62,7 +42,8 @@
                 60,
                 63
             ],
-            "delay": 2000
+            "delay": 500,
+            // "reset_after": 3
         },
         "next": [
             "点击四阶"
@@ -82,20 +63,44 @@
                 61,
                 63
             ],
-            "delay": 2000
+            "delay": 500,
+            // "reset_after": 3
         },
         "next": [
-            "点击一阶"
-        ] // 保持循环
+            "检查序列_返回主界面"
+        ]
     },
-    // ======================== 截图保存节点 ========================
-    // 路径：screenshots/植物名称/一阶X次_二阶X次_三阶X次_四阶X次.png
+    "序列检查_查找植物_寻找多余植物进行占位": {
+        "recognition": "DirectHit",
+        "max_hit": 16,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_y",
+                "custom_action_param": {
+                    "initial_x": 193,
+                    "initial_y": 437,
+                    "dx": 119,
+                    "max_hits": 6,
+                    "n": -100
+                },
+                "target": true
+            }
+        },
+        "next": [
+            "序列检查_查找植物_寻找多余植物进行占位",
+            "序列检查_切换进化神器"
+        ]
+    },
     "截图保存": {
         "action": "Custom",
         "custom_action": "TakeCountScreenshot",
         "custom_action_param": {
             "name": "进化神器序列"
-        }
+        },
+        "next": [
+            "序列检查_局内_重启游戏"
+        ]
     },
     // ======================== 重置计数器节点 ========================
     // 清空所有点击次数及运行次数，下次从第1次开始递增
