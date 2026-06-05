@@ -14,13 +14,17 @@
 - [x] 每日签到
 - [x] 每日50钻（需拥有免广告卡）
 - [x] 植物探险
+- [x] 碎片挑战（巨人危机、邪恶入侵，支持自定义植物配置）
+
+### 🔧工具类
+
+- [x] 小工具（测定向序列）
 - [x] 日志清理
+- [x] 刷胜场/金币
 
 ### ⚔️ 战斗类
 
-- [x] 碎片挑战（巨人危机、邪恶入侵，支持自定义植物配置）
 - [x] 双人对决（支持自选/帮选模式，僵尸释放时机及强化buff配置）
-- [x] 刷胜场/金币
 - [ ] 创意庭院（开发中...）
 
 ## 📋 前置条件
@@ -40,6 +44,12 @@
 2. 本项目基于 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 驱动，Pipeline 配置存放于 `assets/resource/pipeline/` 目录。
 3. 本项目前端使用了 **[MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)**。
 4. 提交代码前，请配置 Pre-commit Hooks 以确保代码格式规范（参考 `.pre-commit-config.yaml`）。
+5. 版本推送说明
+触发方式说明
+方式 关键词 / 标签 生成的标签格式 发布类型
+推送 commit，消息含 #release #release 或 [release] 测试版‑YYMMDD‑短哈希 预发布
+推送 commit，消息含 #release-stable #release-stable 或 [release-stable] 正式版‑YYMMDD 正式版
+手动推送标签 标签名以 正式版‑ 或 测试版‑ 开头 直接使用推送的标签名 依标签名决定
 
 ## 💬 交流反馈
 

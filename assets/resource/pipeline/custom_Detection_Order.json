@@ -1,0 +1,160 @@
+{
+    // ======================== 点击并计数节点 ========================
+    // 参数（均在 custom_action_param 中）：
+    //   template    : 模板图片路径（必需）
+    //   name        : 植物名称（必需）
+    //   level       : 点击阶数（1~4），可选，默认使用当前阶数
+    //   threshold   : 模板匹配阈值（0~1），可选，默认 0.7
+    //   roi         : 限定识别区域 [x, y, w, h]，可选
+    //   delay       : 每次点击后等待毫秒数（含最后一次），可选，默认 0
+    //   repeat      : 不填则自动递增（第1次点1下，第2次点2下…），填数字则固定次数
+    //   reset_after : 自动重置阈值，运行次数达到该值后重置为 1，可选，0 表示不重置
+    "点击一阶": {
+        "action": "Custom",
+        "custom_action": "ClickAndCount",
+        "custom_action_param": {
+            "template": "神器一阶.png",
+            "level": 1,
+            "roi": [
+                630,
+                345,
+                65,
+                72
+            ],
+            "delay": 500,
+        },
+        "next": [
+            "点击三阶",
+            "点击四阶",
+            "检查序列_返回主界面"
+        ]
+    },
+    "点击三阶": {
+        "action": "Custom",
+        "custom_action": "ClickAndCount",
+        "custom_action_param": {
+            "template": "神器三阶.png",
+            "level": 3,
+            "roi": [
+                755,
+                352,
+                60,
+                63
+            ],
+            "delay": 500
+        },
+        "next": [
+            "点击四阶",
+            "检查序列_返回主界面"
+        ]
+    },
+    "点击四阶": {
+        "action": "Custom",
+        "custom_action": "ClickAndCount",
+        "custom_action_param": {
+            "template": "神器四阶.png",
+            "level": 4,
+            "threshold": 0.9,
+            "roi": [
+                818,
+                350,
+                61,
+                63
+            ],
+            "delay": 500
+        },
+        "next": [
+            "检查序列_返回主界面"
+        ]
+    },
+    "序列检查_查找植物_寻找多余植物进行占位": {
+        "recognition": "DirectHit",
+        "max_hit": 16,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_y",
+                "custom_action_param": {
+                    "initial_x": 193,
+                    "initial_y": 437,
+                    "dx": 119,
+                    "max_hits": 6,
+                    "n": -100
+                },
+                "target": true
+            }
+        },
+        "next": [
+            "序列检查_查找植物_寻找多余植物进行占位",
+            "序列检查_切换进化神器"
+        ]
+    },
+    "截图保存": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "进化神器序列"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追1": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第一关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追2": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第二关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追3": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第三关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追4": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第四关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    // ======================== 重置计数器节点 ========================
+    // 清空所有点击次数及运行次数，下次从第1次开始递增
+    "重置": {
+        "action": "Custom",
+        "custom_action": "ResetPlantCount",
+        "max_hit": 1,
+        "next": [
+            "检查序列_点击植物",
+            "检查序列_点击神器强化"
+        ]
+    },
+    "重置截图次数": {
+        "action": "Custom",
+        "custom_action": "ResetCounts",
+        "next": [
+            "序列检查_局内_重启游戏"
+        ]
+    }
+}

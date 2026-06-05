@@ -20,28 +20,53 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+
+      - name: Check for release keyword
+        id: check_keyword
+        if: github.event_name == 'push'
+        run: |
+          # 只检查第一行，避免 PR 合并时带入描述
+          FIRST_LINE=$(echo "${{ github.event.head_commit.message }}" | head -n1)
+          if echo "$FIRST_LINE" | grep -qE "\[release-stable\]|#release-stable"; then
+            echo "release_type=stable" >> $GITHUB_OUTPUT
+          elif echo "$FIRST_LINE" | grep -qE "\[release\]|#release"; then
+            echo "release_type=test" >> $GITHUB_OUTPUT
+          else
+            echo "release_type=none" >> $GITHUB_OUTPUT
+          fi
+
       - id: set_tag
         run: |
-          is_release=${{ startsWith(github.ref, 'refs/tags/v') }}
-          tag=$(git describe --tags --match "v*" ${{ github.ref }} || true)
-          if [[ $tag != v* ]]; then
-            tag=$(curl -sX GET "https://api.github.com/repos/${{ github.repository }}/releases/latest" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | awk '/tag_name/{print $4}' FS='["]')
-            if [[ $tag != v* ]]; then
-              tag="v0.0.0"
+          # 判断是否为标签推送（支持 v*, 正式版*, 测试版*）
+          is_release=${{ startsWith(github.ref, 'refs/tags/v') || startsWith(github.ref, 'refs/tags/正式版') || startsWith(github.ref, 'refs/tags/测试版') }}
+
+          if $is_release; then
+            # 推送的是标签，直接使用标签名
+            tag="${GITHUB_REF#refs/tags/}"
+          else
+            # 非标签触发：检查关键词
+            RELEASE_TYPE="${{ steps.check_keyword.outputs.release_type }}"
+            short_hash=$(git rev-parse --short HEAD | tr 'a-z' 'A-Z')
+            if [[ "$RELEASE_TYPE" == "stable" ]]; then
+              is_release=true
+              is_prerelease=false
+              tag="正式版-$(date +%y%m%d)"
+            elif [[ "$RELEASE_TYPE" == "test" ]]; then
+              is_release=true
+              is_prerelease=true
+              tag="测试版-$(date +%y%m%d)-${short_hash}"
+            else
+              # 无关键词：生成 CI 标记但不会发布
+              tag="ci-$(date +%y%m%d)-${short_hash}"
             fi
-            tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
           fi
 
-          if ! $($is_release) ; then
-            prefix=${tag%-*-*}
-            suffix=${tag#$prefix-}
-            tag="$prefix-ci.$suffix"
-          fi
-
-          is_prerelease=false
-          if [[ $tag =~ .*alpha.* || $tag =~ .*beta.* || $tag =~ .*rc.* || $tag =~ .*dev.* || $tag =~ .*-ci.* ]]; then
-            is_prerelease=true
-            echo "This is a pre-release version"
+          # 如果 is_prerelease 尚未设置，按标签名自动判断
+          if [[ -z "$is_prerelease" ]]; then
+            is_prerelease=false
+            if [[ $tag =~ 测试版 ]]; then
+              is_prerelease=true
+            fi
           fi
 
           echo tag=$tag | tee -a $GITHUB_OUTPUT
@@ -246,7 +271,6 @@ jobs:
           config: .github/cliff.toml
           args: >-
             -vv --latest --strip header
-            ${{ needs.meta.outputs.is_prerelease == 'false' && '--tag-pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$"' || '' }}
         env:
           OUTPUT: CHANGES.md
           GITHUB_REPO: ${{ github.repository }}
