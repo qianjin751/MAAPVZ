@@ -14,7 +14,6 @@
         "custom_action": "ClickAndCount",
         "custom_action_param": {
             "template": "神器一阶.png",
-            "name": "进化神器序列",
             "level": 1,
             "roi": [
                 630,
@@ -26,7 +25,8 @@
         },
         "next": [
             "点击三阶",
-            "点击四阶"
+            "点击四阶",
+            "检查序列_返回主界面"
         ]
     },
     "点击三阶": {
@@ -34,7 +34,6 @@
         "custom_action": "ClickAndCount",
         "custom_action_param": {
             "template": "神器三阶.png",
-            "name": "进化神器序列",
             "level": 3,
             "roi": [
                 755,
@@ -42,11 +41,11 @@
                 60,
                 63
             ],
-            "delay": 500,
-            // "reset_after": 3
+            "delay": 500
         },
         "next": [
-            "点击四阶"
+            "点击四阶",
+            "检查序列_返回主界面"
         ]
     },
     "点击四阶": {
@@ -54,7 +53,6 @@
         "custom_action": "ClickAndCount",
         "custom_action_param": {
             "template": "神器四阶.png",
-            "name": "进化神器序列",
             "level": 4,
             "threshold": 0.9,
             "roi": [
@@ -63,8 +61,7 @@
                 61,
                 63
             ],
-            "delay": 500,
-            // "reset_after": 3
+            "delay": 500
         },
         "next": [
             "检查序列_返回主界面"
@@ -99,13 +96,65 @@
             "name": "进化神器序列"
         },
         "next": [
-            "序列检查_局内_重启游戏"
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追1": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第一关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追2": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第二关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追3": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第三关"
+        },
+        "next": [
+            "重置截图次数"
+        ]
+    },
+    "截图保存_追4": {
+        "action": "Custom",
+        "custom_action": "TakeCountScreenshot",
+        "custom_action_param": {
+            "name": "追击第四关"
+        },
+        "next": [
+            "重置截图次数"
         ]
     },
     // ======================== 重置计数器节点 ========================
     // 清空所有点击次数及运行次数，下次从第1次开始递增
     "重置": {
         "action": "Custom",
-        "custom_action": "ResetPlantCount"
+        "custom_action": "ResetPlantCount",
+        "max_hit": 1,
+        "next": [
+            "检查序列_点击植物",
+            "检查序列_点击神器强化"
+        ]
+    },
+    "重置截图次数": {
+        "action": "Custom",
+        "custom_action": "ResetCounts",
+        "next": [
+            "序列检查_局内_重启游戏"
+        ]
     }
 }

@@ -18,15 +18,32 @@ _plant_states = {}
 SCREENSHOT_DIR = ROOT_DIR / "screenshots"
 
 
-def _get_plant_state(name: str) -> dict:
-    """获取或初始化指定植物的计数状态"""
+def _get_plant_state(name: str, level: int = None, initial_count: int = None, initial_counts: dict = None) -> dict:
+    """获取或初始化指定植物的计数状态，支持单独设置某阶初始运行次数。
+    如果状态已存在但对应阶的 run_counts 为 0，仍会应用 initial_count。
+    """
     if name not in _plant_states:
-        _plant_states[name] = {
+        state = {
             "level": 1,
             "counts": {1: 0, 2: 0, 3: 0, 4: 0},
-            "run_counts": {1: 0, 2: 0, 3: 0, 4: 0},   # 各阶运行次数（用于自动递增点击次数）
+            "run_counts": {1: 0, 2: 0, 3: 0, 4: 0},
         }
-    return _plant_states[name]
+        _plant_states[name] = state
+    else:
+        state = _plant_states[name]
+
+    # 应用 initial_count（如果该阶尚未运行过）
+    if initial_count is not None and level is not None and level in (1, 2, 3, 4):
+        if state["run_counts"][level] == 0:
+            state["run_counts"][level] = int(initial_count) - 1
+    elif initial_counts:
+        for k in (1, 2, 3, 4):
+            if state["run_counts"][k] == 0:
+                v = initial_counts.get(k) or initial_counts.get(str(k))
+                if v is not None:
+                    state["run_counts"][k] = int(v) - 1
+
+    return state
 
 
 @AgentServer.custom_action("CleanupMaafwBakLogs")
@@ -271,7 +288,7 @@ class ResetAllOffsets(CustomAction):
         return CustomAction.RunResult(success=True)
 
 
-# ---------- 点击并计数（支持自动递增、ROI、延时、自动重置） ----------
+# ---------- 点击并计数（已添加调试日志） ----------
 @AgentServer.custom_action("ClickAndCount")
 class ClickAndCount(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
@@ -284,39 +301,60 @@ class ClickAndCount(CustomAction):
                 return CustomAction.RunResult(success=False)
 
         template = param.get("template", "")
-        plant_name = param.get("name", "")
+        plant_name = param.get("name", "default")
         specified_level = param.get("level", None)
         threshold = param.get("threshold", 0.7)
-        roi = param.get("roi", None)           # 可选 [x, y, w, h]
-        delay = param.get("delay", 0)          # 每次点击后等待 ms
-        repeat_param = param.get("repeat", None)  # None=自动递增，数字=手动固定
-        reset_after = param.get("reset_after", 0) # 自动重置阈值，0 表示不重置
+        roi = param.get("roi", None)
+        delay = param.get("delay", 0)
+        reset_after = param.get("reset_after", 0)
+        initial_count = param.get("initial_count", None)
+        # 调试日志：打印接收到的 initial_count
+        print(f"[ClickAndCount] 调试 - initial_count 原始值: {initial_count}")
+        initial_counts = param.get("initial_counts", None)
+        force_initial = param.get("force_initial", False)
 
-        if not template or not plant_name:
-            print("[ClickAndCount] 缺少 template 或 name 参数")
+        # 处理 repeat 参数
+        repeat_param = None
+        if "repeat" in param:
+            try:
+                repeat_param = int(param["repeat"])
+                if repeat_param < 1:
+                    print("[ClickAndCount] repeat 必须 >= 1")
+                    return CustomAction.RunResult(success=False)
+            except (ValueError, TypeError):
+                print("[ClickAndCount] repeat 必须是整数")
+                return CustomAction.RunResult(success=False)
+
+        if not template:
+            print("[ClickAndCount] 缺少 template 参数")
             return CustomAction.RunResult(success=False)
 
-        state = _get_plant_state(plant_name)
+        # 合并初始化：仅调用一次 _get_plant_state，确保 initial_count 仅作用于 run_counts
+        init_level = specified_level if specified_level is not None else 1
+        state = _get_plant_state(plant_name, level=init_level,
+                                 initial_count=initial_count,
+                                 initial_counts=initial_counts)
+
         level = specified_level if specified_level is not None else state["level"]
         if level not in (1, 2, 3, 4):
             print(f"[ClickAndCount] 无效的阶数 {level}，仅支持 1~4")
             return CustomAction.RunResult(success=False)
 
+        # force_initial 现在只重置运行次数，不修改累计点击次数
+        if force_initial and initial_count is not None:
+            state["run_counts"][level] = int(initial_count) - 1
+            print(f"[ClickAndCount] 强制初始化运行次数：{plant_name} {level}阶={initial_count - 1}")
+
         # 确定本次点击次数
         if repeat_param is not None:
             actual_repeat = repeat_param
-            if actual_repeat < 1:
-                print("[ClickAndCount] repeat 必须 >= 1")
-                return CustomAction.RunResult(success=False)
-            mode_str = f"手动({actual_repeat})"
+            mode_str = f"手动固定({actual_repeat}次)"
         else:
-            # 自动模式：运行次数 +1 作为点击次数
             run_count = state["run_counts"][level] + 1
             state["run_counts"][level] = run_count
             actual_repeat = run_count
-            mode_str = f"自动(第{run_count}次运行)"
+            mode_str = f"自动递增(第{run_count}次运行)"
 
-        # 调试信息
         try:
             res = context.tasker.controller.resolution
             print(f"[ClickAndCount] 当前截图分辨率: {res[0]}x{res[1]}")
@@ -324,10 +362,9 @@ class ClickAndCount(CustomAction):
             pass
 
         roi_str = f", roi={roi}" if roi else ""
-        reset_str = f", 重置阈值={reset_after}" if reset_after > 0 else ""
+        reset_str = f", 重置阈值={reset_after}" if (reset_after > 0 and repeat_param is None) else ""
         print(f"[ClickAndCount] 准备识别: 植物={plant_name}, 模板={template}, 阶数={level}, 阈值={threshold}, {mode_str}, 实际点击={actual_repeat}次, 延迟={delay}ms{roi_str}{reset_str}")
 
-        # 构建识别参数（v1 扁平格式）
         recognition_param = {
             "recognition": "TemplateMatch",
             "template": template,
@@ -359,26 +396,22 @@ class ClickAndCount(CustomAction):
         if not reco.hit:
             return CustomAction.RunResult(success=False)
 
-        # 点击中心点
         box = reco.best_result.box
         x = box[0] + box[2] // 2
         y = box[1] + box[3] // 2
 
-        # 执行 actual_repeat 次点击
         for i in range(actual_repeat):
             print(f"[ClickAndCount] 第 {i+1}/{actual_repeat} 次点击，坐标: ({x}, {y})")
             context.tasker.controller.post_click(x, y).wait()
             if delay > 0:
                 time.sleep(delay / 1000.0)
 
-        # 更新累计点击次数
         state["counts"][level] += actual_repeat
         if specified_level is None:
             state["level"] = level
 
         print(f"[ClickAndCount] 完成 {actual_repeat} 次点击 {plant_name} {level}阶，该阶累计点击: {state['counts'][level]}次")
 
-        # 自动模式下的重置逻辑
         if repeat_param is None and reset_after > 0 and state["run_counts"][level] >= reset_after:
             state["run_counts"][level] = 0
             print(f"[ClickAndCount] {plant_name} {level}阶运行次数已达 {reset_after}，已重置为 0（下次从 1 开始）")
@@ -388,11 +421,7 @@ class ClickAndCount(CustomAction):
 
 @AgentServer.custom_action("TakeCountScreenshot")
 class TakeCountScreenshot(CustomAction):
-    """
-    根据植物的各阶点击次数生成叠加文件名并保存截图。
-    文件夹名：植物名称（参数 name）
-    文件名：一阶X次_二阶X次_三阶X次_四阶X次.png
-    """
+    # ...（未改动）
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         param = {}
         if argv.custom_action_param:
@@ -402,19 +431,15 @@ class TakeCountScreenshot(CustomAction):
                 print(f"[TakeCountScreenshot] 参数解析失败: {e}")
                 return CustomAction.RunResult(success=False)
 
-        plant_name = param.get("name", "")
-        if not plant_name:
-            print("[TakeCountScreenshot] 缺少 name 参数")
-            return CustomAction.RunResult(success=False)
-
-        state = _get_plant_state(plant_name)
+        folder_name = param.get("name", "default")
+        state = _get_plant_state("default")
         counts = state["counts"]
         total = sum(counts.values())
         if total == 0:
-            print(f"[TakeCountScreenshot] {plant_name} 尚未点击过，不保存截图")
+            print(f"[TakeCountScreenshot] 尚未点击过，不保存截图")
             return CustomAction.RunResult(success=True)
 
-        folder_path = SCREENSHOT_DIR / plant_name
+        folder_path = SCREENSHOT_DIR / folder_name
         folder_path.mkdir(parents=True, exist_ok=True)
 
         filename = (
@@ -430,19 +455,25 @@ class TakeCountScreenshot(CustomAction):
             print("[TakeCountScreenshot] 截图失败：cached_image 为空")
             return CustomAction.RunResult(success=False)
 
-        Image.fromarray(image).save(str(filepath))
+        rgb_image = image[..., ::-1]
+        Image.fromarray(rgb_image).save(str(filepath))
         print(f"[TakeCountScreenshot] 截图已保存: {filepath}")
         return CustomAction.RunResult(success=True)
 
 
 @AgentServer.custom_action("ResetPlantCount")
 class ResetPlantCount(CustomAction):
-    """
-    重置所有植物的计数状态（包括点击次数和运行次数）。
-    不需要任何参数。
-    """
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         count = len(_plant_states)
         _plant_states.clear()
         print(f"[ResetPlantCount] 已清空所有植物计数器（含运行次数），共 {count} 条记录")
+        return CustomAction.RunResult(success=True)
+
+
+@AgentServer.custom_action("ResetCounts")
+class ResetCounts(CustomAction):
+    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+        for plant_name, state in _plant_states.items():
+            state["counts"] = {1: 0, 2: 0, 3: 0, 4: 0}
+        print(f"[ResetCounts] 已重置所有植物的点击次数，保留运行次数")
         return CustomAction.RunResult(success=True)
