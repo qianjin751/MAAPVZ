@@ -976,6 +976,8 @@
     "补种近战一号位植物1": {
         "action": "Click",
         "enabled": false,
+        "pre_delay": 0,
+        "post_delay": 0,
         "target": [
             82,
             167
@@ -986,6 +988,8 @@
     },
     "补种近战一号位植物2": {
         "action": "Click",
+        "pre_delay": 0,
+        "post_delay": 0,
         "target": [
             488,
             187,
@@ -999,6 +1003,8 @@
     "补种远程一号位植物1": {
         "enabled": false,
         "action": "Click",
+        "pre_delay": 0,
+        "post_delay": 0,
         "target": [
             82,
             167
@@ -1009,6 +1015,8 @@
     },
     "补种远程一号位植物2": {
         "action": "Click",
+        "pre_delay": 0,
+        "post_delay": 0,
         "target": [
             619,
             194,
@@ -1021,6 +1029,8 @@
     },
     "补种二号位植物1": {
         "action": "Click",
+        "pre_delay": 0,
+        "post_delay": 0,
         "target": [
             189,
             167,
@@ -1033,6 +1043,8 @@
     },
     "补种二号位植物2": {
         "action": "Click",
+        "pre_delay": 0,
+        "post_delay": 0,
         "target": [
             443,
             221,
