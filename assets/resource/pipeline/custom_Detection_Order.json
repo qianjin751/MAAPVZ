@@ -91,6 +91,7 @@
     },
     "截图保存": {
         "action": "Custom",
+        "pre_delay": 2000,
         "custom_action": "TakeCountScreenshot",
         "custom_action_param": {
             "name": "进化神器序列"
@@ -101,6 +102,7 @@
     },
     "截图保存_追1": {
         "action": "Custom",
+        "pre_delay": 2000,
         "custom_action": "TakeCountScreenshot",
         "custom_action_param": {
             "name": "追击第一关"
@@ -111,6 +113,7 @@
     },
     "截图保存_追2": {
         "action": "Custom",
+        "pre_delay": 2000,
         "custom_action": "TakeCountScreenshot",
         "custom_action_param": {
             "name": "追击第二关"
@@ -121,6 +124,7 @@
     },
     "截图保存_追3": {
         "action": "Custom",
+        "pre_delay": 2000,
         "custom_action": "TakeCountScreenshot",
         "custom_action_param": {
             "name": "追击第三关"
@@ -131,6 +135,7 @@
     },
     "截图保存_追4": {
         "action": "Custom",
+        "pre_delay": 2000,
         "custom_action": "TakeCountScreenshot",
         "custom_action_param": {
             "name": "追击第四关"
@@ -145,6 +150,14 @@
         "action": "Custom",
         "custom_action": "ResetPlantCount",
         "max_hit": 1,
+        "next": [
+            "序列检查_重置偏移"
+        ]
+    },
+    "序列检查_重置偏移": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "ResetAllOffsets",
         "next": [
             "检查序列_点击植物",
             "检查序列_点击神器强化"

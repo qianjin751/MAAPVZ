@@ -21,52 +21,37 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check for release keyword
-        id: check_keyword
-        if: github.event_name == 'push'
-        run: |
-          # 只检查第一行，避免 PR 合并时带入描述
-          FIRST_LINE=$(echo "${{ github.event.head_commit.message }}" | head -n1)
-          if echo "$FIRST_LINE" | grep -qE "\[release-stable\]|#release-stable"; then
-            echo "release_type=stable" >> $GITHUB_OUTPUT
-          elif echo "$FIRST_LINE" | grep -qE "\[release\]|#release"; then
-            echo "release_type=test" >> $GITHUB_OUTPUT
-          else
-            echo "release_type=none" >> $GITHUB_OUTPUT
-          fi
+      # 删除了原本的 Check for release keyword 步骤，不再需要 [release] 关键词
 
       - id: set_tag
         run: |
-          # 初始化
           is_release=false
           is_prerelease=false
+          tag=""
 
-          # 1) 推送的是 v 开头标签 → 直接使用标签名，并根据标签名判断是否预发布
-          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
-            is_release=true
-            tag="${GITHUB_REF#refs/tags/}"
-            # 若标签名包含常见预发布关键词，则标记为预发布
-            if [[ "$tag" =~ -(alpha|beta|rc|pre|preview) ]]; then
-              is_prerelease=true
-            else
-              is_prerelease=false
+          # 只处理 push 到 main 分支的事件
+          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+            # 取 commit 消息第一行
+            FIRST_LINE=$(echo "${{ github.event.head_commit.message }}" | head -n1)
+            # 检查是否以 v 开头并跟随语义版本号，例如 v0.1.3 或 v1.2.3-alpha
+            if [[ "$FIRST_LINE" =~ ^v[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+              # 提取完整版本号（含可能的预发布后缀）
+              VERSION=$(echo "$FIRST_LINE" | grep -oE '^v[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.]+)?')
+              if [ -n "$VERSION" ]; then
+                is_release=true
+                tag="$VERSION"
+                # 根据版本号判断是否为预发布
+                if [[ "$VERSION" =~ -(alpha|beta|rc|pre|preview) ]]; then
+                  is_prerelease=true
+                fi
+              fi
             fi
-          else
-            # 2) 非标签触发（push 到 main 分支）→ 根据 commit 关键词生成 v 前缀的 tag
-            RELEASE_TYPE="${{ steps.check_keyword.outputs.release_type }}"
+          fi
+
+          # 无有效版本号时生成一个 CI 标记（不用于发布）
+          if [ -z "$tag" ]; then
             short_hash=$(git rev-parse --short HEAD | tr 'a-z' 'A-Z')
-            if [[ "$RELEASE_TYPE" == "stable" ]]; then
-              is_release=true
-              is_prerelease=false
-              tag="v$(date +%y%m%d)"
-            elif [[ "$RELEASE_TYPE" == "test" ]]; then
-              is_release=true
-              is_prerelease=true
-              tag="v$(date +%y%m%d)-${short_hash}"
-            else
-              # 无关键词：生成 CI 标记但不会发布
-              tag="ci-$(date +%y%m%d)-${short_hash}"
-            fi
+            tag="ci-$(date +%y%m%d)-${short_hash}"
           fi
 
           echo "tag=$tag" >> $GITHUB_OUTPUT
