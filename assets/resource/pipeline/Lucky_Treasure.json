@@ -13,7 +13,15 @@
         "template": [
             "Lucky_Treasure/日常.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "method": 10001,
+        "next": [
+            "幸运宝藏_点击活动集合",
+            "幸运宝藏_点击日常"
+        ]
     },
     "幸运宝藏_点击活动集合": {
         "recognition": "TemplateMatch",
@@ -44,9 +52,13 @@
             160,
             609
         ],
-        "max_hit": 1,
+        "max_hit": 3,
+        "action": "Click",
         "next": [
-            "幸运宝藏_点击领取"
+            "幸运宝藏_点击幸运宝藏",
+            "幸运宝藏_点击领取",
+            "幸运宝藏_点击领取2",
+            "幸运宝藏_点击领取3"
         ]
     },
     "幸运宝藏_滑动": {
@@ -65,16 +77,15 @@
         ],
         "post_wait_freezes": 1000,
         "next": [
-            "幸运宝藏_点击领取",
-            "幸运宝藏_点击领取2",
-            "幸运宝藏_点击领取3"
+            "幸运宝藏_点击幸运宝藏",
+            "幸运宝藏_滑动"
         ]
     },
     "幸运宝藏_点击领取": {
         "recognition": "OCR",
         "max_hit": 3,
         "expected": [
-            "领取"
+            "^领取$"
         ],
         "action": "Click",
         "roi": [
@@ -91,7 +102,7 @@
         "recognition": "OCR",
         "max_hit": 3,
         "expected": [
-            "领取"
+            "^领取$"
         ],
         "action": "Click",
         "roi": [
@@ -108,7 +119,7 @@
         "recognition": "OCR",
         "max_hit": 3,
         "expected": [
-            "领取"
+            "^领取$"
         ],
         "action": "Click",
         "roi": [
