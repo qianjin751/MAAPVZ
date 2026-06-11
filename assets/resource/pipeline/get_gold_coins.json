@@ -32,7 +32,7 @@
             37
         ],
         "action": "Click",
-        "post_delay": 500,
+        "post_wait_freezes": 1000,
         "next": [
             "星系_进入世界",
             "查找埃及世界"
@@ -42,12 +42,18 @@
         ]
     },
     "星系_进入世界": {
-        "recognition": "TemplateMatch",
-        "template": [
-            "get_gold_coins/星系_进入.png"
+        "recognition": "OCR",
+        "expected": [
+            "进入"
         ],
         "action": "Click",
-        "post_delay": 3000,
+        "roi": [
+            536,
+            592,
+            229,
+            69
+        ],
+        "post_wait_freezes": 2000,
         "next": [
             "埃及1_进入关卡"
         ]
@@ -322,133 +328,126 @@
         "action": "MultiSwipe",
         "swipes": [
             {
-                "contact": 0,
                 "begin": [
-                    1197,
-                    123
+                    382,
+                    59
                 ],
                 "end": [
-                    1200,
-                    615
+                    1279,
+                    687
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 0
             },
             {
-                "contact": 1,
                 "begin": [
-                    1098,
-                    113
+                    382,
+                    129
                 ],
                 "end": [
-                    1007,
-                    613
+                    1279,
+                    619
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 1
             },
             {
-                "contact": 2,
                 "begin": [
-                    1007,
-                    613
+                    382,
+                    199
                 ],
                 "end": [
-                    1018,
-                    625
+                    1279,
+                    549
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 2
             },
             {
-                "contact": 3,
                 "begin": [
-                    926,
-                    113
+                    382,
+                    269
                 ],
                 "end": [
-                    923,
-                    621
+                    1279,
+                    479
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 3
             },
             {
-                "contact": 4,
                 "begin": [
-                    831,
-                    107
+                    382,
+                    339
                 ],
                 "end": [
-                    824,
-                    617
+                    1279,
+                    409
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 4
             },
             {
-                "contact": 5,
                 "begin": [
-                    738,
-                    106
+                    382,
+                    409
                 ],
                 "end": [
-                    737,
-                    610
+                    1279,
+                    339
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 5
             },
             {
-                "contact": 6,
                 "begin": [
-                    650,
-                    113
+                    382,
+                    479
                 ],
                 "end": [
-                    650,
-                    622
+                    1279,
+                    269
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 6
             },
             {
-                "contact": 7,
                 "begin": [
-                    556,
-                    115
+                    382,
+                    549
                 ],
                 "end": [
-                    560,
-                    614
+                    1279,
+                    199
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 7
             },
             {
-                "contact": 8,
                 "begin": [
-                    458,
-                    122
+                    382,
+                    619
                 ],
                 "end": [
-                    464,
-                    617
+                    1279,
+                    129
                 ],
-                "duration": 100,
-                "pressure": 1,
-                "starting": 0
+                "duration": 150,
+                "contact": 8
+            },
+            {
+                "begin": [
+                    382,
+                    687
+                ],
+                "end": [
+                    1279,
+                    59
+                ],
+                "duration": 150,
+                "contact": 9
             }
         ],
-        "repeat": 4,
         "next": [
             "埃及1_胜利",
             "埃及1_检查仙人掌冷却并点击",
