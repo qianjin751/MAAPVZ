@@ -107,6 +107,12 @@
             "entry": "幸运宝藏_前置检查"
         },
         {
+            "name": "地宫无尽2(测试)",
+            "entry": "地宫2",
+            "default_check": false,
+            "description": "卡槽要带对,每行都要一个双发了再在选卡界面开脚本,"
+        },
+        {
             "name": "双人对决（已禁用）",
             "entry": "双人对决_前置检查",
             "resource": [
