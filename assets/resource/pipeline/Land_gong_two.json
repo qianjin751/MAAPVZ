@@ -1,4 +1,1030 @@
 {
+    "地宫2_前置检查": {
+        "timeout": 10000,
+        "action": "DoNothing",
+        "next": [
+            "地宫2无尽_点击竞技",
+            "[JumpBack]返回主界面"
+        ]
+    },
+    "地宫2无尽_点击竞技": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/竞技.png"
+        ],
+        "action": "Click",
+        "next": [
+            "地宫2无尽_时空秘境",
+            "地宫2无尽_点击竞技"
+        ]
+    },
+    "地宫2无尽_时空秘境": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/时空秘境.png"
+        ],
+        "action": "Click",
+        "next": [
+            "地宫2无尽_地宫秘境2",
+            "地宫2无尽_时空秘境"
+        ]
+    },
+    "地宫2无尽_地宫秘境2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/地宫2.png"
+        ],
+        "roi": [
+            248,
+            510,
+            100,
+            78
+        ],
+        "action": "Click",
+        "next": [
+            "地宫2无尽_立即前往",
+            "地宫2无尽_地宫秘境2"
+        ]
+    },
+    "地宫2无尽_立即前往": {
+        "recognition": "OCR",
+        "expected": [
+            "立即前往"
+        ],
+        "action": "Click",
+        "next": [
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_立即前往"
+        ]
+    },
+    "地宫2无尽_无尽模式": {
+        "recognition": "OCR",
+        "expected": [
+            "无尽模式"
+        ],
+        "roi": [
+            918,
+            613,
+            112,
+            69
+        ],
+        "action": "Click",
+        "anchor": {
+            "双发种植": "地宫2无尽_第一关_种植双发1" //因为是在循环里的，不可以加maxhit，所以改用anchor，重构可以考虑用custom
+        },
+        "next": [
+            "地宫2无尽_无尽模式_确定",
+            "地宫2无尽_无尽模式"
+        ]
+    },
+    "地宫2无尽_无尽模式_确定": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            596,
+            498,
+            81,
+            35
+        ],
+        "action": "Click",
+        "next": [
+            "地宫2无尽_第一关"
+        ]
+    },
+    "地宫2无尽_第一关": {
+        "next": [
+            "地宫2无尽_第一关_清空卡牌"
+        ]
+    },
+    "地宫2无尽_第一关_清空卡牌": {
+        "recognition": "OCR",
+        "expected": [
+            "清空卡牌"
+        ],
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找阳光菇",
+            //初始化ancho
+        },
+        "roi": [
+            22,
+            660,
+            75,
+            27
+        ],
+        "action": "Click",
+        "next": [
+            "[Anchor]地宫2_下一个寻找的植物",
+            "地宫2无尽_寻找植物_滑动"
+        ]
+    },
+    "地宫2无尽_第一关_寻找阳光菇": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找向日葵",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/阳光菇.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+        //重复调用anchor，保证只用一次滑回最顶上，保证代码简洁性
+    },
+    "地宫2无尽_第一关_寻找向日葵": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找变身茄子",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/向日葵.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找变身茄子": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找双头向日葵",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/变身茄子.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找双头向日葵": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找阳光蓓蕾",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/双头向日葵.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找阳光蓓蕾": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找导向蓟",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/阳光蓓蕾.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找导向蓟": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找双发",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/导向蓟.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找双发": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": ""
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/双发.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_第一关_开始战斗"
+        ]
+    },
+    "地宫2无尽_寻找植物_滑动": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "post_wait_freezes": 100,
+        "duration": 1000,
+        "begin": [
+            215,
+            628,
+            1,
+            1
+        ],
+        "end": [
+            215,
+            200,
+            1,
+            1
+        ],
+        "next": [
+            "[Anchor]地宫2_下一个寻找的植物", //节省代码资源
+            "地宫2无尽_寻找植物_滑动" //如果找不到，继续滑动
+        ]
+    },
+    "地宫2无尽_滑回最顶上": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "duration": 100,
+        "begin": [
+            381,
+            401,
+            107,
+            43
+        ],
+        "end": [
+            376,
+            611,
+            107,
+            43
+        ],
+        "repeat": 10,
+        "next": [
+            "[Anchor]地宫2_下一个寻找的植物",
+            "地宫2无尽_寻找植物_滑动"
+        ]
+    },
+    "地宫2无尽_第一关_开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            1048,
+            630,
+            234,
+            84
+        ],
+        "threshold": 0.75,
+        "action": "Click",
+        "next": [
+            "地宫2无尽_进入关卡_第一关"
+        ]
+    },
+    "地宫2无尽_进入关卡_第一关": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
+        "next": [
+            "地宫2无尽_第一关_种植阳光蓓蕾"
+        ]
+    },
+    "地宫2无尽_第一关_种植阳光蓓蕾": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/阳光蓓蕾.png"
+        ],
+        "action": "Swipe",
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            729,
+            398,
+            37,
+            10
+        ],
+        "post_delay": 1500,
+        "next": [
+            "地宫2无尽_第一关_种植阳光蓓蕾_领取阳光",
+            "地宫2无尽_第一关_种植阳光蓓蕾"
+        ]
+    },
+    "地宫2无尽_第一关_种植阳光蓓蕾_领取阳光": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/阳光.png",
+            "Land_gong_two/阳光1.png",
+        ],
+        "roi": [
+            424,
+            100,
+            822,
+            546
+        ],
+        "threshold": [
+            0.4
+        ],
+        "pressure": 5,
+        "action": "Click",
+        "pre_delay": 0,
+        "green_mask": true,
+        "next": [
+            "地宫2无尽_第一关_种植阳光蓓蕾_领取阳光",
+            "地宫2无尽_第一关_种植导向蓟"
+        ]
+    },
+    "地宫2无尽_第一关_种植导向蓟": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植导向蓟.png"
+        ],
+        "action": "Swipe",
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "threshold": [
+            0.9948
+        ],
+        "begin": true,
+        "end": [
+            1012,
+            145,
+            30,
+            32
+        ],
+        "next": [
+            "地宫2无尽_第一关_种植导向蓟_领取阳光",
+            "地宫2无尽_第一关_种植阳光菇"
+        ]
+    },
+    "地宫2无尽_第一关_种植导向蓟_领取阳光": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/阳光.png",
+            "Land_gong_two/阳光1.png",
+        ],
+        "pressure": 5,
+        "roi": [
+            424,
+            100,
+            822,
+            546
+        ],
+        "threshold": [
+            0.4
+        ],
+        "pre_delay": 0,
+        "action": "Click",
+        "green_mask": true,
+        "next": [
+            "地宫2无尽_第一关_种植导向蓟_领取阳光",
+            "地宫2无尽_第一关_种植阳光菇"
+        ]
+    },
+    "地宫2无尽_第一关_种植阳光菇": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植阳光菇.png"
+        ],
+        "action": "Swipe",
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            1086,
+            150,
+            140,
+            457
+        ],
+        "next": [
+            "地宫2无尽_第一关_种植双发_领取阳光",
+            "地宫2无尽_下一关",
+            "地宫2无尽_第一关_种植阳光菇",
+            "地宫2无尽_无尽模式"
+        ]
+    },
+    "地宫2无尽_第一关_种植双发1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植双发.png"
+        ],
+        "action": "Swipe",
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            453,
+            146,
+            19,
+            21
+        ],
+        "anchor": {
+            "双发种植": "地宫2无尽_第一关_种植双发2" //因为是在循环里的，不可以加maxhit，所以改用anchor，重构可以考虑用custom
+        },
+        "next": [
+            "地宫2无尽_第一关_种植双发_领取阳光",
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_下一关",
+        ]
+    },
+    "地宫2无尽_第一关_种植双发2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植双发.png"
+        ],
+        "action": "Swipe",
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            457,
+            264,
+            19,
+            22
+        ],
+        "anchor": {
+            "双发种植": "地宫2无尽_第一关_种植双发3" //因为是在循环里的，不可以加maxhit，所以改用anchor，重构可以考虑用custom
+        },
+        "next": [
+            "地宫2无尽_第一关_种植双发_领取阳光",
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_下一关",
+        ]
+    },
+    "地宫2无尽_第一关_种植双发3": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植双发.png"
+        ],
+        "action": "Swipe",
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            453,
+            367,
+            24,
+            31
+        ],
+        "anchor": {
+            "双发种植": "地宫2无尽_第一关_种植双发4" //因为是在循环里的，不可以加maxhit，所以改用anchor，重构可以考虑用custom
+        },
+        "next": [
+            "地宫2无尽_第一关_种植双发_领取阳光",
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_下一关",
+        ]
+    },
+    "地宫2无尽_第一关_种植双发4": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植双发.png"
+        ],
+        "action": "Swipe",
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            450,
+            476,
+            32,
+            30
+        ],
+        "anchor": {
+            "双发种植": "地宫2无尽_第一关_种植双发5" //因为是在循环里的，不可以加maxhit，所以改用anchor，重构可以考虑用custom
+        },
+        "next": [
+            "地宫2无尽_第一关_种植双发_领取阳光",
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_下一关",
+        ]
+    },
+    "地宫2无尽_第一关_种植双发5": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/种植双发.png"
+        ],
+        "action": "Swipe",
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            7,
+            61,
+            204,
+            545
+        ],
+        "begin": true,
+        "end": [
+            459,
+            584,
+            19,
+            26
+        ],
+        "anchor": {
+            "双发种植": "地宫2无尽_第一关_种植双发1" //因为是在循环里的，不可以加maxhit，所以改用anchor，重构可以考虑用custom
+        },
+        "next": [
+            "地宫2无尽_等待"
+        ]
+    },
+    "地宫2无尽_第一关_种植双发_领取阳光": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/阳光.png",
+            "Land_gong_two/阳光1.png",
+        ],
+        "pressure": 10,
+        "roi": [
+            424,
+            100,
+            822,
+            546
+        ],
+        "threshold": [
+            0.4
+        ],
+        "pre_delay": 0,
+        "action": "Click",
+        "green_mask": true,
+        "next": [
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_下一关",
+            "[Anchor]双发种植",
+            "地宫2无尽_第一关_种植双发_领取阳光",
+            "地宫2无尽_第一关_种植阳光菇",
+        ]
+    },
+    "地宫2无尽_下一关": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            1048,
+            630,
+            234,
+            84
+        ],
+        "threshold": 0.75,
+        "action": "Click",
+        "next": [
+            "地宫2无尽_进入关卡_第一关"
+        ]
+    },
+    "地宫2无尽_等待": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
+        "next": [
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_切换配置",
+            "地宫2无尽_第一关_等待_领取阳光",
+            "地宫2无尽_等待"
+        ]
+    },
+    "地宫2无尽_第一关_等待_领取阳光": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/阳光.png",
+            "Land_gong_two/阳光1.png",
+        ],
+        "pressure": 10,
+        "roi": [
+            424,
+            100,
+            822,
+            546
+        ],
+        "threshold": [
+            0.4
+        ],
+        "pre_delay": 0,
+        "action": "Click",
+        "green_mask": true,
+        "next": [
+            "地宫2无尽_等待",
+            "地宫2无尽_切换配置",
+            "地宫2无尽_无尽模式",
+        ]
+    },
+    "地宫2无尽_切换配置": {
+        "recognition": "OCR",
+        "expected": [
+            "清空卡牌"
+        ],
+        "roi": [
+            11,
+            654,
+            104,
+            35
+        ],
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找机枪"
+        },
+        "threshold": 0.75,
+        "action": "Click",
+        "next": [
+            "地宫2无尽_第一关_寻找机枪",
+            "地宫2无尽_寻找植物_滑动"
+        ]
+    },
+    "地宫2无尽_第一关_寻找机枪": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找双发2"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/机枪.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找双发2": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找歌葵"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/双发.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找歌葵": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找树桩"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/歌葵.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找树桩": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找婆罗"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/树桩.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找婆罗": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找茄子2"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/婆罗.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找茄子2": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找南瓜罩"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/变身茄子.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找南瓜罩": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": "地宫2无尽_第一关_寻找蓓蕾2"
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/南瓜罩.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_滑回最顶上"
+        ]
+    },
+    "地宫2无尽_第一关_寻找蓓蕾2": {
+        "anchor": {
+            "地宫2_下一个寻找的植物": ""
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Land_gong_two/阳光蓓蕾.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "地宫2无尽_地宫2"
+        ]
+    },
     "地宫2无尽_地宫2": {
         "recognition": "DirectHit",
         "action": "DoNothing",
@@ -29,7 +1055,7 @@
     },
     "地宫2无尽_检查boss": {
         "recognition": "TemplateMatch",
-        "template": "digong_two/僵王.png",
+        "template": "Land_gong_two/僵王.png",
         "roi": [
             911,
             419,
@@ -65,7 +1091,7 @@
     },
     "地宫2无尽_加速": {
         "recognition": "TemplateMatch",
-        "template": "digong_two/加速.png",
+        "template": "Land_gong_two/加速.png",
         "roi": [
             1101,
             9,
@@ -215,60 +1241,73 @@
         "swipes": [
             {
                 "begin": [
-                    703,
-                    73
+                    430,
+                    174
                 ],
                 "end": [
-                    1050,
-                    648
+                    1232,
+                    183
                 ],
                 "duration": 100,
                 "contact": 0,
-                "pressure": 1
+                "pressure": 5
             },
             {
                 "begin": [
-                    1050,
-                    73
+                    420,
+                    303
                 ],
                 "end": [
-                    703,
-                    648
+                    839,
+                    7
                 ],
                 "duration": 100,
                 "contact": 1,
-                "pressure": 2
+                "pressure": 5
             },
             {
                 "begin": [
-                    703,
-                    648
+                    423,
+                    398
                 ],
                 "end": [
-                    1050,
-                    73
+                    836,
+                    13
                 ],
                 "duration": 100,
                 "contact": 2,
-                "pressure": 3
+                "pressure": 5
             },
             {
                 "begin": [
-                    1050,
-                    648
+                    419,
+                    512
                 ],
                 "end": [
-                    703,
-                    73
+                    836,
+                    6
                 ],
                 "duration": 100,
                 "contact": 3,
-                "pressure": 4
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    418,
+                    606
+                ],
+                "end": [
+                    848,
+                    7
+                ],
+                "duration": 100,
+                "contact": 4,
+                "pressure": 5
             }
         ],
         "repeat": 1,
-        "post_delay": 0,
         "pre_delay": 0,
+        "post_delay": 0,
         "next": [
             "地宫2无尽_小怪_火炬1_4"
         ]
@@ -366,60 +1405,73 @@
         "swipes": [
             {
                 "begin": [
-                    703,
-                    73
+                    430,
+                    174
                 ],
                 "end": [
-                    1050,
-                    648
+                    1232,
+                    183
                 ],
                 "duration": 100,
                 "contact": 0,
-                "pressure": 1
+                "pressure": 5
             },
             {
                 "begin": [
-                    1050,
-                    73
+                    420,
+                    303
                 ],
                 "end": [
-                    703,
-                    648
+                    839,
+                    7
                 ],
                 "duration": 100,
                 "contact": 1,
-                "pressure": 2
+                "pressure": 5
             },
             {
                 "begin": [
-                    703,
-                    648
+                    423,
+                    398
                 ],
                 "end": [
-                    1050,
-                    73
+                    836,
+                    13
                 ],
                 "duration": 100,
                 "contact": 2,
-                "pressure": 3
+                "pressure": 5
             },
             {
                 "begin": [
-                    1050,
-                    648
+                    419,
+                    512
                 ],
                 "end": [
-                    703,
-                    73
+                    836,
+                    6
                 ],
                 "duration": 100,
                 "contact": 3,
-                "pressure": 4
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    418,
+                    606
+                ],
+                "end": [
+                    848,
+                    7
+                ],
+                "duration": 100,
+                "contact": 4,
+                "pressure": 5
             }
         ],
         "repeat": 1,
-        "post_delay": 0,
         "pre_delay": 0,
+        "post_delay": 0,
         "next": [
             "地宫2无尽_小怪_滑动2_2"
         ]
@@ -699,6 +1751,82 @@
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
+            "地宫2无尽_小怪_滑动4_3_滑动领取阳光"
+        ]
+    },
+    "地宫2无尽_小怪_滑动4_3_滑动领取阳光": {
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "begin": [
+                    430,
+                    174
+                ],
+                "end": [
+                    1232,
+                    183
+                ],
+                "duration": 100,
+                "contact": 0,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    420,
+                    303
+                ],
+                "end": [
+                    839,
+                    7
+                ],
+                "duration": 100,
+                "contact": 1,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    423,
+                    398
+                ],
+                "end": [
+                    836,
+                    13
+                ],
+                "duration": 100,
+                "contact": 2,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    419,
+                    512
+                ],
+                "end": [
+                    836,
+                    6
+                ],
+                "duration": 100,
+                "contact": 3,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    418,
+                    606
+                ],
+                "end": [
+                    848,
+                    7
+                ],
+                "duration": 100,
+                "contact": 4,
+                "pressure": 5
+            }
+        ],
+        "repeat": 1,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
             "地宫2无尽_小怪_滑动4_4"
         ]
     },
@@ -734,12 +1862,13 @@
         "pre_delay": 0,
         "next": [
             "地宫2无尽_婆罗_滑动1",
-            "地宫2无尽_开始"
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_婆罗_滑动1": {
         "recognition": "TemplateMatch",
-        "template": "digong_two/婆罗.png",
+        "template": "Land_gong_two/婆罗.png",
         "roi": [
             4,
             367,
@@ -1189,60 +2318,73 @@
         "swipes": [
             {
                 "begin": [
-                    703,
-                    73
+                    430,
+                    174
                 ],
                 "end": [
-                    1050,
-                    648
+                    1232,
+                    183
                 ],
                 "duration": 100,
                 "contact": 0,
-                "pressure": 1
+                "pressure": 5
             },
             {
                 "begin": [
-                    1050,
-                    73
+                    420,
+                    303
                 ],
                 "end": [
-                    703,
-                    648
+                    839,
+                    7
                 ],
                 "duration": 100,
                 "contact": 1,
-                "pressure": 2
+                "pressure": 5
             },
             {
                 "begin": [
-                    703,
-                    648
+                    423,
+                    398
                 ],
                 "end": [
-                    1050,
-                    73
+                    836,
+                    13
                 ],
                 "duration": 100,
                 "contact": 2,
-                "pressure": 3
+                "pressure": 5
             },
             {
                 "begin": [
-                    1050,
-                    648
+                    419,
+                    512
                 ],
                 "end": [
-                    703,
-                    73
+                    836,
+                    6
                 ],
                 "duration": 100,
                 "contact": 3,
-                "pressure": 4
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    418,
+                    606
+                ],
+                "end": [
+                    848,
+                    7
+                ],
+                "duration": 100,
+                "contact": 4,
+                "pressure": 5
             }
         ],
         "repeat": 1,
-        "post_delay": 0,
         "pre_delay": 0,
+        "post_delay": 0,
         "next": [
             "地宫2无尽_小怪_滑动8_4"
         ]
@@ -1542,6 +2684,82 @@
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
+            "地宫2无尽_小怪_滑动11_3_领取阳光"
+        ]
+    },
+    "地宫2无尽_小怪_滑动11_3_领取阳光": {
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "begin": [
+                    430,
+                    174
+                ],
+                "end": [
+                    1232,
+                    183
+                ],
+                "duration": 100,
+                "contact": 0,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    420,
+                    303
+                ],
+                "end": [
+                    839,
+                    7
+                ],
+                "duration": 100,
+                "contact": 1,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    423,
+                    398
+                ],
+                "end": [
+                    836,
+                    13
+                ],
+                "duration": 100,
+                "contact": 2,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    419,
+                    512
+                ],
+                "end": [
+                    836,
+                    6
+                ],
+                "duration": 100,
+                "contact": 3,
+                "pressure": 5
+            },
+            {
+                "begin": [
+                    418,
+                    606
+                ],
+                "end": [
+                    848,
+                    7
+                ],
+                "duration": 100,
+                "contact": 4,
+                "pressure": 5
+            }
+        ],
+        "repeat": 1,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
             "地宫2无尽_小怪_滑动11_3"
         ]
     },
@@ -1647,14 +2865,25 @@
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
-            "地宫2无尽_婆罗_滑动2"
+            "地宫2无尽_婆罗_滑动2",
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_婆罗_滑动2": {
+        "recognition": "TemplateMatch",
+        "template": "Land_gong_two/婆罗.png",
+        "roi": [
+            4,
+            367,
+            139,
+            149
+        ],
+        "threshold": 0.89,
         "action": "Swipe",
         "begin": [
-            62,
-            474
+            57,
+            400
         ],
         "end": [
             1027,
@@ -1984,7 +3213,7 @@
     },
     "地宫2无尽_boss_铲子": {
         "recognition": "TemplateMatch",
-        "template": "digong_two/加速.png",
+        "template": "Land_gong_two/加速.png",
         "roi": [
             1146,
             9,
@@ -2066,5 +3295,22 @@
         "next": [
             "地宫2无尽_开始"
         ]
-    }
+    },
+    "地宫2无尽_结算": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            542,
+            580,
+            213,
+            88
+        ],
+        "action": "Click",
+        "next": [
+            "地宫2无尽_无尽模式",
+            "地宫2无尽_结算"
+        ]
+    },
 }
