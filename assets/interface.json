@@ -1299,6 +1299,9 @@
                 {
                     "name": "Yes",
                     "pipeline_override": {
+                        "关闭pvz_联想": {
+                            "enabled": true
+                        },
                         "关闭pvz_4399": {
                             "enabled": true
                         },
@@ -1735,6 +1738,17 @@
             "type": "select",
             "description": "选择你要进入的渠道服",
             "cases": [
+                {
+                    "name": "联想",
+                    "pipeline_override": {
+                        "选择渠道服": {
+                            "next": [
+                                "关闭pvz_联想",
+                                "打开pvz_联想"
+                            ]
+                        }
+                    }
+                },
                 {
                     "name": "4399",
                     "pipeline_override": {
