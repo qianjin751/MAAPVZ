@@ -66,8 +66,98 @@
         ]
     },
     "地宫2无尽_第一关": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            1048,
+            630,
+            234,
+            84
+        ],
+        "post_delay": 500,
         "next": [
+            "地宫2无尽_第一关_检查灵体",
             "地宫2无尽_第一关_清空卡牌"
+        ]
+    },
+    "地宫2无尽_第一关_检查灵体": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "TemplateMatch",
+                "template": [
+                    "Land_gong_two/灵体.png",
+                    "Land_gong_two/灵体1.png"
+                ],
+                "green_mask": true,
+                "roi": [
+                    899,
+                    72,
+                    309,
+                    553
+                ],
+            },
+            {
+                "recognition": "ColorMatch",
+                "method": 40,
+                "lower": [
+                    83,
+                    48,
+                    170
+                ],
+                "upper": [
+                    90,
+                    140,
+                    255
+                ],
+                "roi": [
+                    899,
+                    72,
+                    309,
+                    553
+                ],
+            }
+        ],
+        "next": [
+            "地宫2无尽_第一关_尝试刷掉灵体",
+            "地宫2无尽_第一关_检查灵体"
+        ]
+    },
+    "地宫2无尽_第一关_尝试刷掉灵体": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/暂停.png"
+        ],
+        "roi": [
+            1180,
+            4,
+            96,
+            78
+        ],
+        "focus": "尝试刷掉灵体",
+        "action": "Click",
+        "next": [
+            "地宫2无尽_第一关_尝试刷掉灵体_重新开始",
+            "地宫2无尽_第一关_尝试刷掉灵体"
+        ]
+    },
+    "地宫2无尽_第一关_尝试刷掉灵体_重新开始": {
+        "recognition": "OCR",
+        "expected": [
+            "重新开始"
+        ],
+        "roi": [
+            642,
+            498,
+            190,
+            85
+        ],
+        "action": "Click",
+        "timeout": 30000,
+        "next": [
+            "地宫2无尽_第一关"
         ]
     },
     "地宫2无尽_第一关_清空卡牌": {
@@ -2051,10 +2141,17 @@
         ]
     },
     "地宫2无尽_婆罗_滑动1": {
-        "recognition": "TemplateMatch",
-        "template": [
-            "Land_gong_two/婆罗.png",
-            "Land_gong_two/茄子婆罗.png"
+        "recognition": "ColorMatch",
+        "method": 40,
+        "lower": [
+            0,
+            112,
+            74
+        ],
+        "upper": [
+            134,
+            250,
+            231
         ],
         "roi": [
             4,
@@ -2062,7 +2159,6 @@
             139,
             149
         ],
-        "threshold": 0.89,
         "action": "Swipe",
         "begin": [
             57,
@@ -3058,10 +3154,31 @@
         ]
     },
     "地宫2无尽_婆罗_滑动2": {
-        "recognition": "TemplateMatch",
-        "template": [
-            "Land_gong_two/婆罗.png",
-            "Land_gong_two/茄子婆罗.png"
+        "recognition": "ColorMatch",
+        "method": 40,
+        "lower": [
+            [
+                150,
+                0,
+                59
+            ],
+            [
+                0,
+                0,
+                59
+            ]
+        ],
+        "upper": [
+            [
+                179,
+                9,
+                207
+            ],
+            [
+                60,
+                9,
+                207
+            ]
         ],
         "roi": [
             4,
@@ -3069,7 +3186,6 @@
             139,
             149
         ],
-        "threshold": 0.89,
         "action": "Swipe",
         "begin": [
             57,
