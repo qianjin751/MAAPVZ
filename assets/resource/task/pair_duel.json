@@ -1,0 +1,384 @@
+{
+    "option": {
+        "配置模式": {
+            "type": "select",
+            "default_case": "帮选模式",
+            "cases": [
+                {
+                    "description": "启用该选项，会直接开始游戏",
+                    "name": "自选植物模式",
+                    "pipeline_override": {
+                        "双人对决_竞技": {
+                            "next": [
+                                "双人对决_竞技",
+                                "取消三四号位植物(三阶植物任务)1",
+                                "取消五六号位植物(五阶植物任务)1",
+                                "双人对决_识别一号位是否满足_植物任务中间节点",
+                                "识别成功，启动！"
+                            ]
+                        },
+                        "取消五六号位植物(五阶植物任务)2": {
+                            "next": [
+                                "双人对决_识别一号位是否满足_植物任务中间节点",
+                                "识别成功，启动！"
+                            ]
+                        }
+                    },
+                    "option": [
+                        "植物摆位"
+                    ]
+                },
+                {
+                    "name": "帮选模式",
+                    "description": "启用该选项，系统会自动帮你配置植物",
+                    "option": [
+                        "一号位植物",
+                        "二号位植物"
+                    ]
+                }
+            ]
+        },
+        "植物摆位": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "近战植物摆位",
+                    "pipeline_override": {
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "远程植物摆位",
+                    "pipeline_override": {
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "放置3阶5阶植物": {
+            "type": "checkbox",
+            "description": "用于做双人对决任务，会把你原本设置的所有植物挤掉",
+            "cases": [
+                {
+                    "name": "放置3阶植物任务",
+                    "pipeline_override": {
+                        "取消三四号位植物(三阶植物任务)1": {
+                            "enabled": true
+                        },
+                        "双人对决_回到寻找植物最顶上_3阶任务植物1": {
+                            "enabled": true
+                        },
+                        "三阶任务植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "放置5阶植物任务",
+                    "pipeline_override": {
+                        "取消五六号位植物(五阶植物任务)1": {
+                            "enabled": true
+                        },
+                        "双人对决_回到寻找植物最顶上_5阶任务植物1": {
+                            "enabled": true
+                        },
+                        "识别第6及以上回合": {
+                            "enabled": true
+                        },
+                        "五阶任务植物1": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "僵尸强化buff": {
+            "type": "checkbox",
+            "description": "用于做双人对决任务",
+            "cases": [
+                {
+                    "name": "加速",
+                    "pipeline_override": {
+                        "buff_加速": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "血量提升",
+                    "pipeline_override": {
+                        "buff_加血": {
+                            "enabled": true
+                        },
+                        "识别第2回合": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "免控",
+                    "pipeline_override": {
+                        "buff_免控": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "到达特定回合释放特定的僵尸": {
+            "description": "除了做任务，一般只建议用橄榄",
+            "default_case": [
+                "放置橄榄位僵尸"
+            ],
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "放置橄榄位僵尸",
+                    "pipeline_override": {
+                        "识别第5回合": {
+                            "enabled": true
+                        },
+                        "放置六号位僵尸": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "放置巨人位僵尸",
+                    "pipeline_override": {
+                        "识别第7回合": {
+                            "enabled": true
+                        }
+                    },
+                    "description": "不做任务不推荐开启"
+                }
+            ]
+        },
+        "一号位植物": {
+            "type": "select",
+            "description": "能够吸引僵尸的植物，注意不要放在3阶和五阶的位置，不然脚本会找不到",
+            "default_case": "热辣海枣",
+            "cases": [
+                {
+                    "name": "甜薯",
+                    "pipeline_override": {
+                        "寻找植物_甜薯": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "金蝉花",
+                    "pipeline_override": {
+                        "寻找植物_金蝉花": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "热辣海枣",
+                    "pipeline_override": {
+                        "寻找植物_热辣海枣": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "二号位植物": {
+            "type": "select",
+            "description": "攻击类型的植物，注意不要放在3阶和5阶的位置，不然脚本会找不到",
+            "cases": [
+                {
+                    "name": "仙人掌",
+                    "pipeline_override": {
+                        "寻找植物_仙人掌": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "苹果迫机炮",
+                    "description": "不太建议，这个植物打不过加速的鸡（笑）",
+                    "pipeline_override": {
+                        "寻找植物_苹果迫机炮": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "熊果臼炮",
+                    "pipeline_override": {
+                        "寻找植物_熊果臼炮": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "原始豌豆射手",
+                    "pipeline_override": {
+                        "寻找植物_原神": {
+                            "enabled": true
+                        },
+                        "放置远程一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种远程一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "冰龙草",
+                    "pipeline_override": {
+                        "寻找植物_冰龙草": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "尖刺秋葵",
+                    "pipeline_override": {
+                        "寻找植物_尖刺秋葵": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "虎头菇",
+                    "pipeline_override": {
+                        "寻找植物_虎头菇": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "雷龙草",
+                    "pipeline_override": {
+                        "寻找植物_雷龙草": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "龙舌兰",
+                    "pipeline_override": {
+                        "寻找植物_龙舌兰": {
+                            "enabled": true
+                        },
+                        "放置近战一号位植物1": {
+                            "enabled": true
+                        },
+                        "补种近战一号位植物1": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "额外弹窗直接关闭": {
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "突发情况处理": {
+                            "next": [
+                                "重开",
+                                "识别成功，启动！",
+                                "判断游戏是否胜利",
+                                "判断游戏是否失败",
+                                "补种_放置一号位僵尸_升级",
+                                "突发情况处理"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "匹配模式": {
+            "type": "select",
+            "default_case": "不停止",
+            "cases": [
+                {
+                    "name": "不停止"
+                },
+                {
+                    "name": "到达大师锅后停止",
+                    "pipeline_override": {
+                        "检查是否到宗师锅": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "胜利十把后停止",
+                    "pipeline_override": {
+                        "重开": {
+                            "enabled": false
+                        },
+                        "只重开十次": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+    }
+}
