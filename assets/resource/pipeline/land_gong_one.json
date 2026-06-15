@@ -11,10 +11,10 @@
         "recognition": "OCR",
         "expected": "开始战斗",
         "roi": [
-            1590,
-            970,
-            301,
-            88
+            1060,
+            647,
+            201,
+            59
         ],
         "action": "DoNothing",
         "timeout": 10000,
@@ -39,10 +39,10 @@
             140
         ],
         "roi": [
-            1117,
-            499,
-            15,
-            28
+            745,
+            333,
+            10,
+            19
         ],
         "action": "DoNothing",
         "timeout": 10000,
@@ -57,8 +57,8 @@
         "recognition": "DirectHit",
         "action": "Click",
         "target": [
-            1732,
-            1015
+            1155,
+            677
         ],
         "post_delay": 1000,
         "next": [
@@ -69,15 +69,15 @@
         "recognition": "TemplateMatch",
         "template": "land_gong_one/加速.png",
         "roi": [
-            1719,
-            13,
-            84,
-            88
+            1146,
+            9,
+            56,
+            59
         ],
         "action": "Click",
         "target": [
-            1750,
-            56
+            1167,
+            37
         ],
         "next": [
             "land_gong_1_小关"
@@ -94,8 +94,8 @@
     "land_gong_1_小怪_点波1": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -106,12 +106,12 @@
     "land_gong_1_小怪_草垛1_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            714,
-            377
+            476,
+            251
         ],
         "duration": 100,
         "post_delay": 0,
@@ -123,12 +123,12 @@
     "land_gong_1_小怪_双发1_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            707,
-            227
+            471,
+            151
         ],
         "duration": 100,
         "post_delay": 0,
@@ -140,12 +140,12 @@
     "land_gong_1_小怪_草垛仿1_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            680,
-            718
+            453,
+            479
         ],
         "duration": 100,
         "post_delay": 0,
@@ -157,12 +157,12 @@
     "land_gong_1_小怪_火炬1_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            287
+            71,
+            191
         ],
         "end": [
-            1117,
-            222
+            745,
+            148
         ],
         "duration": 100,
         "post_delay": 0,
@@ -174,12 +174,12 @@
     "land_gong_1_小怪_南瓜1_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            707,
-            239
+            471,
+            159
         ],
         "duration": 100,
         "post_delay": 0,
@@ -191,12 +191,12 @@
     "land_gong_1_小怪_向日葵1_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1261,
-            221
+            841,
+            147
         ],
         "duration": 100,
         "post_delay": 0,
@@ -208,12 +208,12 @@
     "land_gong_1_阳光收集1": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893
+            838,
+            595
         ],
         "duration": 100,
         "post_delay": 0,
@@ -225,12 +225,12 @@
     "land_gong_1_阳光收集1_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -242,12 +242,12 @@
     "land_gong_1_阳光收集1_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -259,12 +259,12 @@
     "land_gong_1_小怪_机枪1_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            707,
-            219
+            471,
+            146
         ],
         "duration": 100,
         "post_delay": 0,
@@ -276,8 +276,8 @@
     "land_gong_1_小怪_点波2": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -288,12 +288,12 @@
     "land_gong_1_小怪_草垛2_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            828,
-            379
+            552,
+            253
         ],
         "duration": 100,
         "post_delay": 0,
@@ -305,12 +305,12 @@
     "land_gong_1_小怪_双发2_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            710,
-            389
+            473,
+            259
         ],
         "duration": 100,
         "post_delay": 0,
@@ -322,12 +322,12 @@
     "land_gong_1_小怪_草垛仿2_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            854,
-            712
+            569,
+            475
         ],
         "duration": 100,
         "post_delay": 0,
@@ -339,12 +339,12 @@
     "land_gong_1_小怪_火炬2_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            287
+            71,
+            191
         ],
         "end": [
-            1121,
-            366
+            747,
+            244
         ],
         "duration": 100,
         "post_delay": 0,
@@ -357,12 +357,12 @@
     "land_gong_1_小怪_南瓜2_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            708,
-            383
+            472,
+            255
         ],
         "duration": 100,
         "post_delay": 0,
@@ -374,12 +374,12 @@
     "land_gong_1_小怪_向日葵2_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1260,
-            383
+            840,
+            255
         ],
         "duration": 100,
         "post_delay": 0,
@@ -391,12 +391,12 @@
     "land_gong_1_小怪_机枪2_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            705,
-            374
+            470,
+            249
         ],
         "duration": 100,
         "post_delay": 0,
@@ -408,8 +408,8 @@
     "land_gong_1_小怪_点波3": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -420,12 +420,12 @@
     "land_gong_1_小怪_草垛3_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            856,
-            226
+            571,
+            151
         ],
         "duration": 100,
         "post_delay": 0,
@@ -437,12 +437,12 @@
     "land_gong_1_小怪_双发3_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            708,
-            546
+            472,
+            364
         ],
         "duration": 100,
         "post_delay": 0,
@@ -454,12 +454,12 @@
     "land_gong_1_小怪_草垛仿3_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            852,
-            872
+            568,
+            581
         ],
         "duration": 100,
         "post_delay": 0,
@@ -471,12 +471,12 @@
     "land_gong_1_小怪_火炬3_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            287
+            71,
+            191
         ],
         "end": [
-            1119,
-            519
+            746,
+            346
         ],
         "duration": 100,
         "post_delay": 0,
@@ -488,12 +488,12 @@
     "land_gong_1_小怪_南瓜3_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            708,
-            553
+            472,
+            369
         ],
         "duration": 100,
         "post_delay": 0,
@@ -505,14 +505,14 @@
     "land_gong_1_阳光收集2": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893,
-            78,
-            102
+            838,
+            595,
+            52,
+            68
         ],
         "duration": 100,
         "post_delay": 0,
@@ -524,12 +524,12 @@
     "land_gong_1_阳光收集2_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -541,12 +541,12 @@
     "land_gong_1_阳光收集2_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -558,12 +558,12 @@
     "land_gong_1_小怪_向日葵3_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1260,
-            546
+            840,
+            364
         ],
         "duration": 100,
         "post_delay": 0,
@@ -575,12 +575,12 @@
     "land_gong_1_小怪_机枪3_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            722,
-            562
+            481,
+            375
         ],
         "duration": 100,
         "post_delay": 0,
@@ -592,8 +592,8 @@
     "land_gong_1_小怪_点波4": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -604,12 +604,12 @@
     "land_gong_1_小怪_草垛4_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            996,
-            222
+            664,
+            148
         ],
         "duration": 100,
         "post_delay": 0,
@@ -621,12 +621,12 @@
     "land_gong_1_小怪_双发4_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            703,
-            708
+            469,
+            472
         ],
         "duration": 100,
         "post_delay": 0,
@@ -638,12 +638,12 @@
     "land_gong_1_小怪_草垛仿4_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            985,
-            869
+            657,
+            579
         ],
         "duration": 100,
         "post_delay": 0,
@@ -655,12 +655,12 @@
     "land_gong_1_小怪_火炬4_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            287
+            71,
+            191
         ],
         "end": [
-            1121,
-            721
+            747,
+            481
         ],
         "duration": 100,
         "post_delay": 0,
@@ -673,12 +673,12 @@
     "land_gong_1_小怪_南瓜4_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            707,
-            701
+            471,
+            467
         ],
         "duration": 100,
         "post_delay": 0,
@@ -690,12 +690,12 @@
     "land_gong_1_小怪_向日葵4_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1246,
-            707
+            831,
+            471
         ],
         "duration": 100,
         "post_delay": 0,
@@ -707,14 +707,14 @@
     "land_gong_1_阳光收集3": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893,
-            78,
-            102
+            838,
+            595,
+            52,
+            68
         ],
         "duration": 100,
         "post_delay": 0,
@@ -726,12 +726,12 @@
     "land_gong_1_阳光收集3_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -743,12 +743,12 @@
     "land_gong_1_阳光收集3_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -760,12 +760,12 @@
     "land_gong_1_小怪_机枪4_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            708,
-            708
+            472,
+            472
         ],
         "duration": 100,
         "post_delay": 0,
@@ -777,8 +777,8 @@
     "land_gong_1_小怪_点波5": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -789,12 +789,12 @@
     "land_gong_1_小怪_草垛5_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1135,
-            228
+            757,
+            152
         ],
         "duration": 100,
         "post_delay": 0,
@@ -806,12 +806,12 @@
     "land_gong_1_小怪_双发5_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            703,
-            866
+            469,
+            577
         ],
         "duration": 100,
         "post_delay": 0,
@@ -823,12 +823,12 @@
     "land_gong_1_小怪_草垛仿5_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1121,
-            889
+            747,
+            593
         ],
         "duration": 100,
         "post_delay": 0,
@@ -840,12 +840,12 @@
     "land_gong_1_小怪_火炬5_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            287
+            71,
+            191
         ],
         "end": [
-            1116,
-            914
+            744,
+            609
         ],
         "duration": 100,
         "post_delay": 0,
@@ -857,12 +857,12 @@
     "land_gong_1_小怪_南瓜5_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            703,
-            880
+            469,
+            587
         ],
         "duration": 100,
         "post_delay": 0,
@@ -874,12 +874,12 @@
     "land_gong_1_小怪_向日葵5_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1261,
-            886
+            841,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -891,12 +891,12 @@
     "land_gong_1_小怪_机枪5_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            712,
-            874
+            475,
+            583
         ],
         "duration": 100,
         "post_delay": 0,
@@ -908,14 +908,14 @@
     "land_gong_1_阳光收集4": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893,
-            78,
-            102
+            838,
+            595,
+            52,
+            68
         ],
         "duration": 100,
         "post_delay": 0,
@@ -927,12 +927,12 @@
     "land_gong_1_阳光收集4_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -944,12 +944,12 @@
     "land_gong_1_阳光收集4_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -961,8 +961,8 @@
     "land_gong_1_小怪_点波6": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -973,12 +973,12 @@
     "land_gong_1_小怪_草垛6_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1119,
-            378
+            746,
+            252
         ],
         "duration": 100,
         "post_delay": 0,
@@ -990,12 +990,12 @@
     "land_gong_1_小怪_双发6_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            852,
-            891
+            568,
+            594
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1007,12 +1007,12 @@
     "land_gong_1_小怪_草垛仿6_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1116,
-            711
+            744,
+            474
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1024,12 +1024,12 @@
     "land_gong_1_小怪_火炬6_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            287
+            71,
+            191
         ],
         "end": [
-            1118,
-            898
+            745,
+            599
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1042,12 +1042,12 @@
     "land_gong_1_小怪_南瓜1_6_5": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            849,
-            898
+            566,
+            599
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1059,12 +1059,12 @@
     "land_gong_1_小怪_南瓜2_6_6": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            852,
-            714
+            568,
+            476
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1076,12 +1076,12 @@
     "land_gong_1_小怪_向日葵6_7": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1396,
-            892
+            931,
+            595
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1093,12 +1093,12 @@
     "land_gong_1_小怪_机枪6_8": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            843,
-            885
+            562,
+            590
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1110,8 +1110,8 @@
     "land_gong_1_小怪_点波7": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -1122,12 +1122,12 @@
     "land_gong_1_小怪_草垛7_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1114,
-            565
+            743,
+            377
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1139,12 +1139,12 @@
     "land_gong_1_小怪_双发7_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            856,
-            750
+            571,
+            500
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1156,12 +1156,12 @@
     "land_gong_1_小怪_草垛仿7_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1277,
-            563
+            851,
+            375
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1173,12 +1173,12 @@
     "land_gong_1_小怪_南瓜1_7_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            866,
-            549
+            577,
+            366
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1190,12 +1190,12 @@
     "land_gong_1_小怪_南瓜2_7_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            851,
-            374
+            567,
+            249
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1207,12 +1207,12 @@
     "land_gong_1_小怪_向日葵7_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1396,
-            222
+            931,
+            148
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1224,12 +1224,12 @@
     "land_gong_1_小怪_机枪7_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            866,
-            743
+            577,
+            495
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1241,8 +1241,8 @@
     "land_gong_1_小怪_点波8": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -1253,12 +1253,12 @@
     "land_gong_1_小怪_草垛8_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1384,
-            557
+            923,
+            371
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1270,12 +1270,12 @@
     "land_gong_1_小怪_双发8_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            889,
-            561
+            593,
+            374
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1287,12 +1287,12 @@
     "land_gong_1_小怪_草垛仿8_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1379,
-            730
+            919,
+            487
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1304,14 +1304,14 @@
     "land_gong_1_阳光收集5": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893,
-            78,
-            102
+            838,
+            595,
+            52,
+            68
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1323,12 +1323,12 @@
     "land_gong_1_阳光收集5_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1340,12 +1340,12 @@
     "land_gong_1_阳光收集5_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1357,12 +1357,12 @@
     "land_gong_1_小怪_南瓜1_8_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            847,
-            230
+            565,
+            153
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1375,12 +1375,12 @@
     "land_gong_1_小怪_南瓜2_8_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            991,
-            893
+            661,
+            595
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1392,12 +1392,12 @@
     "land_gong_1_小怪_向日葵8_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1400,
-            714
+            933,
+            476
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1409,12 +1409,12 @@
     "land_gong_1_小怪_机枪8_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            870,
-            552
+            580,
+            368
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1426,8 +1426,8 @@
     "land_gong_1_小怪_点波9": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -1438,12 +1438,12 @@
     "land_gong_1_小怪_草垛9_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1398,
-            377
+            932,
+            251
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1455,12 +1455,12 @@
     "land_gong_1_小怪_双发9_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            852,
-            387
+            568,
+            258
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1472,12 +1472,12 @@
     "land_gong_1_小怪_草垛仿9_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1524,
-            400
+            1016,
+            267
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1489,12 +1489,12 @@
     "land_gong_1_小怪_南瓜1_9_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            972,
-            732
+            648,
+            488
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1506,12 +1506,12 @@
     "land_gong_1_小怪_南瓜2_9_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            987,
-            559
+            658,
+            373
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1523,12 +1523,12 @@
     "land_gong_1_小怪_向日葵9_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1405,
-            543
+            937,
+            362
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1540,12 +1540,12 @@
     "land_gong_1_小怪_机枪9_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            841,
-            365
+            561,
+            243
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1557,8 +1557,8 @@
     "land_gong_1_小怪_点波10": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -1569,12 +1569,12 @@
     "land_gong_1_小怪_草垛10_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1532,
-            384
+            1021,
+            256
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1586,12 +1586,12 @@
     "land_gong_1_小怪_双发10_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            852,
-            222
+            568,
+            148
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1603,12 +1603,12 @@
     "land_gong_1_小怪_草垛仿10_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1693,
-            540
+            1129,
+            360
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1620,12 +1620,12 @@
     "land_gong_1_小怪_南瓜1_10_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            973,
-            388
+            649,
+            259
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1637,14 +1637,14 @@
     "land_gong_1_阳光收集6": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893,
-            78,
-            102
+            838,
+            595,
+            52,
+            68
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1656,12 +1656,12 @@
     "land_gong_1_阳光收集6_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1673,12 +1673,12 @@
     "land_gong_1_阳光收集6_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1690,12 +1690,12 @@
     "land_gong_1_小怪_南瓜2_10_5": {
         "action": "Swipe",
         "begin": [
-            104,
-            497
+            69,
+            331
         ],
         "end": [
-            973,
-            232
+            649,
+            155
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1708,12 +1708,12 @@
     "land_gong_1_小怪_向日葵10_6": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1404,
-            397
+            936,
+            265
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1725,12 +1725,12 @@
     "land_gong_1_小怪_机枪10_7": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            851,
-            222
+            567,
+            148
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1742,8 +1742,8 @@
     "land_gong_1_小怪_点波11": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -1754,12 +1754,12 @@
     "land_gong_1_小怪_草垛11_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1569,
-            719
+            1046,
+            479
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1771,12 +1771,12 @@
     "land_gong_1_小怪_双发11_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            979,
-            214
+            653,
+            143
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1788,12 +1788,12 @@
     "land_gong_1_小怪_草垛仿11_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1693,
-            540
+            1129,
+            360
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1805,12 +1805,12 @@
     "land_gong_1_小怪_南瓜1_11_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            989,
-            237
+            659,
+            158
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1822,12 +1822,12 @@
     "land_gong_1_小怪_向日葵11_5": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1400,
-            234
+            933,
+            156
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1839,12 +1839,12 @@
     "land_gong_1_小怪_机枪11_6": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            989,
-            217
+            659,
+            145
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1856,8 +1856,8 @@
     "land_gong_1_小怪_点波12": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -1868,12 +1868,12 @@
     "land_gong_1_小怪_草垛12_1": {
         "action": "Swipe",
         "begin": [
-            104,
-            813
+            69,
+            542
         ],
         "end": [
-            1674,
-            543
+            1116,
+            362
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1885,12 +1885,12 @@
     "land_gong_1_小怪_双发12_2": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            996,
-            381
+            664,
+            254
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1902,12 +1902,12 @@
     "land_gong_1_小怪_草垛仿12_3": {
         "action": "Swipe",
         "begin": [
-            84,
-            924
+            56,
+            616
         ],
         "end": [
-            1807,
-            558
+            1205,
+            372
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1920,12 +1920,12 @@
     "land_gong_1_小怪_南瓜1_12_4": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            1112,
-            363
+            741,
+            242
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1937,12 +1937,12 @@
     "land_gong_1_小怪_向日葵12_5": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1540,
-            378
+            1027,
+            252
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1954,12 +1954,12 @@
     "land_gong_1_小怪_机枪12_6": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            995,
-            384
+            663,
+            256
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1971,14 +1971,14 @@
     "land_gong_1_阳光收集7": {
         "action": "Swipe",
         "begin": [
-            1234,
-            151
+            823,
+            101
         ],
         "end": [
-            1257,
-            893,
-            78,
-            102
+            838,
+            595,
+            52,
+            68
         ],
         "duration": 100,
         "post_delay": 0,
@@ -1990,12 +1990,12 @@
     "land_gong_1_阳光收集7_2": {
         "action": "Swipe",
         "begin": [
-            1386,
-            203
+            924,
+            135
         ],
         "end": [
-            1392,
-            886
+            928,
+            591
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2007,12 +2007,12 @@
     "land_gong_1_阳光收集7_3": {
         "action": "Swipe",
         "begin": [
-            1540,
-            218
+            1027,
+            145
         ],
         "end": [
-            1553,
-            910
+            1035,
+            607
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2024,8 +2024,8 @@
     "land_gong_1_小怪_点波13": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -2036,12 +2036,12 @@
     "land_gong_1_小怪_双发13_1": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            995,
-            552
+            663,
+            368
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2053,12 +2053,12 @@
     "land_gong_1_小怪_南瓜1_13_2": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            1112,
-            541
+            741,
+            361
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2070,12 +2070,12 @@
     "land_gong_1_小怪_向日葵13_3": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1551,
-            562
+            1034,
+            375
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2087,12 +2087,12 @@
     "land_gong_1_小怪_机枪13_4": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            996,
-            568
+            664,
+            379
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2105,8 +2105,8 @@
     "land_gong_1_小怪_点波14": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -2117,12 +2117,12 @@
     "land_gong_1_小怪_双发14_1": {
         "action": "Swipe",
         "begin": [
-            84,
-            711
+            56,
+            474
         ],
         "end": [
-            981,
-            705
+            654,
+            470
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2134,12 +2134,12 @@
     "land_gong_1_小怪_南瓜1_14_2": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            1094,
-            704
+            729,
+            469
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2151,12 +2151,12 @@
     "land_gong_1_小怪_向日葵14_3": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1548,
-            712
+            1032,
+            475
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2168,12 +2168,12 @@
     "land_gong_1_小怪_机枪14_4": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            989,
-            698
+            659,
+            465
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2185,8 +2185,8 @@
     "land_gong_1_小怪_点波15": {
         "action": "Click",
         "target": [
-            1824,
-            364
+            1216,
+            243
         ],
         "post_delay": 0,
         "pre_delay": 0,
@@ -2197,12 +2197,12 @@
     "land_gong_1_小怪_双发15_1": {
         "action": "Swipe",
         "begin": [
-            83,
-            694
+            55,
+            463
         ],
         "end": [
-            977,
-            881
+            651,
+            587
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2214,12 +2214,12 @@
     "land_gong_1_小怪_南瓜1_15_2": {
         "action": "Swipe",
         "begin": [
-            106,
-            491
+            71,
+            327
         ],
         "end": [
-            1094,
-            704
+            729,
+            469
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2231,12 +2231,12 @@
     "land_gong_1_小怪_机枪15_3": {
         "action": "Swipe",
         "begin": [
-            86,
-            594
+            57,
+            396
         ],
         "end": [
-            991,
-            878
+            661,
+            585
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2248,12 +2248,12 @@
     "land_gong_1_小怪_向日葵15_4": {
         "action": "Swipe",
         "begin": [
-            113,
-            167
+            75,
+            111
         ],
         "end": [
-            1548,
-            889
+            1032,
+            593
         ],
         "duration": 100,
         "post_delay": 0,
@@ -2280,8 +2280,8 @@
     "land_gong_1_boss关_点击开始": {
         "action": "Click",
         "target": [
-            1747,
-            1007
+            1165,
+            671
         ],
         "post_delay": 1000,
         "next": [
@@ -2291,12 +2291,12 @@
     "land_gong_1_boss_草垛1": {
         "action": "Swipe",
         "begin": [
-            111,
-            819
+            74,
+            546
         ],
         "end": [
-            1121,
-            394
+            747,
+            263
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2308,12 +2308,12 @@
     "land_gong_1_boss_草垛2": {
         "action": "Swipe",
         "begin": [
-            108,
-            922
+            72,
+            615
         ],
         "end": [
-            1116,
-            546
+            744,
+            364
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2325,12 +2325,12 @@
     "land_gong_1_boss_草垛3": {
         "action": "Swipe",
         "begin": [
-            106,
-            815
+            71,
+            543
         ],
         "end": [
-            1116,
-            716
+            744,
+            477
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2342,12 +2342,12 @@
     "land_gong_1_boss_草垛4": {
         "action": "Swipe",
         "begin": [
-            123,
-            924
+            82,
+            616
         ],
         "end": [
-            689,
-            398
+            459,
+            265
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2359,12 +2359,12 @@
     "land_gong_1_boss_草垛5": {
         "action": "Swipe",
         "begin": [
-            109,
-            812
+            73,
+            541
         ],
         "end": [
-            707,
-            544
+            471,
+            363
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2376,12 +2376,12 @@
     "land_gong_1_boss_草垛6": {
         "action": "Swipe",
         "begin": [
-            108,
-            923
+            72,
+            615
         ],
         "end": [
-            707,
-            706
+            471,
+            471
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2393,12 +2393,12 @@
     "land_gong_1_boss_草垛7": {
         "action": "Swipe",
         "begin": [
-            111,
-            819
+            74,
+            546
         ],
         "end": [
-            839,
-            388
+            559,
+            259
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2410,12 +2410,12 @@
     "land_gong_1_boss_草垛8": {
         "action": "Swipe",
         "begin": [
-            102,
-            918
+            68,
+            612
         ],
         "end": [
-            852,
-            580
+            568,
+            387
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2427,12 +2427,12 @@
     "land_gong_1_boss_草垛9": {
         "action": "Swipe",
         "begin": [
-            111,
-            819
+            74,
+            546
         ],
         "end": [
-            874,
-            708
+            583,
+            472
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2444,12 +2444,12 @@
     "land_gong_1_boss_草垛10": {
         "action": "Swipe",
         "begin": [
-            106,
-            920
+            71,
+            613
         ],
         "end": [
-            991,
-            584
+            661,
+            389
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2461,12 +2461,12 @@
     "land_gong_1_boss_机枪1": {
         "action": "Swipe",
         "begin": [
-            102,
-            281
+            68,
+            187
         ],
         "end": [
-            1121,
-            394
+            747,
+            263
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2478,12 +2478,12 @@
     "land_gong_1_boss_机枪2": {
         "action": "Swipe",
         "begin": [
-            100,
-            294
+            67,
+            196
         ],
         "end": [
-            1116,
-            546
+            744,
+            364
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2495,12 +2495,12 @@
     "land_gong_1_boss_机枪3": {
         "action": "Swipe",
         "begin": [
-            84,
-            288
+            56,
+            192
         ],
         "end": [
-            1116,
-            716
+            744,
+            477
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2512,12 +2512,12 @@
     "land_gong_1_boss_机枪4": {
         "action": "Swipe",
         "begin": [
-            111,
-            715
+            74,
+            477
         ],
         "end": [
-            689,
-            398
+            459,
+            265
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2529,12 +2529,12 @@
     "land_gong_1_boss_机枪5": {
         "action": "Swipe",
         "begin": [
-            108,
-            711
+            72,
+            474
         ],
         "end": [
-            707,
-            544
+            471,
+            363
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2546,12 +2546,12 @@
     "land_gong_1_boss_机枪6": {
         "action": "Swipe",
         "begin": [
-            109,
-            719
+            73,
+            479
         ],
         "end": [
-            707,
-            706
+            471,
+            471
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2563,12 +2563,12 @@
     "land_gong_1_boss_机枪7": {
         "action": "Swipe",
         "begin": [
-            94,
-            705
+            63,
+            470
         ],
         "end": [
-            839,
-            388
+            559,
+            259
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2580,12 +2580,12 @@
     "land_gong_1_boss_机枪8": {
         "action": "Swipe",
         "begin": [
-            84,
-            704
+            56,
+            469
         ],
         "end": [
-            852,
-            580
+            568,
+            387
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2597,12 +2597,12 @@
     "land_gong_1_boss_机枪9": {
         "action": "Swipe",
         "begin": [
-            109,
-            717
+            73,
+            478
         ],
         "end": [
-            874,
-            708
+            583,
+            472
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2614,12 +2614,12 @@
     "land_gong_1_boss_机枪10": {
         "action": "Swipe",
         "begin": [
-            108,
-            711
+            72,
+            474
         ],
         "end": [
-            991,
-            584
+            661,
+            389
         ],
         "duration": 100,
         "pre_delay": 0,
@@ -2633,10 +2633,10 @@
         "recognition": "OCR",
         "expected": "开始战斗",
         "roi": [
-            1590,
-            970,
-            301,
-            88
+            1060,
+            647,
+            201,
+            59
         ],
         "action": "DoNothing",
         "next": [
