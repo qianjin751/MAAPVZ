@@ -1,6 +1,6 @@
 {
     "返回主界面": {
-        "timeout": 3000,
+        "timeout": 30000,
         "recognition": "TemplateMatch",
         "template": [
             "back_to_home/叉叉.png",
