@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 env:
@@ -43,6 +45,7 @@ jobs:
                 fi
               fi
             fi
+            tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
           fi
 
           # 无有效版本号时生成 CI 标签(不发布)
@@ -271,6 +274,8 @@ jobs:
         id: git-cliff
         with:
           config: .github/cliff.toml
+          # 正式版：使用 tag-pattern 只匹配正式版标签，包含所有从上一个正式版以来的提交
+          # 预发布版：正常生成，只包含从上一个标签以来的提交
           args: >-
             -vv --latest --strip header
             ${{ needs.meta.outputs.is_prerelease == 'false' && '--tag-pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$"' || '' }}
