@@ -1,3 +1,23 @@
 {
-    "option": {}
+    "option": {
+        "刷金币模式选择": {
+            "type": "select",
+            "default_case": "一直刷胜场/金币",
+            "cases": [
+                {
+                    "name": "只刷十把",
+                    "pipeline_override": {
+                        "埃及1_重置所有偏移": {
+                            "next": [
+                                "埃及1_重开十次"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "一直刷胜场/金币"
+                }
+            ]
+        },
+    }
 }
