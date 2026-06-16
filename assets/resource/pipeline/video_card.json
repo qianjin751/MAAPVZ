@@ -1,0 +1,10 @@
+{
+    "有免广告卡_前置检查": {
+        "timeout": 10000,
+        "action": "DoNothing",
+        "max_hit": 3,
+        "next": [
+            "[JumpBack]检查当前是否在主界面"
+        ]
+    },
+}

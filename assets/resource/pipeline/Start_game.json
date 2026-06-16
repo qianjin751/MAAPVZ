@@ -419,6 +419,28 @@
             "小米_下次再说"
         ]
     },
+    "点击登录_taptap": {
+        "timeout": 30000,
+        "recognition": "TemplateMatch",
+        "template": [
+            "Start_game/taptap登录.png"
+        ],
+        "pre_wait_freezes": {
+            "time": 2000,
+            "threshold": 0.95,
+            "timeout": 10000,
+            "target": true,
+            "method": 5
+        },
+        "action": "Click",
+        "post_delay": 4000,
+        "next": [
+            "开始游戏",
+            "关闭广告通用",
+            "小米的广告",
+            "小米_下次再说"
+        ]
+    },
     "关闭广告通用": {
         "timeout": 15000,
         "recognition": "Or",
