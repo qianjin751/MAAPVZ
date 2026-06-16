@@ -125,7 +125,7 @@
         ]
     },
     "xinta_boss_喂豆电大": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             615,
             681
@@ -142,7 +142,7 @@
         ]
     },
     "xinta_boss_抛花1": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             133
@@ -159,7 +159,7 @@
         ]
     },
     "xinta_boss_抛花2": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             133
@@ -176,7 +176,7 @@
         ]
     },
     "xinta_boss_抛花3": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             133
@@ -193,7 +193,7 @@
         ]
     },
     "xinta_boss_抛花4": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             133
@@ -210,7 +210,7 @@
         ]
     },
     "xinta_boss_抛花5": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             133
@@ -227,7 +227,7 @@
         ]
     },
     "xinta_boss_喂豆电大2": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             615,
             681
@@ -244,7 +244,7 @@
         ]
     },
     "xinta_boss_喂豆电大3": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             615,
             681
@@ -261,7 +261,7 @@
         ]
     },
     "xinta_boss_瓷砖1": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             333
@@ -278,7 +278,7 @@
         ]
     },
     "xinta_boss_瓷砖2": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             333
@@ -295,7 +295,7 @@
         ]
     },
     "xinta_boss_瓷砖3": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             333
@@ -312,7 +312,7 @@
         ]
     },
     "xinta_boss_瓷砖4": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             333
@@ -329,7 +329,7 @@
         ]
     },
     "xinta_boss_瓷砖5": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             333
@@ -346,7 +346,7 @@
         ]
     },
     "xinta_boss_瓷砖6": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             67,
             333
@@ -363,7 +363,7 @@
         ]
     },
     "xinta_boss_喂豆电大4": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             615,
             681
@@ -380,7 +380,7 @@
         ]
     },
     "xinta_boss_喂豆电大5": {
-        "action": "swipe",
+        "action": "Swipe",
         "begin": [
             615,
             681

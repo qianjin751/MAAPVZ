@@ -45,7 +45,7 @@
         "./resource/task/Endless.json",
         "./resource/task/pair_duel.json",
         "./resource/task/mini_tools.json",
-        "./resource/task/test.json",
+        "./resource/task/test.json"
     ],
     "task": [
         {
@@ -67,8 +67,11 @@
             "description": "进行每日签到任务"
         },
         {
-            "name": "执行每日50钻(免广告卡)",
+            "name": "免广告卡",
             "entry": "每日50钻_拥有免广告卡_前置检查",
+            "option": [
+                "免广告卡选项"
+            ],
             "default_check": true,
             "description": "需要拥有免广告卡"
         },
@@ -77,6 +80,7 @@
             "entry": "植物探险_前置检查",
             "default_check": true,
             "option": [
+                "双倍碎片",
                 "海盗/埃及",
                 "西部/功夫",
                 "未来/黑暗",
@@ -90,7 +94,7 @@
             "description": "先领取奖励，再进行探险"
         },
         {
-            "name": "潘妮秘宝",
+            "name": "潘妮秘宝（测试）",
             "default_check": true,
             "entry": "潘妮密保_前置检查"
         },
@@ -109,7 +113,7 @@
         {
             "name": "旅行原木（测试）",
             "entry": "旅行原木_前置检查",
-            "default_check": true,
+            "default_check": true
         },
         {
             "name": "刷胜场/金币（测试）",
@@ -130,7 +134,7 @@
                 "模式选择"
             ],
             "entry": "时空秘境_前置检查",
-            "default_check": false,
+            "default_check": false
         },
         {
             "name": "无尽挑战（测试）",
@@ -184,10 +188,35 @@
         {
             "name": "dbug（不要开启）",
             "entry": "碎片挑战_完成对局_确定_免广告卡"
-        },
+        }
     ],
     "option": {
-       
+        "双倍碎片": {
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes"
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "免广告卡选项": {
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "每日免费五十钻"
+                },
+                {
+                    "name": "潘妮秘宝"
+                },
+                {
+                    "name": "超z钥匙"
+                }
+            ]
+        },
         "渠道服": {
             "type": "select",
             "description": "选择你要进入的渠道服",
