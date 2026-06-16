@@ -541,6 +541,25 @@
             "type": "switch",
             "cases": [
                 {
+                    "name": "No"
+                },
+                {
+                    "name": "Yes",
+                    "option": [
+                        "双倍植物碎片",
+                        "增加巨人危机挑战次数",
+                        "增加邪恶入侵挑战次数"
+                    ],
+                },
+            ]
+        },
+        "双倍植物碎片": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "No"
+                },
+                {
                     "name": "Yes",
                     "pipeline_override": {
                         "碎片挑战_钱袋子": {
@@ -551,14 +570,33 @@
                         },
                     }
                 },
-                {
-                    "name": "No"
-                }
             ]
         },
+        "增加巨人危机挑战次数": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "No"
+                },
+                {
+                    "name": "Yes",
+                },
+            ]
+        },
+        "增加邪恶入侵挑战次数": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "No"
+                },
+                {
+                    "name": "Yes",
+                },
+            ]
+        }
         // "暴走雪人配置": {
         //     "type": "select",
         //     "cases": []
         // },
-    }
+    },
 }
