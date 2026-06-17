@@ -432,6 +432,12 @@
             "target": true,
             "method": 5
         },
+        "roi": [
+            644,
+            251,
+            517,
+            437
+        ],
         "action": "Click",
         "post_delay": 4000,
         "next": [
