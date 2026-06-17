@@ -3,8 +3,120 @@
         "timeout": 10000,
         "action": "DoNothing",
         "max_hit": 3,
+        "anchor": {
+            "碎片挑战类型": "点击碎片挑战_巨人危机"
+        },
         "next": [
             "碎片挑战_重置所有偏移"
+        ]
+    },
+    "点击日常_增加挑战次数_点击日常": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/日常.png"
+        ],
+        "pre_wait_freezes": {
+            "time": 1000,
+            "threshold": 0.95,
+            "timeout": 10000,
+            "target": true,
+            "method": 5
+        },
+        "action": "Click",
+        "next": [
+            "点击日常_增加挑战次数_点击挑战",
+            "点击日常_增加挑战次数_点击日常"
+        ]
+    },
+    "点击日常_增加挑战次数_点击挑战": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/碎片挑战_图标.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "点击日常_增加挑战次数_增加巨人危机次数",
+            "点击日常_增加挑战次数_增加邪恶入侵次数",
+            "点击日常_增加挑战次数_关闭"
+        ]
+    },
+    "点击日常_增加挑战次数_增加巨人危机次数": {
+        "enabled": false,
+        "max_hit": 1,
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/加号.png"
+        ],
+        "roi": [
+            216,
+            423,
+            260,
+            147
+        ],
+        "post_wait_freezes": 500,
+        "action": "Click",
+        "next": [
+            "点击日常_增加挑战次数_观看广告",
+            "点击日常_增加挑战次数_关闭看广告界面"
+        ]
+    },
+    "点击日常_增加挑战次数_增加邪恶入侵次数": {
+        "enabled": false,
+        "max_hit": 1,
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/加号.png"
+        ],
+        "roi": [
+            512,
+            429,
+            260,
+            148
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "点击日常_增加挑战次数_观看广告",
+            "点击日常_增加挑战次数_关闭看广告界面"
+        ]
+    },
+    "点击日常_增加挑战次数_观看广告": {
+        "recognition": "OCR",
+        "expected": [
+            "观看广告"
+        ],
+        "action": "Click",
+        "next": [
+            "点击日常_增加挑战次数_关闭看广告界面"
+        ]
+    },
+    "点击日常_增加挑战次数_关闭看广告界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/叉叉.png"
+        ],
+        "roi": [
+            846,
+            197,
+            126,
+            92
+        ],
+        "action": "Click",
+        "next": [
+            "点击日常_增加挑战次数_增加巨人危机次数",
+            "点击日常_增加挑战次数_增加邪恶入侵次数",
+            "点击日常_增加挑战次数_关闭"
+        ]
+    },
+    "点击日常_增加挑战次数_关闭": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/叉叉.png"
+        ],
+        "action": "Click",
+        "next": [
+            "点击日常_碎片挑战"
         ]
     },
     "点击日常_碎片挑战": {
@@ -21,11 +133,11 @@
         },
         "action": "Click",
         "next": [
-            "点击碎片挑战",
+            "[Anchor]碎片挑战类型",
             "点击日常_碎片挑战"
         ]
     },
-    "点击碎片挑战": {
+    "点击碎片挑战_巨人危机": {
         "recognition": "TemplateMatch",
         "template": [
             "Fragment_Challenge/碎片挑战_图标.png"
@@ -35,6 +147,20 @@
         "next": [
             "巨人危机_难度选择",
             "巨人危机_尚未开放",
+            // "暴走雪人_难度选择",
+            // "暴走雪人_尚未开放",
+            "碎片挑战_关闭",
+            "碎片挑战_已完成"
+        ]
+    },
+    "点击碎片挑战_邪恶入侵": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge/碎片挑战_图标.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
             "邪恶入侵_难度选择",
             "邪恶入侵_尚未开放",
             // "暴走雪人_难度选择",
@@ -63,7 +189,6 @@
         "focus": "碎片挑战已完成"
     },
     "巨人危机_难度选择": {
-        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "Fragment_Challenge/碎片挑战_难度选择.png"
@@ -80,19 +205,20 @@
         ]
     },
     "巨人危机_尚未开放": {
-        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "Fragment_Challenge/碎片挑战_尚未开放.png"
         ],
         "action": "DoNothing",
+        "anchor": {
+            "碎片挑战类型": "点击碎片挑战_邪恶入侵",
+        },
         "next": [
             "邪恶入侵_难度选择",
             "邪恶入侵_尚未开放"
         ]
     },
     "邪恶入侵_难度选择": {
-        "max_hit": 1,
         "recognition": "TemplateMatch",
         "template": [
             "Fragment_Challenge/碎片挑战_难度选择.png"
@@ -103,6 +229,9 @@
             227,
             165
         ],
+        "anchor": {
+            "碎片挑战类型": "",
+        },
         "action": "Click",
         "next": [
             "碎片挑战_传奇模式"
@@ -168,10 +297,10 @@
         "action": "Click",
         "next": [
             "碎片挑战_选择第一个植物",
-            "次数已用完"
+            "巨人危机_次数已用完"
         ]
     },
-    "次数已用完": {
+    "巨人危机_次数已用完": {
         "recognition": "OCR",
         "roi": [
             586,
@@ -182,8 +311,31 @@
         "expected": [
             "确定"
         ],
+        "anchor": {
+            "碎片挑战类型": "点击碎片挑战_邪恶入侵"
+        },
         "action": "Click",
-        "focus": "次数已用完",
+        "focus": "巨人危机次数已用完",
+        "next": [
+            "没有选到准备退出"
+        ]
+    },
+    "邪恶入侵_次数已用完": {
+        "recognition": "OCR",
+        "roi": [
+            586,
+            442,
+            99,
+            43
+        ],
+        "anchor": {
+            "碎片挑战类型": ""
+        },
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+        "focus": "邪恶入侵次数已用完",
         "next": [
             "没有选到准备退出"
         ]
