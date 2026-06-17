@@ -46,6 +46,13 @@
         ],
         "focus": "朕收下了",
         "action": "Click",
+       "pre_wait_freezes": {
+            "time": 1000,
+            "threshold": 0.95,
+            "timeout": 3000,
+            "target": true,
+            "method": 5
+        },
         "next": [
             "旅行原木_朕收下了",
             "旅行原木_领取宝箱",
@@ -59,6 +66,13 @@
         ],
         "focus": "领取宝箱",
         "action": "Click",
+         "pre_wait_freezes": {
+            "time": 1000,
+            "threshold": 0.95,
+            "timeout": 3000,
+            "target": true,
+            "method": 5
+        },
         "next": [
             "旅行原木_朕收下了",
             "旅行原木_领取宝箱",
