@@ -201,7 +201,18 @@
             "plants_explore/探险完成.png"
         ],
         "action": "Click",
-        "post_delay": 500,
+        "post_wait_freezes": 700,
+        "next": [
+            "完成探险"
+        ]
+    },
+    "植物探险_使用免广告卡": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "plants_explore_slide_and_click/看广告领双倍.png"
+        ],
+        "action": "Click",
+        "focus": "[color:darkgray]植物探险_使用免广告卡[/color]",
         "next": [
             "完成探险"
         ]
