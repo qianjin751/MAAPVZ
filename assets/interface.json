@@ -453,10 +453,18 @@
                     }
                 },
                 {
+                    "name": "taptap",
+                    "pipeline_override": {
+                        "选择渠道服": {
+                            "next": [
+                                "关闭pvz_官服",
+                                "打开pvz_taptap"
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "官服",
-                    "option": [
-                        "登录taptap"
-                    ],
                     "pipeline_override": {
                         "选择渠道服": {
                             "next": [
@@ -464,24 +472,6 @@
                                 "打开pvz_官服"
                             ]
                         }
-                    }
-                }
-            ]
-        },
-        "登录taptap": {
-            "type": "switch",
-            "cases": [
-                {
-                    "name": "No"
-                },
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "打开pvz_官服": {
-                            "next": [
-                                "点击登录_taptap"
-                            ]
-                        },
                     }
                 }
             ]
