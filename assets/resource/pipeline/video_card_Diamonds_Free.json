@@ -40,10 +40,11 @@
             51,
             51
         ],
+        "post_wait_freezes": 700,
         "next": [
             "领取钻石",
             "领取钻石_确定",
-            "有免广告卡_前置检查"
+            "检查当前是否在主界面"
         ],
     },
     "领取钻石_确定": {
@@ -51,6 +52,7 @@
         "template": [
             "Daily_Diamonds_Free_Version/领取钻石_确定.png"
         ],
+        "post_wait_freezes": 500,
         "action": "Click",
         "next": [
             "领取钻石",
