@@ -77,7 +77,6 @@
         ],
         "method": 10001,
         "action": "DoNothing",
-        "max_hit": 3,
         "focus": "成功返回主界面",
         "next": []
     }
