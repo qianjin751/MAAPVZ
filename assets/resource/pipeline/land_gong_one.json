@@ -1,4 +1,48 @@
 {
+    "地宫1无尽_地宫秘境1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Detection_Order/地宫1.png"
+        ],
+        "roi": [
+            212,
+            421,
+            169,
+            91
+        ],
+        "action": "Click",
+        "next": [
+            "地宫1无尽_立即前往",
+            "地宫1无尽_地宫秘境1"
+        ]
+    },
+    "地宫1无尽_立即前往": {
+        "recognition": "OCR",
+        "expected": [
+            "立即前往"
+        ],
+        "action": "Click",
+        "next": [
+            "地宫1无尽_无尽模式",
+            "地宫1无尽_立即前往"
+        ]
+    },
+    "地宫1无尽_无尽模式": {
+        "recognition": "OCR",
+        "expected": [
+            "无尽模式",
+            "无",
+            "尽模式"
+        ],
+        "roi": [
+            918,
+            613,
+            112,
+            69
+        ],
+        "action": "Click",
+        "next": []
+    },
     "地宫1": {
         "recognition": "DirectHit",
         "action": "DoNothing",

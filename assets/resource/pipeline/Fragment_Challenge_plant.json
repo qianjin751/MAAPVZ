@@ -2162,7 +2162,7 @@
     },
     "碎片挑战_下一波": {
         "recognition": "TemplateMatch",
-        "timeout": 50000,
+        "timeout": 70000,
         "template": [
             "Fragment_Challenge_plant/下一波.png"
         ],
@@ -2207,6 +2207,7 @@
         "action": "Click",
         "post_delay": 0,
         "pre_delay": 0,
+        "post_wait_freezes": 500,
         "next": [
             "碎片挑战_完成对局__确定",
             "碎片挑战_钱袋子"
@@ -2221,10 +2222,10 @@
         "post_delay": 0,
         "pre_delay": 0,
         "roi": [
-            358,
-            554,
-            110,
-            71
+            357,
+            522,
+            396,
+            112
         ],
         "action": "Click",
         "next": [
