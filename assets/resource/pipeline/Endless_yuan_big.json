@@ -1,0 +1,1617 @@
+{
+    "原大_无尽": {
+        "action": "DoNothing",
+        "next": [
+            "原大_过渡"
+        ]
+    },
+    "原大_识别开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            915,
+            530,
+            357,
+            181
+        ],
+        "threshold": 0.75,
+        "action": "Click",
+        "timeout": -1,
+        "next": [
+            "原大_判断是否进入关内"
+        ]
+    },
+    "原大_判断是否进入关内": {
+        "recognition": "ColorMatch",
+        "roi": [
+            467,
+            669,
+            27,
+            27
+        ],
+        "method": 4,
+        "lower": [
+            148,
+            213,
+            8
+        ],
+        "upper": [
+            168,
+            233,
+            28
+        ],
+        "timeout": -1,
+        "action": "Click",
+        "target": [
+            1171,
+            37
+        ],
+        "next": [
+            "原大_抛花1"
+        ]
+    },
+    "原大_抛花1": {
+        "action": "swipe",
+        "begin": [
+            67,
+            133
+        ],
+        "end": [
+            1209,
+            149
+        ],
+        "pre_delay": 0,
+        "post_delay": 100,
+        "duration": 100,
+        "next": [
+            "原大_抛花2"
+        ]
+    },
+    "原大_抛花2": {
+        "action": "swipe",
+        "begin": [
+            67,
+            133
+        ],
+        "end": [
+            1182,
+            273
+        ],
+        "pre_delay": 0,
+        "post_delay": 5000,
+        "duration": 100,
+        "timeout": -1,
+        "next": [
+            "原大_点波1"
+        ]
+    },
+    "原大_点波1": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1235,
+            217
+        ],
+        "repeat": 2,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_大哥滑动1"
+        ]
+    },
+    "原大_大哥滑动1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            56,
+            263
+        ],
+        "end": [
+            471,
+            589
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_大哥滑动2"
+        ]
+    },
+    "原大_大哥滑动2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            256
+        ],
+        "end": [
+            472,
+            476
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_大哥滑动3"
+        ]
+    },
+    "原大_大哥滑动3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            73,
+            256
+        ],
+        "end": [
+            469,
+            368
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_原豌滑动1"
+        ]
+    },
+    "原大_原豌滑动1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            55,
+            401
+        ],
+        "end": [
+            469,
+            588
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_原豌滑动2"
+        ]
+    },
+    "原大_原豌滑动2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            55,
+            401
+        ],
+        "end": [
+            472,
+            486
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_原豌滑动3"
+        ]
+    },
+    "原大_原豌滑动3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            55,
+            401
+        ],
+        "end": [
+            470,
+            372
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_大哥滑动4",
+            "原大_点波2"
+        ]
+    },
+    "原大_大哥滑动4": {
+        "recognition": "ColorMatch",
+        "roi": [
+            115,
+            250,
+            7,
+            45
+        ],
+        "lower": [
+            250,
+            140,
+            0
+        ],
+        "upper": [
+            255,
+            167,
+            18
+        ],
+        "action": "Swipe",
+        "begin": [
+            73,
+            263
+        ],
+        "end": [
+            469,
+            261
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_原豌滑动4"
+        ]
+    },
+    "原大_原豌滑动4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            55,
+            401
+        ],
+        "end": [
+            470,
+            267
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_大哥滑动5",
+            "原大_点波2"
+        ]
+    },
+    "原大_大哥滑动5": {
+        "recognition": "ColorMatch",
+        "roi": [
+            115,
+            250,
+            7,
+            45
+        ],
+        "lower": [
+            250,
+            140,
+            0
+        ],
+        "upper": [
+            255,
+            167,
+            18
+        ],
+        "action": "Swipe",
+        "begin": [
+            59,
+            260
+        ],
+        "end": [
+            470,
+            150
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_原豌滑动5"
+        ]
+    },
+    "原大_原豌滑动5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            55,
+            401
+        ],
+        "end": [
+            461,
+            154
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_点波2"
+        ]
+    },
+    "原大_点波2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1235,
+            217
+        ],
+        "repeat": 2,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_自选滑动"
+        ]
+    },
+    "原大_自选滑动": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            68,
+            533
+        ],
+        "end": [
+            847,
+            352
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_芦荟滑动1"
+        ]
+    },
+    "原大_芦荟滑动1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            470
+        ],
+        "end": [
+            663,
+            268
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_芦荟滑动2"
+        ]
+    },
+    "原大_芦荟滑动2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            470
+        ],
+        "end": [
+            661,
+            588
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_芦荟滑动3"
+        ]
+    },
+    "原大_芦荟滑动3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            470
+        ],
+        "end": [
+            921,
+            141
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_芦荟滑动4"
+        ]
+    },
+    "原大_芦荟滑动4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            470
+        ],
+        "end": [
+            933,
+            471
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动1"
+        ]
+    },
+    "原大_桑葚滑动1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            186
+        ],
+        "end": [
+            566,
+            153
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动2"
+        ]
+    },
+    "原大_桑葚滑动2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            68,
+            189
+        ],
+        "end": [
+            565,
+            259
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_桑葚滑动3"
+        ]
+    },
+    "原大_桑葚滑动3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            56,
+            188
+        ],
+        "end": [
+            566,
+            376
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动4"
+        ]
+    },
+    "原大_桑葚滑动4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            186
+        ],
+        "end": [
+            561,
+            495
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动5"
+        ]
+    },
+    "原大_桑葚滑动5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            68,
+            186
+        ],
+        "end": [
+            561,
+            590
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动6"
+        ]
+    },
+    "原大_桑葚滑动6": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            191
+        ],
+        "end": [
+            663,
+            470
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动7"
+        ]
+    },
+    "原大_桑葚滑动7": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            189
+        ],
+        "end": [
+            667,
+            363
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动8"
+        ]
+    },
+    "原大_桑葚滑动8": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            60,
+            194
+        ],
+        "end": [
+            655,
+            151
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动9"
+        ]
+    },
+    "原大_桑葚滑动9": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            73,
+            187
+        ],
+        "end": [
+            746,
+            146
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动10"
+        ]
+    },
+    "原大_桑葚滑动10": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            745,
+            256
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动11"
+        ]
+    },
+    "原大_桑葚滑动11": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            749,
+            356
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动12"
+        ]
+    },
+    "原大_桑葚滑动12": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            749,
+            478
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_桑葚滑动13"
+        ]
+    },
+    "原大_桑葚滑动13": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            760,
+            590
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动14"
+        ]
+    },
+    "原大_桑葚滑动14": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            856,
+            596
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动15"
+        ]
+    },
+    "原大_桑葚滑动15": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            854,
+            467
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动16"
+        ]
+    },
+    "原大_桑葚滑动16": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            561,
+            363
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动17"
+        ]
+    },
+    "原大_桑葚滑动17": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            846,
+            262
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动18"
+        ]
+    },
+    "原大_桑葚滑动18": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            835,
+            143
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动19"
+        ]
+    },
+    "原大_桑葚滑动19": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            924,
+            250
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动20"
+        ]
+    },
+    "原大_桑葚滑动20": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            937,
+            361
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动21"
+        ]
+    },
+    "原大_桑葚滑动21": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            923,
+            583
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动22"
+        ]
+    },
+    "原大_桑葚滑动22": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            1021,
+            585
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_桑葚滑动23"
+        ]
+    },
+    "原大_桑葚滑动23": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            1031,
+            471
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动24"
+        ]
+    },
+    "原大_桑葚滑动24": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            1033,
+            361
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动25"
+        ]
+    },
+    "原大_桑葚滑动25": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            1029,
+            259
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_桑葚滑动26"
+        ]
+    },
+    "原大_桑葚滑动26": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            194
+        ],
+        "end": [
+            1020,
+            148
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_点波3"
+        ]
+    },
+    "原大_点波3": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1235,
+            217
+        ],
+        "repeat": 2,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_点波4"
+        ]
+    },
+    "原大_点波4": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1235,
+            217
+        ],
+        "repeat": 2,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动1"
+        ]
+    },
+    "原大_毒藤滑动1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            67,
+            328
+        ],
+        "end": [
+            566,
+            153
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动2"
+        ]
+    },
+    "原大_毒藤滑动2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            333
+        ],
+        "end": [
+            565,
+            259
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动3"
+        ]
+    },
+    "原大_毒藤滑动3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            61,
+            333
+        ],
+        "end": [
+            566,
+            376
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动4"
+        ]
+    },
+    "原大_毒藤滑动4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            334
+        ],
+        "end": [
+            561,
+            495
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_毒藤滑动5"
+        ]
+    },
+    "原大_毒藤滑动5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            61,
+            336
+        ],
+        "end": [
+            561,
+            590
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动6"
+        ]
+    },
+    "原大_毒藤滑动6": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            60,
+            331
+        ],
+        "end": [
+            663,
+            470
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动7"
+        ]
+    },
+    "原大_毒藤滑动7": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            65,
+            334
+        ],
+        "end": [
+            667,
+            363
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动8"
+        ]
+    },
+    "原大_毒藤滑动8": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            69,
+            331
+        ],
+        "end": [
+            655,
+            151
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动9"
+        ]
+    },
+    "原大_毒藤滑动9": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            69,
+            333
+        ],
+        "end": [
+            746,
+            146
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动10"
+        ]
+    },
+    "原大_毒藤滑动10": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            68,
+            333
+        ],
+        "end": [
+            745,
+            256
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动11"
+        ]
+    },
+    "原大_毒藤滑动11": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            67,
+            330
+        ],
+        "end": [
+            749,
+            356
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动12"
+        ]
+    },
+    "原大_毒藤滑动12": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            335
+        ],
+        "end": [
+            749,
+            478
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动13"
+        ]
+    },
+    "原大_毒藤滑动13": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            73,
+            330
+        ],
+        "end": [
+            760,
+            590
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动14"
+        ]
+    },
+    "原大_毒藤滑动14": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            60,
+            329
+        ],
+        "end": [
+            856,
+            596
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_毒藤滑动15"
+        ]
+    },
+    "原大_毒藤滑动15": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            74,
+            334
+        ],
+        "end": [
+            854,
+            467
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动16"
+        ]
+    },
+    "原大_毒藤滑动16": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            64,
+            335
+        ],
+        "end": [
+            847,
+            352
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动17"
+        ]
+    },
+    "原大_毒藤滑动17": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            73,
+            331
+        ],
+        "end": [
+            846,
+            262
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动18"
+        ]
+    },
+    "原大_毒藤滑动18": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            61,
+            332
+        ],
+        "end": [
+            835,
+            143
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动19"
+        ]
+    },
+    "原大_毒藤滑动19": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            61,
+            335
+        ],
+        "end": [
+            938,
+            256
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动20"
+        ]
+    },
+    "原大_毒藤滑动20": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            328
+        ],
+        "end": [
+            937,
+            361
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动21"
+        ]
+    },
+    "原大_毒藤滑动21": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            73,
+            327
+        ],
+        "end": [
+            941,
+            583
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动22"
+        ]
+    },
+    "原大_毒藤滑动22": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            65,
+            331
+        ],
+        "end": [
+            1021,
+            585
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动23"
+        ]
+    },
+    "原大_毒藤滑动23": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            71,
+            329
+        ],
+        "end": [
+            1031,
+            471
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动24"
+        ]
+    },
+    "原大_毒藤滑动24": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            57,
+            328
+        ],
+        "end": [
+            1033,
+            361
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动25"
+        ]
+    },
+    "原大_毒藤滑动25": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            68,
+            333
+        ],
+        "end": [
+            1029,
+            259
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_毒藤滑动26"
+        ]
+    },
+    "原大_毒藤滑动26": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            69,
+            333
+        ],
+        "end": [
+            1020,
+            148
+        ],
+        "duration": 100,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_点波5"
+        ]
+    },
+    "原大_点波5": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1235,
+            217
+        ],
+        "repeat": 2,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "原大_识别结算",
+            "原大_点波1"
+        ]
+    },
+    "原大_识别结算": {
+        "recognition": "OCR",
+        "roi": [
+            716,
+            621,
+            179,
+            50
+        ],
+        "expected": "继续挑战",
+        "action": "Click",
+        "rate_limit": 1000,
+        "timeout": -1,
+        "next": [
+            "原大_过渡"
+        ]
+    },
+    "原大_过渡": {
+        "action": "DoNothing",
+        "timeout": -1,
+        "next": [
+            "原大_识别boss关",
+            "原大_识别开始战斗",
+        ]
+    },
+    "原大_识别boss关": {
+        "recognition": "ColorMatch",
+        "lower": [
+            148,
+            213,
+            8
+        ],
+        "upper": [
+            168,
+            233,
+            28
+        ],
+        "roi": [
+            723,
+            56,
+            17,
+            22
+        ],
+        "rate_limit": 10,
+        "next": [
+            "原大_补给"
+        ]
+    },
+    "原大_补给": {
+        "recognition": "ColorMatch",
+        "lower": [
+            148,
+            213,
+            8
+        ],
+        "upper": [
+            168,
+            233,
+            28
+        ],
+        "roi": [
+            723,
+            56,
+            17,
+            22
+        ],
+        "rate_limit": 10,
+        "action": "Click",
+        "target": [
+            261,
+            375
+        ],
+        "next": [
+            "原大_确定1"
+        ]
+    },
+    "原大_确定1": {
+        "action": "Click",
+        "target": [
+            633,
+            614
+        ],
+        "next": [
+            "原大_提示",
+            "原大_确定3"
+        ]
+    },
+    "原大_提示": {
+        "recognition": "OCR",
+        "expected": "提示",
+        "roi": [
+            562,
+            242,
+            95,
+            49
+        ],
+        "action": "Click",
+        "target": [
+            595,
+            526
+        ],
+        "next": [
+            "原大_确定3"
+        ]
+    },
+    "原大_确定3": {
+        "action": "Click",
+        "target": [
+            633,
+            614
+        ],
+        "pre_delay": 1000,
+        "post_delay": 1000,
+        "next": [
+            "原大_确定4"
+        ]
+    },
+    "原大_确定4": {
+        "action": "Click",
+        "target": [
+            633,
+            614
+        ],
+        "pre_delay": 1000,
+        "post_delay": 1000,
+        "next": [
+            "原大_boss_识别开始"
+        ]
+    },
+    "原大_boss_识别开始": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            1060,
+            647,
+            201,
+            59
+        ],
+        "threshold": 0.75,
+        "action": "Click",
+        "next": [
+            "原大_boss_判断是否进入关内"
+        ]
+    },
+    "原大_boss_判断是否进入关内": {
+        "recognition": "ColorMatch",
+        "roi": [
+            467,
+            669,
+            27,
+            27
+        ],
+        "method": 4,
+        "lower": [
+            148,
+            213,
+            8
+        ],
+        "upper": [
+            168,
+            233,
+            28
+        ],
+        "timeout": -1,
+        "action": "Click",
+        "target": [
+            1171,
+            37
+        ],
+        "next": [
+            "原大_boss_喂豆5-3"
+        ]
+    },
+    "原大_boss_喂豆5-3": {
+        "action": "swipe",
+        "begin": [
+            615,
+            681
+        ],
+        "end": [
+            835,
+            369
+        ],
+        "pre_delay": 100,
+        "post_delay": 3000,
+        "max_hit": -1,
+        "timeout": -1,
+        "duration": 100,
+        "next": [
+            "原大_boss_识别结算",
+            "原大_boss_喂豆5-3"
+        ]
+    },
+    "原大_boss_识别结算": {
+        "recognition": "OCR",
+        "roi": [
+            716,
+            621,
+            179,
+            50
+        ],
+        "expected": "继续挑战",
+        "timeout": -1,
+        "rate_limit": 500,
+        "action": "Click",
+        "next": [
+            "原大_识别开始战斗"
+        ]
+    }
+}
