@@ -6,13 +6,15 @@
         ]
     },
     "原大_识别开始战斗": {
-        "recognition": "TemplateMatch",
-        "template": "xinta/开始战斗.png",
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
         "roi": [
-            1060,
-            647,
-            201,
-            59
+            915,
+            530,
+            357,
+            181
         ],
         "threshold": 0.75,
         "action": "Click",
@@ -1422,8 +1424,8 @@
         "action": "DoNothing",
         "timeout": -1,
         "next": [
+            "原大_识别boss关",
             "原大_识别开始战斗",
-            "原大_识别boss关"
         ]
     },
     "原大_识别boss关": {
@@ -1531,8 +1533,10 @@
         ]
     },
     "原大_boss_识别开始": {
-        "recognition": "TemplateMatch",
-        "template": "xinta/开始战斗.png",
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
         "roi": [
             1060,
             647,
