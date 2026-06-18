@@ -45,13 +45,11 @@ jobs:
                 fi
               fi
             fi
-            tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
           fi
 
           # 无有效版本号时生成 CI 标签(不发布)
           if [ -z "$tag" ]; then
-            short_hash=$(git rev-parse --short HEAD | tr 'a-z' 'A-Z')
-            tag="ci-$(date +%y%m%d)-${short_hash}"
+            tag="ci-$(date +%y%m%d)"
           fi
 
           echo "tag=$tag" >> $GITHUB_OUTPUT
