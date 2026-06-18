@@ -1,4 +1,8 @@
 {
+    "原大_不可使用": {
+        "focus": "当前世界不可用此阵容！",
+        "action": "StopTask"
+    },
     "原大_无尽": {
         "action": "DoNothing",
         "next": [
