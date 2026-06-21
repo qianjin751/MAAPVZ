@@ -1317,6 +1317,7 @@
         "next": [
             "地宫2无尽_小关"
         ]
+        //
     },
     "地宫2无尽_小关": {
         "recognition": "DirectHit",
@@ -1524,10 +1525,16 @@
         "pre_delay": 0,
         "post_delay": 0,
         "next": [
-            "地宫2无尽_小怪_火炬1_4"
+            "地宫2无尽_小怪_火炬1_4",
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_小怪_火炬1_4": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
         "action": "Swipe",
         "begin": [
             72,
@@ -1756,10 +1763,16 @@
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
-            "地宫2无尽_小怪_滑动2_6"
+            "地宫2无尽_小怪_滑动2_6",
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_小怪_滑动2_6": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
         "action": "Swipe",
         "begin": [
             73,
@@ -2042,10 +2055,16 @@
         "pre_delay": 0,
         "post_delay": 0,
         "next": [
-            "地宫2无尽_小怪_滑动4_4"
+            "地宫2无尽_小怪_滑动4_4",
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_小怪_滑动4_4": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
         "action": "Swipe",
         "begin": [
             72,
@@ -2366,10 +2385,15 @@
         "action": "DoNothing",
         "next": [
             "地宫2无尽_开始",
-            "地宫2无尽_小怪_点击7"
+            "地宫2无尽_小怪_点击7",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_小怪_点击7": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
         "action": "Click",
         "target": [
             1216,
@@ -2732,10 +2756,16 @@
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
-            "地宫2无尽_小怪_滑动9_5"
+            "地宫2无尽_小怪_滑动9_5",
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_小怪_滑动9_5": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
         "action": "Swipe",
         "begin": [
             61,
@@ -3159,12 +3189,16 @@
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
-            "地宫2无尽_小怪_检查12_4"
+            "地宫2无尽_小怪_检查12_4",
+            "地宫2无尽_开始",
+            "地宫2无尽_结算"
         ]
     },
     "地宫2无尽_小怪_检查12_4": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/加速.png"
+        ],
         "next": [
             "地宫2无尽_开始",
             "地宫2无尽_小怪_点击13"
