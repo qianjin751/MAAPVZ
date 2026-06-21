@@ -1,7 +1,7 @@
 {
     // 这是一个示例，展示如何在 pipeline 中使用自定义动作 "OffsetClick_y"。你需要根据实际情况修改节点名称、识别方式、模板路径和动作参数。 
     // {
-    //     "碎片挑战_选择多余植物进行占位": {
+    //     "碎片挑战_巨人危机_选择多余植物进行占位": {
     //         "action": "Custom",
     //         "custom_action": "OffsetClick",
     //         "custom_action_param": {
@@ -23,7 +23,7 @@
     //     n: 重置时 y 坐标的变化量，新 y = initial_y - n（默认 100，n>0 表示减少 y）
     //  """
     //仙人掌
-    "碎片挑战_选择多余植物进行占位": {
+    "碎片挑战_巨人危机_选择多余植物进行占位": {
         "recognition": "DirectHit",
         "max_hit": 16,
         "action": {
@@ -41,102 +41,31 @@
             }
         },
         "next": [
-            "碎片挑战_选择多余植物进行占位",
-            "碎片挑战_仙人掌_开始战斗"
+            "碎片挑战_巨人危机_选择多余植物进行占位",
         ]
     },
-    "巨人西部_种植仙人掌": {
+    "碎片挑战_邪恶入侵_选择多余植物进行占位": {
         "recognition": "DirectHit",
+        "max_hit": 16,
         "action": {
             "type": "Custom",
             "param": {
                 "custom_action": "OffsetClick_y",
                 "custom_action_param": {
-                    "initial_x": 467,
-                    "initial_y": 168,
-                    "dx": 90,
-                    "max_hits": 7,
-                    "n": -110
-                },
-                "target": true
-            }
-        },
-        "pre_delay": 100,
-        "post_delay": 100,
-        "next": [
-            "巨人西部_种植仙人掌_选择仙人掌",
-            "碎片挑战_二倍速"
-        ]
-    },
-    "巨人海盗_种植仙人掌": {
-        "recognition": "DirectHit",
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "OffsetClick_y",
-                "custom_action_param": {
-                    "initial_x": 467,
-                    "initial_y": 168,
-                    "dx": 90,
-                    "max_hits": 4,
-                    "n": -110
-                },
-                "target": true
-            }
-        },
-        "pre_delay": 100,
-        "post_delay": 100,
-        "next": [
-            "巨人海盗_种植仙人掌_选择仙人掌",
-            "碎片挑战_二倍速"
-        ]
-    },
-    "巨人埃及_种植仙人掌": {
-        "recognition": "DirectHit",
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "OffsetClick_y",
-                "custom_action_param": {
-                    "initial_x": 467,
-                    "initial_y": 168,
-                    "dx": 90,
-                    "max_hits": 3,
-                    "n": -110
-                },
-                "target": true
-            }
-        },
-        "pre_delay": 100,
-        "post_delay": 100,
-        "next": [
-            "巨人埃及_种植仙人掌_选择仙人掌",
-            "碎片挑战_二倍速"
-        ]
-    },
-    //仙人掌
-    //猕猴桃
-    "邪恶入侵_种植猕猴桃2": {
-        "recognition": "DirectHit",
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "OffsetClick_y",
-                "custom_action_param": {
-                    "initial_x": 560,
-                    "initial_y": 378,
-                    "dx": 90,
+                    "initial_x": 193,
+                    "initial_y": 437,
+                    "dx": 119,
                     "max_hits": 6,
-                    "n": -110
+                    "n": -100
                 },
                 "target": true
             }
         },
         "next": [
-            "邪恶入侵_种植猕猴桃_选择猕猴桃",
-            "碎片挑战_二倍速"
+            "碎片挑战_邪恶入侵_选择多余植物进行占位",
         ]
     },
+    //猕猴桃
     //猕猴桃
     // """
     // 交换版偏移点击：每次点击 y 增加 dy，每 max_hits 次后重置并改变 x 坐标
@@ -168,26 +97,6 @@
     //         "next": ["某节点"]
     //     }
     // }
-    "邪恶入侵_种植猕猴桃1": {
-        "recognition": "DirectHit",
-        "max_hit": 6,
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "OffsetClick_x",
-                "custom_action_param": {
-                    "initial_x": 467,
-                    "initial_y": 168,
-                    "dy": 110,
-                    "max_hits": 6
-                },
-                "target": true
-            }
-        },
-        "next": [
-            "邪恶入侵_种植猕猴桃_选择猕猴桃"
-        ]
-    },
     //     如何使用
     // 1. 在 Pipeline 中调用重置动作
     // 你可以在任何需要重置的地方插入一个节点，例如：

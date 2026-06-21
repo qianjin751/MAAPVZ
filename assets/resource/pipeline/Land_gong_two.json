@@ -18,6 +18,7 @@
     },
     "地宫2无尽_立即前往": {
         "recognition": "OCR",
+        "timeout": 30000,
         "expected": [
             "立即前往"
         ],
