@@ -134,6 +134,17 @@ def install_deps():
         )
     else:
         print("Warning: MaaAgentBinary not found, skipping.")
+    if os_name == "macos":
+        libs_dir = install_path / "libs"
+        libs_dir.mkdir(parents=True, exist_ok=True)
+        
+        # 从 bin_source 复制所有 .dylib 到 libs/（确保完整性）
+        for dylib in bin_source.glob("*.dylib"):
+            dest = libs_dir / dylib.name
+            shutil.copy2(dylib, dest)
+            # macOS 动态库需要可执行权限
+            dest.chmod(0o755)
+        print(f"Copied macOS dynamic libraries to {libs_dir}")
         
 def install_resource():
     configure_ocr_model()
