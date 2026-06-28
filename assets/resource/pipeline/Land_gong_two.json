@@ -48,6 +48,7 @@
         ]
     },
     "地宫2无尽_无尽模式_确定": {
+        "timeout": 40000,
         "recognition": "OCR",
         "expected": [
             "确定"
