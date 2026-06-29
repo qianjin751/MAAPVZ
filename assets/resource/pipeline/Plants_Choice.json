@@ -11,7 +11,7 @@
         ],
         "action": "Swipe",
         "post_wait_freezes": 100,
-        "duration": 1000,
+        "duration": 500,
         "begin": [
             215,
             628,
@@ -40,7 +40,7 @@
             48
         ],
         "action": "Swipe",
-        "duration": 100,
+        "duration": 10,
         "begin": [
             381,
             401,
@@ -53,7 +53,7 @@
             107,
             43
         ],
-        "repeat": 10,
+        "repeat": 30,
         "next": [
             "[Anchor]下一个寻找的植物",
             "寻找植物_滑动"
