@@ -112,6 +112,34 @@
         ]
     },
     "免广告卡_超z钥匙_返回": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "back_to_home/叉叉.png"
+        ],
+        "action": "Click",
+        "roi": [
+            956,
+            56,
+            150,
+            120
+        ],
+        "next": [
+            "免广告卡_超z钥匙_返回1",
+            "免广告卡_超z钥匙_返回"
+        ]
+    },
+    "免广告卡_超z钥匙_返回1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "vido_card_super_z_key/活动的返回.png"
+        ],
+        "action": "Click",
+        "roi": [
+            78,
+            2,
+            182,
+            119
+        ],
         "next": [
             "有免广告卡_前置检查"
         ]
