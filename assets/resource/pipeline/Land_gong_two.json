@@ -1195,6 +1195,7 @@
                 "pressure": 5
             }
         ],
+        "timeout": 60000,
         "repeat": 1,
         "pre_delay": 0,
         "post_delay": 0,
@@ -1434,6 +1435,7 @@
             268
         ],
         "duration": 100,
+        "timeout": 60000,
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
@@ -1725,6 +1727,7 @@
                 "pressure": 5
             }
         ],
+        "timeout": 60000,
         "repeat": 1,
         "pre_delay": 0,
         "post_delay": 0,
@@ -2057,6 +2060,7 @@
     "地宫2无尽_小怪_检查6_5": {
         "recognition": "DirectHit",
         "action": "DoNothing",
+        "timeout": 60000,
         "next": [
             "地宫2无尽_开始",
             "地宫2无尽_小怪_点击7",
@@ -2428,6 +2432,7 @@
         ],
         "duration": 100,
         "post_delay": 0,
+        "timeout": 60000,
         "pre_delay": 0,
         "next": [
             "地宫2无尽_小怪_滑动9_5",
@@ -2860,6 +2865,7 @@
             266
         ],
         "duration": 100,
+        "timeout": 60000,
         "post_delay": 0,
         "pre_delay": 0,
         "next": [
