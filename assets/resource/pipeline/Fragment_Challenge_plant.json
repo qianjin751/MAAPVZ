@@ -1430,6 +1430,7 @@
         ],
         "enabled": false,
         "expected": [
+            "随着成长释放不同的火焰法术攻击前方僵尸",
             "随着成长释放不同的火焰法术攻击前方僵尸。"
         ],
         "replace": [
@@ -1784,47 +1785,18 @@
         ],
         "max_hit": 1,
         "action": "Click",
+        "anchor": {
+            "下一个寻找的植物": "碎片挑战_配置植物_寻找仙人掌"
+        },
         "next": [
-            "巨人危机_配置仙人掌_寻找1"
+            "[Anchor]下一个寻找的植物",
+            "寻找植物_滑动"
         ]
     },
-    "巨人危机_配置仙人掌_寻找1": {
-        "post_wait_freezes": 1000,
-        "next": [
-            "巨人危机_配置仙人掌_寻找2",
-            "巨人危机_配置仙人掌_滑动"
-        ]
-    },
-    "巨人危机_配置仙人掌_滑动": {
-        "expected": [
-            "选择你的植物"
-        ],
-        "roi": [
-            314,
-            0,
-            233,
-            48
-        ],
-        "action": "Swipe",
-        "post_wait_freezes": 100,
-        "duration": 1000,
-        "begin": [
-            215,
-            628,
-            1,
-            1
-        ],
-        "end": [
-            215,
-            200,
-            1,
-            1
-        ],
-        "next": [
-            "巨人危机_配置仙人掌_寻找1"
-        ]
-    },
-    "巨人危机_配置仙人掌_寻找2": {
+    "碎片挑战_配置植物_寻找仙人掌": {
+        "anchor": {
+            "下一个寻找的植物": "碎片挑战_巨人危机_选择多余植物进行占位",
+        },
         "recognition": "TemplateMatch",
         "roi": [
             53,
@@ -1835,7 +1807,6 @@
         "template": [
             "Fragment_Challenge_plant/碎片挑战_植物_仙人掌.png"
         ],
-        "max_hit": 1,
         "target_offset": [
             17,
             0,
@@ -1848,36 +1819,7 @@
         ],
         "post_wait_freezes": 1000,
         "next": [
-            "巨人危机_配置仙人掌_滑回最顶上"
-        ]
-    },
-    "巨人危机_配置仙人掌_滑回最顶上": {
-        "expected": [
-            "选择你的植物"
-        ],
-        "roi": [
-            314,
-            0,
-            233,
-            48
-        ],
-        "action": "Swipe",
-        "duration": 100,
-        "begin": [
-            381,
-            401,
-            107,
-            43
-        ],
-        "end": [
-            376,
-            611,
-            107,
-            43
-        ],
-        "repeat": 10,
-        "next": [
-            "碎片挑战_巨人危机_选择多余植物进行占位"
+            "滑回最顶上"
         ]
     },
     "碎片挑战_仙人掌_开始战斗": {
@@ -2524,8 +2466,499 @@
         "pre_delay": 10,
         "post_delay": 0
     },
-    //仙人掌种植
     //仙人掌action
+    //机枪射手action
+    "碎片挑战_机枪_开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            1090,
+            654,
+            139,
+            40
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "[Anchor]自动识别所需的对局配置"
+        ]
+    },
+    "碎片挑战_配置植物_寻找机枪射手": {
+        "anchor": {
+            "下一个寻找的植物": "碎片挑战_巨人危机_选择多余植物进行占位",
+        },
+        "recognition": "TemplateMatch",
+        "roi": [
+            53,
+            285,
+            796,
+            437
+        ],
+        "template": [
+            "Fragment_Challenge_plant/碎片挑战_植物_机枪射手.png"
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "threshold": [
+            0.8
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "滑回最顶上"
+        ]
+    },
+    "巨人危机_配置机枪射手": {
+        "recognition": "OCR",
+        "expected": [
+            "清空卡牌"
+        ],
+        "max_hit": 1,
+        "roi": [
+            22,
+            660,
+            75,
+            27
+        ],
+        "action": "Click",
+        "anchor": {
+            "下一个寻找的植物": "碎片挑战_配置植物_寻找机枪射手"
+        },
+        "next": [
+            "[Anchor]下一个寻找的植物",
+            "寻找植物_滑动"
+        ]
+    },
+    "巨人危机_种植机枪豌豆_1_1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Fragment_Challenge_plant/二倍速.png"
+        ],
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            469,
+            152,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_1_2"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_1_2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            469,
+            260,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_1_3"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_1_3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            469,
+            368,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_1_4"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_1_4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            469,
+            476,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_1_5"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_1_5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            469,
+            584,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_2_1"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_2_1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            560,
+            152,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_2_2"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_2_2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            560,
+            260,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_2_3"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_2_3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            560,
+            368,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_2_4"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_2_4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            560,
+            476,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_2_5"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_2_5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            560,
+            584,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_3_1"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_3_1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            651,
+            152,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_3_2"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_3_2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            651,
+            260,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_3_3"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_3_3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            651,
+            368,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_3_4"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_3_4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            651,
+            476,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_3_5"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_3_5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            651,
+            584,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_4_1"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_4_1": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            742,
+            152,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_4_2"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_4_2": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            742,
+            260,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_4_3"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_4_3": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            742,
+            368,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_4_4"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_4_4": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            742,
+            476,
+            1,
+            1
+        ],
+        "next": [
+            "巨人危机_种植机枪豌豆_4_5"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    "巨人危机_种植机枪豌豆_4_5": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            58,
+            114,
+            15,
+            8
+        ],
+        "end": [
+            742,
+            584,
+            1,
+            1
+        ],
+        "next": [
+            "碎片挑战_二倍速"
+        ],
+        "pre_delay": 10,
+        "post_delay": 0
+    },
+    //机枪射手action
     //猕猴桃action
     "邪恶入侵_配置猕猴桃": {
         "recognition": "OCR",
@@ -2540,47 +2973,18 @@
             27
         ],
         "action": "Click",
+        "anchor": {
+            "下一个寻找的植物": "碎片挑战_配置植物_寻找猕猴桃"
+        },
         "next": [
-            "邪恶入侵_配置猕猴桃_寻找1"
+            "[Anchor]下一个寻找的植物",
+            "寻找植物_滑动"
         ]
     },
-    "邪恶入侵_配置猕猴桃_寻找1": {
-        "post_wait_freezes": 1000,
-        "next": [
-            "邪恶入侵_配置猕猴桃_寻找2",
-            "邪恶入侵_配置猕猴桃_滑动"
-        ]
-    },
-    "邪恶入侵_配置猕猴桃_滑动": {
-        "expected": [
-            "选择你的植物"
-        ],
-        "roi": [
-            314,
-            0,
-            233,
-            48
-        ],
-        "action": "Swipe",
-        "post_wait_freezes": 100,
-        "duration": 1000,
-        "begin": [
-            215,
-            628,
-            1,
-            1
-        ],
-        "end": [
-            215,
-            200,
-            1,
-            1
-        ],
-        "next": [
-            "邪恶入侵_配置猕猴桃_寻找1"
-        ]
-    },
-    "邪恶入侵_配置猕猴桃_寻找2": {
+    "碎片挑战_配置植物_寻找猕猴桃": {
+        "anchor": {
+            "下一个寻找的植物": "碎片挑战_邪恶入侵_选择多余植物进行占位",
+        },
         "recognition": "TemplateMatch",
         "roi": [
             53,
@@ -2603,36 +3007,7 @@
         ],
         "post_wait_freezes": 1000,
         "next": [
-            "邪恶入侵_配置猕猴桃_滑回最顶上"
-        ]
-    },
-    "邪恶入侵_配置猕猴桃_滑回最顶上": {
-        "expected": [
-            "选择你的植物"
-        ],
-        "roi": [
-            314,
-            0,
-            233,
-            48
-        ],
-        "action": "Swipe",
-        "duration": 100,
-        "begin": [
-            381,
-            401,
-            107,
-            43
-        ],
-        "end": [
-            376,
-            611,
-            107,
-            43
-        ],
-        "repeat": 10,
-        "next": [
-            "碎片挑战_邪恶入侵_选择多余植物进行占位"
+            "滑回最顶上"
         ]
     },
     "碎片挑战_猕猴桃_开始战斗": {
@@ -2906,7 +3281,6 @@
     },
     //猕猴桃action
     //植物配置区域 
-    //仙人掌种植
     "碎片挑战_二倍速": {
         "recognition": "TemplateMatch",
         "template": [
