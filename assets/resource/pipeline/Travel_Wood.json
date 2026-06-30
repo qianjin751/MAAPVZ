@@ -34,26 +34,21 @@
         ],
         "focus": "点击旅行原木",
         "action": "Click",
+        "post_wait_freezes": 1000,
         "next": [
             "旅行原木_朕收下了",
             "旅行原木_领取宝箱",
             "返回主界面"
-        ]
+        ],
     },
     "旅行原木_朕收下了": {
         "recognition": "OCR",
         "expected": [
             "朕收下了"
         ],
+        "post_wait_freezes": 1000,
         "focus": "朕收下了",
         "action": "Click",
-        "pre_wait_freezes": {
-            "time": 1000,
-            "threshold": 0.95,
-            "timeout": 3000,
-            "target": true,
-            "method": 5
-        },
         "next": [
             "旅行原木_朕收下了",
             "旅行原木_领取宝箱",
@@ -67,13 +62,7 @@
         ],
         "focus": "领取宝箱",
         "action": "Click",
-        "pre_wait_freezes": {
-            "time": 1000,
-            "threshold": 0.95,
-            "timeout": 3000,
-            "target": true,
-            "method": 5
-        },
+        "post_wait_freezes": 1000,
         "next": [
             "旅行原木_朕收下了",
             "旅行原木_领取宝箱",
