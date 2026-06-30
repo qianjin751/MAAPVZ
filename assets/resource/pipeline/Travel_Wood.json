@@ -23,7 +23,8 @@
         "action": "Click",
         "focus": "点击日常",
         "next": [
-            "旅行原木_点击旅行原木"
+            "旅行原木_点击旅行原木",
+            "旅行原木_点击日常"
         ]
     },
     "旅行原木_点击旅行原木": {
@@ -46,7 +47,7 @@
         ],
         "focus": "朕收下了",
         "action": "Click",
-       "pre_wait_freezes": {
+        "pre_wait_freezes": {
             "time": 1000,
             "threshold": 0.95,
             "timeout": 3000,
@@ -66,7 +67,7 @@
         ],
         "focus": "领取宝箱",
         "action": "Click",
-         "pre_wait_freezes": {
+        "pre_wait_freezes": {
             "time": 1000,
             "threshold": 0.95,
             "timeout": 3000,
