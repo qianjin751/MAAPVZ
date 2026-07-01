@@ -4237,7 +4237,7 @@
         "action": "Click",
         "post_delay": 0,
         "pre_delay": 0,
-        "post_wait_freezes": 500,
+        "post_wait_freezes": 1000,
         "next": [
             "碎片挑战_完成对局__确定",
             "碎片挑战_钱袋子"
