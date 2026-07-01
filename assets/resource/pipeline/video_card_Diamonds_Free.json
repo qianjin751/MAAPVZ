@@ -19,20 +19,52 @@
         "green_mask": true,
         "action": "Click",
         "next": [
-            "领取钻石"
+            "领取钻石",
+            "领取钻石_确定",
+            "有免广告卡_前置检查"
         ]
     },
     "领取钻石": {
         "timeout": 5000,
-        "recognition": "TemplateMatch",
-        "template": [
-            "Daily_Diamonds_Free_Version/领取钻石.png"
-        ],
-        "threshold": [
-            0.7
-        ],
         "max_hit": 10,
-        "method": 10001,
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "TemplateMatch",
+                "template": [
+                    "Daily_Diamonds_Free_Version/领取钻石.png"
+                ],
+                "threshold": [
+                    0.7
+                ],
+                "roi": [
+                    273,
+                    464,
+                    161,
+                    71
+                ],
+                "method": 10001,
+            },
+            {
+                "recognition": "ColorMatch",
+                "lower": [
+                    41,
+                    219,
+                    41
+                ],
+                "upper": [
+                    82,
+                    227,
+                    82
+                ],
+                "roi": [
+                    273,
+                    464,
+                    161,
+                    71
+                ],
+            }
+        ],
         "action": "Click",
         "target": [
             329,
