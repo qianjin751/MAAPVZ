@@ -573,11 +573,30 @@
     },
     "关闭公告": {
         "timeout": 6000,
-        "recognition": "TemplateMatch",
-        "template": [
-            "Start_game/叉叉.png",
-            "Start_game/公告的叉叉.png",
-            "Start_game/僵尸清除_确定.png"
+        "recognition": "Or",
+        "any_of": [
+            {
+                "recognition": "TemplateMatch",
+                "template": [
+                    "Start_game/叉叉.png",
+                    "Start_game/叉叉1.png",
+                ],
+                "roi": [
+                    968,
+                    55,
+                    80,
+                    77
+                ]
+            },
+            {
+                "recognition": "TemplateMatch",
+                "template": [
+                    "Start_game/叉叉.png",
+                    "Start_game/叉叉1.png",
+                    "Start_game/公告的叉叉.png",
+                    "Start_game/僵尸清除_确定.png"
+                ],
+            },
         ],
         "pre_delay": 500,
         "action": "Click",
