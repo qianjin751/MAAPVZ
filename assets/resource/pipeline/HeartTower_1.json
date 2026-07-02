@@ -1435,6 +1435,7 @@
         ]
     },
     "xinta_boss_喂豆电大5": {
+        "timeout": 70000,
         "action": "Swipe",
         "begin": [
             615,
