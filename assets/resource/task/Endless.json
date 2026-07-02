@@ -1,5 +1,35 @@
 {
     "option": {
+        "无尽模式": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "预设模式",
+                    "option": [
+                        "当期无尽模式"
+                    ]
+                },
+                {
+                    "name": "无尽脚本框架",
+                    "option": [
+                        "小关是否喂豆",
+                        "全局是否抛花",
+                        "fw_boss关是否需要喂豆",
+                        "是否需要补植物",
+                        "小关是否加速",
+                        "fw_boss关是否加速",
+                        "fw_boss_补给是否优先选神器",
+                        "fw_boss_是否开相机神器",
+                        "是否魔甘收尾(牢玩家专属)"
+                    ],
+                    "pipeline_override": {
+                        "无尽挑战_前置检查": {
+                            "next": "Frame_Wj_Entry"
+                        }
+                    }
+                }
+            ]
+        },
         "当期无尽模式": {
             "type": "select",
             "cases": [
