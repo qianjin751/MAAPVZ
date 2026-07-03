@@ -6,8 +6,10 @@
         ]
     },
     "frame_wj_识别开始战斗": {
-        "recognition": "TemplateMatch",
-        "template": "xinta/开始战斗.png",
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
         "roi": [
             1060,
             647,
@@ -16,7 +18,7 @@
         ],
         "threshold": 0.75,
         "action": "Click",
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_判断是否进入关内"
         ]
@@ -40,7 +42,7 @@
             233,
             28
         ],
-        "timeout": -1,
+        "timeout": 600000,
         "action": "Click",
         "target": [
             1171,
@@ -80,7 +82,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "duration": 100,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_捡花1"
         ]
@@ -100,7 +102,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "duration": 20,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_喂豆球果(5-3)"
         ]
@@ -130,7 +132,7 @@
         ],
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_识别结算",
             "frame_wj_过渡2"
@@ -140,7 +142,7 @@
         "action": "DoNothing",
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_识别结算",
             "frame_wj_划飞弹"
@@ -299,7 +301,7 @@
     "判断是否魔甘收尾": {
         "action": "DoNothing",
         "pre_delay": 0,
-        "post_delay": 0,
+        "post_delay": 1000,
         "next": [
             "魔甘收尾",
             "判断是否魔甘收尾"
@@ -327,6 +329,54 @@
         "pre_delay": 0,
         "post_delay": 15000,
         "next": [
+            "种甜薯1"
+        ]
+    },
+    "种三叶草": {
+        "action": "Swipe",
+        "begin": [
+            53,
+            541
+        ],
+        "end": [
+            1203,
+            593
+        ],
+        "pre_delay": 0,
+        "post_delay": 5000,
+        "next": [
+            "种甜薯1"
+        ]
+    },
+    "种甜薯1": {
+        "action": "Swipe",
+        "begin": [
+            60,
+            470
+        ],
+        "end": [
+            1110,
+            252
+        ],
+        "pre_delay": 0,
+        "post_delay": 100,
+        "next": [
+            "种甜薯2"
+        ]
+    },
+    "种甜薯2": {
+        "action": "Swipe",
+        "begin": [
+            60,
+            470
+        ],
+        "end": [
+            1103,
+            472
+        ],
+        "pre_delay": 0,
+        "post_delay": 5000,
+        "next": [
             "种魔音"
         ]
     },
@@ -341,7 +391,7 @@
             371
         ],
         "pre_delay": 0,
-        "post_delay": 200,
+        "post_delay": 100,
         "next": [
             "种甘兰1"
         ]
@@ -357,7 +407,7 @@
             261
         ],
         "pre_delay": 0,
-        "post_delay": 0,
+        "post_delay": 50,
         "duration": 100,
         "next": [
             "种甘兰2"
@@ -376,9 +426,51 @@
         "pre_delay": 0,
         "post_delay": 0,
         "duration": 100,
-        "timeout": -1,
+        "timeout": 30000,
         "next": [
-            "frame_wj_识别结算"
+            "结算-重开识别"
+        ],
+    },
+    "结算-重开识别": {
+        "post_delay": 8000,
+        "next": [
+            "frame_wj_识别结算",
+            "无尽框架_结算超时_重开_暂停"
+        ]
+    },
+    "无尽框架_结算超时_重开_暂停": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "Land_gong_two/暂停.png"
+        ],
+        "focus": "等待超时，疑似僵尸变野或其他情况，重开",
+        "roi": [
+            1180,
+            4,
+            96,
+            78
+        ],
+        "action": "Click",
+        "next": [
+            "无尽框架_结算超时_重开",
+            "结算-重开识别"
+        ]
+    },
+    "无尽框架_结算超时_重开": {
+        "recognition": "OCR",
+        "expected": [
+            "重新开始"
+        ],
+        "roi": [
+            538,
+            513,
+            212,
+            84
+        ],
+        "action": "Click",
+        "timeout": 30000,
+        "next": [
+            "frame_wj_过渡"
         ]
     },
     "frame_wj_点波2": {
@@ -513,7 +605,7 @@
         "action": "DoNothing",
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_识别结算",
             "frame_wj_喂豆5-3"
@@ -532,7 +624,7 @@
         "pre_delay": 100,
         "post_delay": 1000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -550,17 +642,17 @@
         "expected": "继续挑战",
         "action": "Click",
         "rate_limit": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_过渡"
         ]
     },
     "frame_wj_过渡": {
         "action": "DoNothing",
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
-            "frame_wj_识别开始战斗",
-            "frame_wj_识别boss关"
+            "frame_wj_识别boss关",
+            "frame_wj_识别开始战斗"
         ]
     },
     "frame_wj_识别boss关": {
@@ -582,7 +674,7 @@
             22
         ],
         "rate_limit": 10,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_补给"
         ]
@@ -745,8 +837,10 @@
         ]
     },
     "frame_wj_boss_识别开始": {
-        "recognition": "TemplateMatch",
-        "template": "xinta/开始战斗.png",
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
         "roi": [
             1060,
             647,
@@ -778,7 +872,7 @@
             233,
             28
         ],
-        "timeout": -1,
+        "timeout": 600000,
         "action": "Click",
         "target": [
             1171,
@@ -821,7 +915,7 @@
         "pre_delay": 0,
         "post_delay": 0,
         "duration": 50,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_过渡_相机神器1"
         ]
@@ -830,7 +924,7 @@
         "action": "DoNothing",
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_相机神器_复制1"
         ]
@@ -843,7 +937,7 @@
         ],
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_相机神器_复制2"
         ]
@@ -856,7 +950,7 @@
         ],
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_过渡"
         ]
@@ -865,7 +959,7 @@
         "action": "DoNothing",
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_喂豆5-3"
         ]
@@ -883,7 +977,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -912,7 +1006,7 @@
         "action": "DoNothing",
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_相机神器_粘贴1"
         ]
@@ -925,7 +1019,7 @@
         ],
         "pre_delay": 0,
         "post_delay": 0,
-        "timeout": -1,
+        "timeout": 600000,
         "next": [
             "frame_wj_boss_相机神器_粘贴2"
         ]
@@ -963,7 +1057,7 @@
             50
         ],
         "expected": "继续挑战",
-        "timeout": -1,
+        "timeout": 600000,
         "rate_limit": 500,
         "action": "Click",
         "pre_delay": 1500,
@@ -984,7 +1078,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1004,7 +1098,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1024,7 +1118,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1044,7 +1138,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1064,7 +1158,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1084,7 +1178,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1104,7 +1198,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1124,7 +1218,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1144,7 +1238,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1164,7 +1258,7 @@
         "pre_delay": 0,
         "post_delay": 3000,
         "max_hit": -1,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 50,
         "next": [
             "frame_wj_boss_识别结算",
@@ -1183,7 +1277,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1202,7 +1296,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1221,7 +1315,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1240,7 +1334,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1259,7 +1353,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1278,7 +1372,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1297,7 +1391,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1316,7 +1410,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1335,7 +1429,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1354,7 +1448,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1373,7 +1467,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1392,7 +1486,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1411,7 +1505,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
@@ -1430,7 +1524,7 @@
         ],
         "pre_delay": 100,
         "post_delay": 1000,
-        "timeout": -1,
+        "timeout": 600000,
         "duration": 100,
         "next": [
             "frame_wj_识别结算",
