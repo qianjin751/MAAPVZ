@@ -32,7 +32,8 @@
                 "./resource"
             ],
             "option": [
-                "渠道服"
+                "渠道服",
+                "高级设置"
             ]
         }
     ],
@@ -195,6 +196,55 @@
         }
     ],
     "option": {
+        "高级设置": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "No"
+                },
+                {
+                    "name": "Yes",
+                    "option": [
+                        "选卡时滑动的持续时间",
+                        "选卡滑动后的按住屏幕时间"
+                    ]
+                }
+            ]
+        },
+        "选卡时滑动的持续时间": {
+            "description": "单位为毫秒",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "滑动时间",
+                    "pipeline_type": "int",
+                    "default": "300",
+                    "verify": "[1-9]\\d*$"
+                },
+            ],
+            "pipeline_override": {
+                "寻找植物_滑动": {
+                    "duration": "{滑动时间}",
+                },
+            }
+        },
+        "选卡滑动后的按住屏幕时间": {
+            "description": "单位为毫秒",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "滑动时间",
+                    "pipeline_type": "int",
+                    "default": "50",
+                    "verify": "[1-9]\\d*$"
+                },
+            ],
+            "pipeline_override": {
+                "寻找植物_滑动": {
+                    "end_hold": "{滑动时间}",
+                },
+            }
+        },
         "存档覆盖进度": {
             "type": "select",
             "cases": [
