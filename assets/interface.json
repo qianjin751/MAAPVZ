@@ -48,6 +48,8 @@
         "./resource/task/mini_tools.json",
         "./resource/task/test.json",
         "./resource/task/video_card.json",
+        "./resource/task/Endless/Endless_Flower.json",
+        "./resource/task/Endless/Endless_Patch_Plants.json"
     ],
     "task": [
         {
@@ -192,7 +194,7 @@
         },
         {
             "name": "dbug（不要开启）",
-            "entry": "种植物_初始化植物位置"
+            "entry": "种植物_初始化_植物位置"
         }
     ],
     "option": {
