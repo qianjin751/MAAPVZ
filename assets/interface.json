@@ -221,7 +221,7 @@
                 {
                     "name": "滑动时间",
                     "pipeline_type": "int",
-                    "default": "300",
+                    "default": "200",
                     "verify": "[1-9]\\d*$"
                 },
             ],
