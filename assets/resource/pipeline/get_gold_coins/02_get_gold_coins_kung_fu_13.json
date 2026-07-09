@@ -135,7 +135,7 @@
         "template": [
             "get_gold_coins/功夫世界的房子.png"
         ],
-        "post_wait_freezes": 100,
+        "post_wait_freezes": 500,
         "next": [
             "功夫13_找13关"
         ]
@@ -150,7 +150,7 @@
             174,
             445
         ],
-        "end_hold": 50,
+        "end_hold": 100,
         "repeat": 3,
         "repeat_delay": 100,
         "next": [
