@@ -4,7 +4,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "threshold": 0.8,
+                "threshold": 0.2,
                 "model": "best.onnx",
                 "expected": [
                     0

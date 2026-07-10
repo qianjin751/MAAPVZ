@@ -443,8 +443,8 @@
                     "name": "Yes",
                     "pipeline_override": {
                         "种三叶草": {
-                            "enable": "true"
-                        }
+                            "enable": true,
+                        },
                     }
                 }
             ]
@@ -463,8 +463,8 @@
                     ],
                     "pipeline_override": {
                         "魔甘前喂豆": {
-                            "enable": "true"
-                        }
+                            "enable": true,
+                        },
                     }
                 }
             ]
