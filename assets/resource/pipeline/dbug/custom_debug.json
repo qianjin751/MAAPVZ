@@ -4,11 +4,11 @@
         "action": "Custom",
         "custom_action": "SaveScreenshot",
         "custom_action_param": {
-            "save_path": "C:/Users/z'j's/Desktop/霹雳舞1", //要用的话写自己需要的路径
+            "save_path": "C:/Users/z'j's/Desktop/2霹雳舞", //要用的话写自己需要的路径
             "base_name": "霹雳舞1",
             "format": "png"
         },
-        "max_hit": 501,
+        "max_hit": 1001,
         "next": [
             "截图重开"
         ]
@@ -62,4 +62,61 @@
             "保存截图"
         ]
     },
+    "检查有没有霹雳舞": {
+        "recognition": "OCR",
+        "expected": [
+            "选择你的植物"
+        ],
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "next": [
+            "检索霹雳舞Piliwu",
+            "没有霹雳舞"
+        ]
+    },
+    "检索霹雳舞Piliwu": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "piliwu_seg",
+                "labels": [
+                    "piliwu"
+                ],
+                "threshold": 0.2,
+                "roi": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "有霹雳舞就重开"
+        ]
+    },
+    "有霹雳舞就重开": {
+        "recognition": "OCR",
+        "expected": [
+            "重新开始"
+        ],
+        "action": "Click",
+        "roi": [
+            542,
+            513,
+            200,
+            86
+        ],
+        "next": [
+            "检查有没有霹雳舞"
+        ]
+    },
+    "没有霹雳舞": {}
 }
