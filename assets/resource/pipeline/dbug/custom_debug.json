@@ -4,7 +4,7 @@
         "action": "Custom",
         "custom_action": "SaveScreenshot",
         "custom_action_param": {
-            "save_path": "C:/Users/z'j's/Desktop/2霹雳舞", //要用的话写自己需要的路径
+            "save_path": "screenshots",
             "base_name": "霹雳舞1",
             "format": "png"
         },

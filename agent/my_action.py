@@ -506,9 +506,11 @@ class SaveScreenshot(CustomAction):
             else:
                 file_name = filename
 
-        # 处理保存路径
+        # 处理保存路径（支持相对路径自动拼接 ROOT_DIR）
         save_dir = param.get("save_path", "./screenshots")
         save_path = Path(save_dir)
+        if not save_path.is_absolute():
+            save_path = ROOT_DIR / save_path
         save_path.mkdir(parents=True, exist_ok=True)
         filepath = save_path / file_name
 
