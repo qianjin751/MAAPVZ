@@ -356,6 +356,7 @@
         "timeout": 600000,
         "next": [
             "frame_wj_识别boss关",
+            "frame_wj_识别霹雳舞僵尸",
             "frame_wj_识别开始战斗"
         ]
     },

@@ -20,6 +20,7 @@
                         "fw_boss关是否加速",
                         "fw_boss_补给是否优先选神器",
                         "fw_boss_是否开相机神器",
+                        "刷掉僵尸",
                         "是否魔甘收尾(牢玩家专属)"
                     ],
                     "pipeline_override": {
@@ -1632,6 +1633,34 @@
                         "frame_wj_划飞弹5": {
                             "repeat": 625
                         }
+                    }
+                }
+            ]
+        },
+        "刷掉僵尸": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "No"
+                },
+                {
+                    "name": "Yes",
+                    "option": [
+                        "刷新僵尸的类别"
+                    ]
+                }
+            ]
+        },
+        "刷新僵尸的类别": {
+            "description": "该功能还是测试性质，启用时很可能会出现诸多不稳定的bug，暂时不要在无人值守的情况下开启！",
+            "type": "checkbox",
+            "cases": [
+                {
+                    "name": "霹雳舞僵尸",
+                    "pipeline_override": {
+                        "frame_wj_识别霹雳舞僵尸": {
+                            "enabled": true,
+                        },
                     }
                 }
             ]
