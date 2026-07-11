@@ -100,7 +100,7 @@
             "pipeline_override": {
                 "用户保存截图": {
                     "custom_action_param": {
-                        "save_path": "screenshots",
+                        "save_path": "screenshots/{截图名字}",
                         "base_name": "{截图名字}",
                         "format": "png"
                     }
