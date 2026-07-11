@@ -71,7 +71,6 @@
             "base_name": "霹雳舞1",
             "format": "png"
         },
-        "post_delay": 1000,
         "next": [
             "用户截图重开"
         ]
@@ -81,7 +80,6 @@
         "template": [
             "Land_gong_two/暂停.png"
         ],
-        "pre_delay": 300,
         "action": "Click",
         "roi": [
             1185,
@@ -106,6 +104,7 @@
             200,
             86
         ],
+        "post_delay": 5000,
         "next": [
             "用户截图识别到局内",
             "用户截图重新开始"
