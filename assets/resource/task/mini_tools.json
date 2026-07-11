@@ -71,7 +71,41 @@
                         }
                     }
                 },
+                {
+                    "name": "无尽截图获取模型数据",
+                    "option": [
+                        "截图名字"
+                    ],
+                    "description": "在无尽准备界面开启",
+                    "pipeline_override": {
+                        "mini_tools": {
+                            "next": [
+                                "用户保存截图"
+                            ]
+                        },
+                    }
+                }
             ]
+        },
+        "截图名字": {
+            "type": "input",
+            "label": "截图名称（将作为文件夹名和文件名前缀）",
+            "inputs": [
+                {
+                    "name": "截图名字",
+                    "pipeline_type": "string",
+                    "verify": ".+"
+                }
+            ],
+            "pipeline_override": {
+                "用户保存截图": {
+                    "custom_action_param": {
+                        "save_path": "screenshots",
+                        "base_name": "{截图名字}",
+                        "format": "png"
+                    }
+                }
+            }
         },
         "选择关卡": {
             "type": "select",
