@@ -227,7 +227,8 @@
         "recognition": "TemplateMatch",
         "max_hit": 1,
         "template": [
-            "get_gold_coins/选择卡牌_向日葵.png"
+            "get_gold_coins/选择卡牌_向日葵.png",
+            "get_gold_coins/选择卡牌_向日葵_超装.png"
         ],
         "roi": [
             130,
@@ -456,7 +457,8 @@
     "埃及1_检查向日葵冷却并点击": {
         "recognition": "TemplateMatch",
         "template": [
-            "get_gold_coins/选择卡牌_向日葵.png"
+            "get_gold_coins/选择卡牌_向日葵.png",
+            "get_gold_coins/选择卡牌_向日葵_超装.png"
         ],
         "action": "Click",
         "threshold": [
@@ -497,6 +499,7 @@
         "expected": [
             "继续"
         ],
+        "repeat": 5,
         "roi": [
             583,
             621,
@@ -517,7 +520,17 @@
         ],
     },
     "埃及1_重开十次": {
-        "pre_wait_freezes": 1000,
+        "pre_wait_freezes": {
+            "time": 1000,
+            "timeout": 15000,
+            "target": [
+                449,
+                230,
+                500,
+                338
+            ],
+            "threshold": 0.92
+        },
         "focus": "重开",
         "max_hit": 10,
         "next": [
