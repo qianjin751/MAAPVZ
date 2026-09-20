@@ -1,0 +1,511 @@
+{
+    "功夫18_定位": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "get_gold_coins/功夫世界的房子.png"
+        ],
+        "post_wait_freezes": 500,
+        "next": [
+            "功夫_找第18关"
+        ]
+    },
+    "功夫_找第18关": {
+        "action": "Swipe",
+        "begin": [
+            800,
+            383
+        ],
+        "end": [
+            200,
+            383
+        ],
+        "end_hold": 1000,
+        "repeat_delay": 200,
+        "max_hit": 30,
+        "next": [
+            "功夫18_寻找关卡特征",
+            "功夫_找第18关"
+        ]
+    },
+    "功夫18_寻找关卡特征": {
+        "recognition": "OCR",
+        "expected": [
+            "18"
+        ],
+        "roi": [
+            0,
+            223,
+            1279,
+            299
+        ],
+        "next": [
+            "功夫18_次数入口",
+            "刷取次数完成"
+        ]
+    },
+    "功夫18_次数入口": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "focus": "胜场计数",
+        "next": [
+            "功夫18_进入关卡"
+        ]
+    },
+    "功夫18_进入关卡": {
+        "recognition": "OCR",
+        "expected": [
+            "18"
+        ],
+        "roi": [
+            0,
+            223,
+            1279,
+            299
+        ],
+        "target_offset": [
+            0,
+            30,
+            0,
+            0
+        ],
+        "action": "Click",
+        "post_wait_freezes": 300,
+        "next": [
+            "功夫18_选择简单",
+            "功夫18_进入关卡"
+        ]
+    },
+    "功夫18_选择简单": {
+        "recognition": "OCR",
+        "expected": [
+            "简单"
+        ],
+        "roi": [
+            678,
+            165,
+            310,
+            153
+        ],
+        "focus": "选择简单",
+        "action": "Click",
+        "next": [
+            "功夫18_开始战斗"
+        ]
+    },
+    "功夫18_开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            550,
+            526,
+            180,
+            53
+        ],
+        "focus": "开始战斗",
+        "target_offset": [
+            10,
+            10,
+            -10,
+            -10
+        ],
+        "action": "Click",
+        "next": [
+            "功夫18_点击继续",
+            "功夫18_开始战斗"
+        ]
+    },
+    "功夫18_点击继续": {
+        "recognition": "OCR",
+        "expected": [
+            "继续"
+        ],
+        "roi": [
+            328,
+            148,
+            618,
+            440
+        ],
+        "action": "Click",
+        "next": [
+            "功夫18_点击继续",
+            "功夫18_清空植物栏"
+        ]
+    },
+    "功夫18_清空植物栏": {
+        "recognition": "OCR",
+        "expected": [
+            "清空卡牌"
+        ],
+        "focus": "清空卡牌",
+        "max_hit": 3,
+        "roi": [
+            11,
+            656,
+            99,
+            37
+        ],
+        "action": "Click",
+        "next": [
+            "功夫18_清空植物栏",
+            "功夫18_原始向日葵",
+            "功夫18_滑动_原始向日葵"
+        ]
+    },
+    "功夫18_滑动_原始向日葵": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "post_wait_freezes": 100,
+        "duration": 1000,
+        "begin": [
+            215,
+            628,
+            1,
+            1
+        ],
+        "end": [
+            215,
+            200,
+            1,
+            1
+        ],
+        "next": [
+            "功夫18_原始向日葵",
+            "功夫18_滑动_原始向日葵"
+        ]
+    },
+    "功夫18_滑回最顶上_原始向日葵": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "max_hit": 3,
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "duration": 100,
+        "begin": [
+            381,
+            401,
+            107,
+            43
+        ],
+        "end": [
+            376,
+            611,
+            107,
+            43
+        ],
+        "repeat": 10,
+        "next": [
+            "功夫18_原始向日葵",
+            "功夫18_滑回最顶上_原始向日葵",
+            "功夫18_滑动_模仿者"
+        ]
+    },
+    "功夫18_滑动_模仿者": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "post_wait_freezes": 100,
+        "duration": 1000,
+        "begin": [
+            215,
+            628,
+            1,
+            1
+        ],
+        "end": [
+            215,
+            200,
+            1,
+            1
+        ],
+        "next": [
+            "功夫18_模仿者",
+            "功夫18_滑动_模仿者"
+        ]
+    },
+    "功夫18_滑回最顶上_模仿者": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "max_hit": 3,
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "duration": 100,
+        "begin": [
+            381,
+            401,
+            107,
+            43
+        ],
+        "end": [
+            376,
+            611,
+            107,
+            43
+        ],
+        "repeat": 10,
+        "next": [
+            "功夫18_模仿者",
+            "功夫18_滑回最顶上_模仿者",
+            "功夫18_滑动_白萝卜"
+        ]
+    },
+    "功夫18_滑动_白萝卜": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "post_wait_freezes": 100,
+        "duration": 1000,
+        "begin": [
+            215,
+            628,
+            1,
+            1
+        ],
+        "end": [
+            215,
+            200,
+            1,
+            1
+        ],
+        "next": [
+            "功夫18_白萝卜",
+            "功夫18_检索阵容完整性",
+            "功夫18_滑动_白萝卜"
+        ]
+    },
+    "功夫18_滑回最顶上_白萝卜": {
+        "expected": [
+            "选择你的植物"
+        ],
+        "max_hit": 3,
+        "roi": [
+            314,
+            0,
+            233,
+            48
+        ],
+        "action": "Swipe",
+        "duration": 100,
+        "begin": [
+            381,
+            401,
+            107,
+            43
+        ],
+        "end": [
+            376,
+            611,
+            107,
+            43
+        ],
+        "repeat": 10,
+        "next": [
+            "功夫18_白萝卜",
+            "功夫18_滑回最顶上_白萝卜",
+            "功夫18_检索阵容完整性"
+        ]
+    },
+    "功夫18_原始向日葵": {
+        "recognition": "TemplateMatch",
+        "max_hit": 1,
+        "template": [
+            "get_gold_coins/选择卡牌_原始向日葵.png"
+        ],
+        "roi": [
+            130,
+            374,
+            608,
+            315
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "功夫18_滑回最顶上_原始向日葵"
+        ]
+    },
+    "功夫18_模仿者": {
+        "recognition": "TemplateMatch",
+        "max_hit": 1,
+        "template": [
+            "get_gold_coins/选择卡牌_模仿者.png"
+        ],
+        "roi": [
+            130,
+            374,
+            608,
+            315
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "功夫18_滑回最顶上_模仿者"
+        ]
+    },
+    "功夫18_白萝卜": {
+        "recognition": "TemplateMatch",
+        "max_hit": 1,
+        "template": [
+            "get_gold_coins/选择卡牌_白萝卜.png"
+        ],
+        "roi": [
+            130,
+            374,
+            608,
+            315
+        ],
+        "target_offset": [
+            17,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "功夫18_滑回最顶上_白萝卜"
+        ]
+    },
+    "功夫18_检索阵容完整性": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "get_gold_coins/功夫18_空的三号位.png"
+        ],
+        "inverse": true,
+        "threshold": [
+            0.6
+        ],
+        "roi": [
+            11,
+            228,
+            109,
+            66
+        ],
+        "next": [
+            "功夫18_选择多余植物进行占位"
+        ]
+    },
+    "功夫18_选择多余植物进行占位": {
+        "recognition": "DirectHit",
+        "max_hit": 16,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "OffsetClick_y",
+                "custom_action_param": {
+                    "initial_x": 193,
+                    "initial_y": 437,
+                    "dx": 119,
+                    "max_hits": 6,
+                    "n": -100
+                },
+                "target": true
+            }
+        },
+        "next": [
+            "功夫18_选择多余植物进行占位",
+            "功夫18_开始战斗(选卡)"
+        ]
+    },
+    "功夫18_开始战斗(选卡)": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            1090,
+            654,
+            139,
+            40
+        ],
+        "focus": "开始战斗",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "功夫18_进入到局内"
+        ]
+    },
+    "功夫18_进入到局内": {
+        "recognition": "OCR",
+        "expected": [
+            "第18天"
+        ],
+        "threshold": 0.3,
+        "roi": [
+            823,
+            75,
+            77,
+            41
+        ],
+        "next": [
+            "功夫18_局内_种植模仿者"
+        ]
+    },
+    "功夫18_局内_种植模仿者": {
+        "action": "Custom",
+        "custom_action": "BatchSwipe",
+        "custom_action_param": "@0.0001;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子1_1;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子1_2;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子1_3;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子1_4;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子1_5;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子2_1;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子2_2;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子2_3;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子2_4;swipe:种植物_初始化_第二个槽位,种植物_初始化_格子2_5",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "功夫18_开始战斗(局内)"
+        ]
+    },
+    "功夫18_开始战斗(局内)": {
+        "action": "Click",
+        "roi": [
+            980,
+            68,
+            223,
+            97
+        ],
+        "post_delay": 2000,
+        "next": []
+    }
+}
